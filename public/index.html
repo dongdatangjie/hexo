@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="研究生学测试的南航程序员">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="研究生学测试的南航程序员">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        
+  
+    <article id="post-Django搭建博客系统-一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/10/Django搭建博客系统-一/">Django搭建博客系统(一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-搭建开发环境"><a href="#1-搭建开发环境" class="headerlink" title="1 - 搭建开发环境"></a>1 - 搭建开发环境</h2><h3 id="1-1-开发环境"><a href="#1-1-开发环境" class="headerlink" title="1.1 - 开发环境"></a>1.1 - 开发环境</h3><ul>
+<li><strong>win10 64位</strong></li>
+<li><strong>python3.6</strong></li>
+<li><strong>Django1.10.6</strong><h3 id="1-2-Pycharm创建工程（不详述）"><a href="#1-2-Pycharm创建工程（不详述）" class="headerlink" title="1.2 - Pycharm创建工程（不详述）"></a>1.2 - Pycharm创建工程（不详述）</h3><strong>下面是生成的目录结构：</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/3.PNG" alt=""><br><strong>使用快捷键<code>Ctrl + Alt + /</code>运行runserver命令开启本地服务器，然后 输入命令<code>runserver 5000</code>开启5000端口，然后打开浏览器看到Django的欢迎界面！</strong><br><strong>Django默认的语言是英语，我们使用中文需要在<code>settings.py</code>中修改：</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LANGUAGE_CODE = &apos;zh-hans&apos;</div><div class="line">TIME_ZONE = &apos;Asia/Shanghai&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>再次运行开发服务器，并在浏览器打开 localhost:5000/，可以看到 Django 已经支持中文了。</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/4.PNG" alt=""></p>
+<h2 id="2-建立博客应用"><a href="#2-建立博客应用" class="headerlink" title="2 - 建立博客应用"></a>2 - 建立博客应用</h2><p><strong>在pycharm的工具栏找到 Tools，点击之后会有“Run manage.py task”选项，点击它之后，在pycharm下面会出现一个输入界面，在里面输入“startapp appName(你的App名称)”，回车之后就可以在工程下面看到你新建的App了。</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/5.PNG" alt=""><br><strong>不同名称的文件用于存放特定功能的代码，这些将会在后面详细介绍。总之这个应用的文件夹结构 Django 已经为我们建立好了，但它还只是包含各种文件的一个文件夹而已，Django 目前还不知道这是一个应用。我们得告诉 Django 这是我们建立的应用，专业一点说就是在 Django 的配置文件中注册这个应用。</strong><br><strong>打开 HexoBlogDjango\ 目录下的 settings.py 文件，看名字就知道 settings.py 是一个设置文件（setting 意为设置），找到 INSTALLED_APPS 设置项，将 blog 应用添加进去。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = [</div><div class="line">    &apos;django.contrib.admin&apos;,</div><div class="line">    &apos;django.contrib.auth&apos;,</div><div class="line">    &apos;django.contrib.contenttypes&apos;,</div><div class="line">    &apos;django.contrib.sessions&apos;,</div><div class="line">    &apos;django.contrib.messages&apos;,</div><div class="line">    &apos;django.contrib.staticfiles&apos;,</div><div class="line">    &apos;Hexo&apos;,#注册Hexo应用</div><div class="line">]</div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/08/10/Django搭建博客系统-一/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/10/Django搭建博客系统-一/" class="archive-article-date">
+  	<time datetime="2017-08-10T08:35:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Hexo解决多说服务器关闭的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/09/Hexo解决多说服务器关闭的问题/">Hexo解决多说服务器关闭的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-为什么多说关闭了？"><a href="#1-为什么多说关闭了？" class="headerlink" title="1 为什么多说关闭了？"></a>1 为什么多说关闭了？</h2><p><img src="http://ofhbt8uhx.bkt.clouddn.com/1.PNG" alt=""><br><strong>据此我们了解到多说评论系统已经关闭了，那么该怎么解决这个问题呢！现在有几个选择在我们面前:</strong></p>
+<ul>
+<li><strong>Disqus:国外网站的首选，但是很可惜国内没法加载</strong></li>
+<li><strong>畅言：专业的社会化评论系统，搜狐出品，不过不备案只能使用15天，坑爹</strong></li>
+<li><strong>友言：专业网站社会化评论系统，相对小众，但是体验很好</strong></li>
+</ul>
+<p><strong>由此可见，给我们的选择也只有<code>友言</code>了</strong><br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/08/09/Hexo解决多说服务器关闭的问题/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/09/Hexo解决多说服务器关闭的问题/" class="archive-article-date">
+  	<time datetime="2017-08-09T07:39:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python机器学习之旅" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/22/python机器学习之旅/">python机器学习之旅</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><img src="http://ofhbt8uhx.bkt.clouddn.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85.png" alt=""><br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/06/22/python机器学习之旅/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/22/python机器学习之旅/" class="archive-article-date">
+  	<time datetime="2017-06-22T14:35:37.981Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-22</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Scikit-learn之旅（2）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/Scikit-learn之旅（2）/"> Scikit-learn之旅（2）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="支持向量机-SVM"><a href="#支持向量机-SVM" class="headerlink" title="支持向量机(SVM)"></a>支持向量机(SVM)</h3><p><strong>SVM是一个由分类超平面定义的判别分类器。也就是说给定一组带标签的训练样本，算法将会输出一个最优超平面对新样本(测试样本)进行分类。在SVM中，我们的优化目标是最大化间隔(margin)。间隔定义为两个分隔超平面(决策界)的距离，那些最靠近超平面的训练样本也被称为支持向量(suppor vectors)</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/svm1.PNG" alt=""></p>
+<blockquote>
+<p>在介绍如何推到之前，了解一个定义：</p>
+<ul>
+<li><strong>分隔超平面：</strong>上述将数据集分割开来的直线叫做分隔超平面。</li>
+<li><strong>超平面：</strong>如果数据集是N维的，那么就需要N-1维的某对象来对数据进行分割。该对象叫做超平面，也就是分类的决策边界。</li>
+<li><strong>间隔：</strong>一个点到分割面的距离，称为点相对于分割面的距离。数据集中所有的点到分割面的最小间隔的2倍，称为分类器或数据集的间隔。</li>
+<li><strong>最大间隔：</strong>SVM分类器是要找最大的数据集间隔。</li>
+<li><strong>支持向量：</strong>离分割超平面最近的那些点。
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/06/21/Scikit-learn之旅（2）/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/21/Scikit-learn之旅（2）/" class="archive-article-date">
+  	<time datetime="2017-06-21T12:36:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Scikit-learn之旅（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/Scikit-learn之旅（1）/">Scikit-learn之旅（1）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="sklearn-训练感知机"><a href="#sklearn-训练感知机" class="headerlink" title="sklearn 训练感知机"></a>sklearn 训练感知机</h2><blockquote>
+<p><strong>感知机对于不能够线性可分的数据，算法永远不会收敛</strong></p>
+</blockquote>
+<p><strong>之前好像写过关于感知机类型的博客，正好最近看到思维导图很火，于是我也好用思维导图写博客吧！嘿嘿</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/scikit-learn%E8%AE%AD%E7%BB%83%E6%84%9F%E7%9F%A5%E5%99%A8.png" alt=""><br></div>
+
+<p><strong>代码运行结果：</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/%E6%84%9F%E7%9F%A5%E5%99%A8.png" alt=""><br></div>
+
+<p><strong>从图中可见三个类别无法被线性决策界完美分类</strong><br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/06/21/Scikit-learn之旅（1）/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/21/Scikit-learn之旅（1）/" class="archive-article-date">
+  	<time datetime="2017-06-21T06:33:58.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android-动态人脸关键点定位" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/15/Android-动态人脸关键点定位/">Android 动态人脸关键点定位</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="android视频预览"><a href="#android视频预览" class="headerlink" title="android视频预览"></a>android视频预览</h2><p><strong>layout 界面布局</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/txt"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"本地摄像头预览"</span></div><div class="line">        <span class="attr">android:textAlignment</span>=<span class="string">"center"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">SurfaceView</span> <span class="attr">android:id</span>=<span class="string">"@+id/localView"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"240dip"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"320dip"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">SurfaceView</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/06/15/Android-动态人脸关键点定位/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/15/Android-动态人脸关键点定位/" class="archive-article-date">
+  	<time datetime="2017-06-15T13:45:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸检测/">人脸检测</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-自适应线性神经网络" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/自适应线性神经网络/">自适应线性神经网络</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><strong>本节我们学习另一种单层神经网络：自适应线性神经元(ADAptive    LInear    NEuron,    简称 Adaline)。在Frank    Rosenblatt提出感知计算法不久，Bernard    Widrow和他的博士生Tedd    Hoff 提出了Adaline算法作为感知机的改进算法(B.Widrow    et    al.    Adaptive    “Adaline”    neuron    using chemical    “memistors”.)</strong></p>
+<p><strong>相对于感知机，Adaline算法有趣的多，因为在学习Adaline的过程中涉及到机器学习中一个重 要的概念：定义、最小化损失函数。学习Adaline为以后学习更复杂高端的算法(比如逻辑斯蒂 回归、SVM等)起到抛砖引玉的作用。</strong></p>
+<p><strong>Adaline和感知机的一个重要区别是Adaline算法中权重参数更新按照线性激活函数而不是单位 阶跃函数。当然，Adaline中激活函数也简单的很。</strong></p>
+<p><strong>虽然Adaline中参数更新不是使用阶跃函数，但是在对测试集样本输出预测类别时还是使用阶 跃函数，毕竟要输出离散值-1,1。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-93a03f14c2401c5c.png" alt=""><br></div><br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/06/14/自适应线性神经网络/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/14/自适应线性神经网络/" class="archive-article-date">
+  	<time datetime="2017-06-14T12:36:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-算法原理（PLA原理）及-Python-实现" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/13/算法原理（PLA原理）及-Python-实现/">算法原理（PLA原理）及 Python 实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<blockquote>
+<p>感知机是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1。</p>
+</blockquote>
+<div align=center><br><img src="http://ofhbt8uhx.bkt.clouddn.com/20170312094333631.png" alt=""><br></div>
+
+<h2 id="感知机的数学表示"><a href="#感知机的数学表示" class="headerlink" title="感知机的数学表示"></a>感知机的数学表示</h2><p><strong>首先，感知机的输入空间（特征空间）为 $x \subseteq R^{n}$，即 n 维向量空间，输出空间为 Y={+1,−1}，即 −1 代表反例，+1 代表正例。例如：输入 $x \in X$ 对应于输入空间 Rn 中的某个点，而输出 $y \in Y$ 表示该点所在的分类。需要注意的是，输入 x 是一个 n 维的向量，即 x=(x(1),x(2),…,x(n))。现在已经有了输入和输出的定义，我们就可以给出感知机 f(x) 的模型了： </strong><br>$$f(x) = \ sign(\omega \cdot x+b)$$<br><strong>其中，向量 ω=(ω(1),ω(2),…,ω(n)) 中的每个分量代表输入向量空间 $R^{n}$ 中每个分量 $x_i$的权重，或者说参数。$b \in R$称为偏置单元，ω⋅x 表示 ω 和 x的内积，sign 是一个符号函数，即： </strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG" alt=""><br></div>
+
+<p><strong>我们把上面这个函数 f(x) 称为感知机。</strong><br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/06/13/算法原理（PLA原理）及-Python-实现/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/13/算法原理（PLA原理）及-Python-实现/" class="archive-article-date">
+  	<time datetime="2017-06-13T12:54:45.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Python-matplotlib-数据可视化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/13/Python-matplotlib-数据可视化/">Python matplotlib 数据可视化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="图的基本结构"><a href="#图的基本结构" class="headerlink" title="图的基本结构"></a>图的基本结构</h2><p><strong>通常，使用 numpy 组织数据, 使用 matplotlib API 进行数据图像绘制。 一幅数据图基本上包括如下结构：</strong></p>
+<ul>
+<li>Data: 数据区，包括数据点、描绘形状</li>
+<li>Axis: 坐标轴，包括 X 轴、 Y 轴及其标签、刻度尺及其标签</li>
+<li>Title: 标题，数据图的描述</li>
+<li>Legend: 图例，区分图中包含的多种曲线或不同分类的数据</li>
+<li>其他的还有图形文本 (Text)、注解 (Annotate)等其他描述</li>
+</ul>
+<p><strong>详细的结构图如下图所示：</strong></p>
+<p><div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/Python_Figure_Structure.png" alt=""><br></div><br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/06/13/Python-matplotlib-数据可视化/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/13/Python-matplotlib-数据可视化/" class="archive-article-date">
+  	<time datetime="2017-06-13T11:50:26.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android-引导界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/04/Android-引导界面/">Android 引导界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="引导界面分类"><a href="#引导界面分类" class="headerlink" title="引导界面分类"></a>引导界面分类</h2><ul>
+<li><strong>渐进式引入，比较对象：微信，qq</strong></li>
+<li><strong>viewpager引导页设计,比较对象：网易</strong></li>
+<li><strong>动画式引导，比较对象：花开</strong> <h2 id="一、渐进式引入"><a href="#一、渐进式引入" class="headerlink" title="一、渐进式引入"></a>一、渐进式引入</h2><h3 id="1-实现的效果"><a href="#1-实现的效果" class="headerlink" title="1.实现的效果"></a>1.实现的效果</h3><div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/GIF.gif" alt=""><br></div><h3 id="2-布局界面"><a href="#2-布局界面" class="headerlink" title="2.布局界面"></a>2.布局界面</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.tangjie.demowelc.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/imageView"</span></div><div class="line">        <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/welcome"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-动画配置（透明动画）"><a href="#3-动画配置（透明动画）" class="headerlink" title="3.动画配置（透明动画）"></a>3.动画配置（透明动画）</h3><blockquote>
+<p><strong>使用activity中的动画操作</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:interpolator</span>=<span class="string">"@android:anim/accelerate_interpolator"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">alpha</span></span></div><div class="line">        <span class="attr">android:fromAlpha</span>=<span class="string">"0.0"</span></div><div class="line">        <span class="attr">android:toAlpha</span>=<span class="string">"1.0"</span></div><div class="line">        <span class="attr">android:duration</span>=<span class="string">"2000"</span></div><div class="line">        /&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">alpha</span></span></div><div class="line">        <span class="attr">android:fromAlpha</span>=<span class="string">"1.0"</span></div><div class="line">        <span class="attr">android:toAlpha</span>=<span class="string">"0.0"</span></div><div class="line">        <span class="attr">android:startOffset</span>=<span class="string">"3000"</span></div><div class="line">        <span class="attr">android:duration</span>=<span class="string">"3000"</span></div><div class="line">        /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>关于动画的操作请看实现效果</strong></p>
+<p><div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/GIF2.gif" alt=""><br></div><br><strong>链接：<a href="https://github.com/linglongxin24/AnimationDemo" target="_blank" rel="external">Github</a></strong></p>
+<blockquote>
+<p><strong>其实还有属性动画可以实现更多更有效的动画，我决定下篇博客详细研究一下！</strong></p>
+<h3 id="4-主程序入口"><a href="#4-主程序入口" class="headerlink" title="4.主程序入口"></a>4.主程序入口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.demowelc;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Intent;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.view.animation.Animation;</div><div class="line"><span class="keyword">import</span> android.view.animation.AnimationUtils;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">Animation</span>.<span class="title">AnimationListener</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ImageView imageView;</div><div class="line">    <span class="keyword">private</span> Animation alphaAnimation;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        imageView = (ImageView) findViewById(R.id.imageView);</div><div class="line">        alphaAnimation = AnimationUtils.loadAnimation(<span class="keyword">this</span>, R.anim.welcome_alpha);</div><div class="line">        alphaAnimation.setFillEnabled(<span class="keyword">true</span>);</div><div class="line">        alphaAnimation.setFillAfter(<span class="keyword">true</span>);</div><div class="line">        imageView.setAnimation(alphaAnimation);</div><div class="line">        alphaAnimation.setAnimationListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line">        Intent intent=<span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>,WelcomeActivity.class);</div><div class="line">        startActivity(intent);</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="二、ViewPager引导页设计"><a href="#二、ViewPager引导页设计" class="headerlink" title="二、ViewPager引导页设计"></a>二、ViewPager引导页设计</h2><h3 id="1-实现的效果-1"><a href="#1-实现的效果-1" class="headerlink" title="1.实现的效果"></a>1.实现的效果</h3><p><div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/GIF4.gif" alt=""><br></div></p>
+<h3 id="2-布局界面-1"><a href="#2-布局界面-1" class="headerlink" title="2.布局界面"></a>2.布局界面</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> &gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/viewpager"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/ll"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_marginBottom</span>=<span class="string">"24.0dip"</span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> &gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">            <span class="attr">android:clickable</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:contentDescription</span>=<span class="string">"@string/strPoint"</span></div><div class="line">            <span class="attr">android:padding</span>=<span class="string">"15.0dip"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/point"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">            <span class="attr">android:clickable</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:contentDescription</span>=<span class="string">"@string/strPoint"</span></div><div class="line">            <span class="attr">android:padding</span>=<span class="string">"15.0dip"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/point"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">            <span class="attr">android:clickable</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:contentDescription</span>=<span class="string">"@string/strPoint"</span></div><div class="line">            <span class="attr">android:padding</span>=<span class="string">"15.0dip"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/point"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">            <span class="attr">android:clickable</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:contentDescription</span>=<span class="string">"@string/strPoint"</span></div><div class="line">            <span class="attr">android:padding</span>=<span class="string">"15.0dip"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/point"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="3-其中小点的图片用一个selector来控制颜色"><a href="#3-其中小点的图片用一个selector来控制颜色" class="headerlink" title="3.其中小点的图片用一个selector来控制颜色"></a>3.其中小点的图片用一个selector来控制颜色</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">selector</span></span></div><div class="line">  <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_enabled</span>=<span class="string">"true"</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/point_normal"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_enabled</span>=<span class="string">"false"</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/point_select"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="4-重写ViewPager适配器"><a href="#4-重写ViewPager适配器" class="headerlink" title="4.重写ViewPager适配器"></a>4.重写ViewPager适配器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yanis.yc_ui_viewpager_guideview;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v4.view.PagerAdapter;</div><div class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> YeChao</div><div class="line"> * @功能描述：ViewPager适配器，用来绑定数据和view </div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewPagerAdapter</span> <span class="keyword">extends</span> <span class="title">PagerAdapter</span></span>&#123;</div><div class="line">    <span class="comment">//界面列表  </span></div><div class="line">    <span class="keyword">private</span> ArrayList&lt;View&gt; views;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ViewPagerAdapter</span><span class="params">(ArrayList&lt;View&gt; views)</span></span></div><div class="line">    &#123;</div><div class="line">         <span class="keyword">this</span>.views = views; </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获得当前界面数</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123; </div><div class="line">         <span class="keyword">if</span> (views != <span class="keyword">null</span>) &#123;  </div><div class="line">             <span class="keyword">return</span> views.size();  </div><div class="line">         &#125;        </div><div class="line">         <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 判断是否由对象生成界面 </div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View arg0, Object arg1)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (arg0 == arg1);  </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 销毁position位置的界面 </div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(View container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</div><div class="line">        ((ViewPager) container).removeView(views.get(position));     </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 初始化position位置的界面 </div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(View container, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        ((ViewPager) container).addView(views.get(position), <span class="number">0</span>);  </div><div class="line">        <span class="keyword">return</span> views.get(position);  </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">ViewPagerAdapter.class</div></pre></td></tr></table></figure>
+<h3 id="5-重写ViewPager适配器"><a href="#5-重写ViewPager适配器" class="headerlink" title="5.重写ViewPager适配器"></a>5.重写ViewPager适配器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yanis.yc_ui_viewpager_guideview;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager;</div><div class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager.OnPageChangeListener;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.View.OnClickListener;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView.ScaleType;</div><div class="line"><span class="keyword">import</span> android.widget.LinearLayout;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> YeChao</div><div class="line"> * @功能描述：主程序入口类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span>,</span></div><div class="line">        <span class="title">OnPageChangeListener</span> &#123;</div><div class="line">    <span class="comment">// 定义ViewPager对象</span></div><div class="line">    <span class="keyword">private</span> ViewPager viewPager;</div><div class="line">    <span class="comment">// 定义ViewPager适配器</span></div><div class="line">    <span class="keyword">private</span> ViewPagerAdapter vpAdapter;</div><div class="line">    <span class="comment">// 定义一个ArrayList来存放View</span></div><div class="line">    <span class="keyword">private</span> ArrayList&lt;View&gt; views;</div><div class="line">    <span class="comment">// 引导图片资源</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>[] pics = &#123; R.drawable.guide1, R.drawable.guide2,</div><div class="line">            R.drawable.guide3, R.drawable.guide4 &#125;;</div><div class="line">    <span class="comment">// 底部小点的图片</span></div><div class="line">    <span class="keyword">private</span> ImageView[] points;</div><div class="line">    <span class="comment">// 记录当前选中位置</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currentIndex;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        initView();</div><div class="line">        initData();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 初始化组件</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 实例化ArrayList对象</span></div><div class="line">        views = <span class="keyword">new</span> ArrayList&lt;View&gt;();</div><div class="line">        <span class="comment">// 实例化ViewPager</span></div><div class="line">        viewPager = (ViewPager) findViewById(R.id.viewpager);</div><div class="line">        <span class="comment">// 实例化ViewPager适配器</span></div><div class="line">        vpAdapter = <span class="keyword">new</span> ViewPagerAdapter(views);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 初始化数据</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 定义一个布局并设置参数</span></div><div class="line">        LinearLayout.LayoutParams mParams = <span class="keyword">new</span> LinearLayout.LayoutParams(</div><div class="line">                LinearLayout.LayoutParams.MATCH_PARENT,</div><div class="line">                LinearLayout.LayoutParams.MATCH_PARENT);</div><div class="line"></div><div class="line">        <span class="comment">// 初始化引导图片列表</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pics.length; i++) &#123;</div><div class="line">            ImageView iv = <span class="keyword">new</span> ImageView(<span class="keyword">this</span>);</div><div class="line">            iv.setLayoutParams(mParams);</div><div class="line">            <span class="comment">//防止图片不能填满屏幕</span></div><div class="line">            iv.setScaleType(ScaleType.FIT_XY);</div><div class="line">            <span class="comment">//加载图片资源</span></div><div class="line">            iv.setImageResource(pics[i]);</div><div class="line">            views.add(iv);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 设置数据</span></div><div class="line">        viewPager.setAdapter(vpAdapter);</div><div class="line">        <span class="comment">// 设置监听</span></div><div class="line">        viewPager.setOnPageChangeListener(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 初始化底部小点</span></div><div class="line">        initPoint();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 初始化底部小点</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPoint</span><span class="params">()</span> </span>&#123;</div><div class="line">        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.ll);</div><div class="line"></div><div class="line">        points = <span class="keyword">new</span> ImageView[pics.length];</div><div class="line"></div><div class="line">        <span class="comment">// 循环取得小点图片</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pics.length; i++) &#123;</div><div class="line">            <span class="comment">// 得到一个LinearLayout下面的每一个子元素</span></div><div class="line">            points[i] = (ImageView) linearLayout.getChildAt(i);</div><div class="line">            <span class="comment">// 默认都设为灰色</span></div><div class="line">            points[i].setEnabled(<span class="keyword">true</span>);</div><div class="line">            <span class="comment">// 给每个小点设置监听</span></div><div class="line">            points[i].setOnClickListener(<span class="keyword">this</span>);</div><div class="line">            <span class="comment">// 设置位置tag，方便取出与当前位置对应</span></div><div class="line">            points[i].setTag(i);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 设置当面默认的位置</span></div><div class="line">        currentIndex = <span class="number">0</span>;</div><div class="line">        <span class="comment">// 设置为白色，即选中状态</span></div><div class="line">        points[currentIndex].setEnabled(<span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 滑动状态改变时调用</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrollStateChanged</span><span class="params">(<span class="keyword">int</span> arg0)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 当前页面滑动时调用</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrolled</span><span class="params">(<span class="keyword">int</span> arg0, <span class="keyword">float</span> arg1, <span class="keyword">int</span> arg2)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 新的页面被选中时调用</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageSelected</span><span class="params">(<span class="keyword">int</span> arg0)</span> </span>&#123;</div><div class="line">        <span class="comment">// 设置底部小点选中状态</span></div><div class="line">        setCurDot(arg0);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> position = (Integer) v.getTag();</div><div class="line">        setCurView(position);</div><div class="line">        setCurDot(position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置当前页面的位置</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setCurView</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= pics.length) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        viewPager.setCurrentItem(position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置当前的小点的位置</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setCurDot</span><span class="params">(<span class="keyword">int</span> positon)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (positon &lt; <span class="number">0</span> || positon &gt; pics.length - <span class="number">1</span> || currentIndex == positon) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        points[positon].setEnabled(<span class="keyword">false</span>);</div><div class="line">        points[currentIndex].setEnabled(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">        currentIndex = positon;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">MainActivity.class</div></pre></td></tr></table></figure>
+<h2 id="三、动画式引导"><a href="#三、动画式引导" class="headerlink" title="三、动画式引导"></a>三、动画式引导</h2><h3 id="1-实现的效果-2"><a href="#1-实现的效果-2" class="headerlink" title="1.实现的效果"></a>1.实现的效果</h3><p><div align="center"><br><img src="http://www.jcodecraeer.com/uploads/161221/1-161221115S3429.gif" alt=""><br></div></p>
+<h3 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2.代码实现"></a>2.代码实现</h3><p><a href="http://www.jcodecraeer.com/a/opensource/2016/1221/6878.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/opensource/2016/1221/6878.html</a></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/04/Android-引导界面/" class="archive-article-date">
+  	<time datetime="2017-06-04T14:32:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

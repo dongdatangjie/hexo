@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>通过Git上传我们的代码到GitHub平台 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.首先确认自己已经安装了git，打开git bash，输入ssh-keygen -t rsa -C “自己的邮箱地址@XXX.com” ，生成自己的公钥与私钥123456Administrator@AGOBW-706280946 MINGW64 /d/Git Repository (master)$ ssh-keygen -t rsa -C &amp;quot;dongdatangjie@gmail.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过Git上传我们的代码到GitHub平台">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/通过Git上传我们的代码到GitHub平台/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="1.首先确认自己已经安装了git，打开git bash，输入ssh-keygen -t rsa -C “自己的邮箱地址@XXX.com” ，生成自己的公钥与私钥123456Administrator@AGOBW-706280946 MINGW64 /d/Git Repository (master)$ ssh-keygen -t rsa -C &amp;quot;dongdatangjie@gmail.">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/pc1.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/pc2.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/pic3.PNG">
+<meta property="og:updated_time" content="2017-04-15T07:10:48.957Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过Git上传我们的代码到GitHub平台">
+<meta name="twitter:description" content="1.首先确认自己已经安装了git，打开git bash，输入ssh-keygen -t rsa -C “自己的邮箱地址@XXX.com” ，生成自己的公钥与私钥123456Administrator@AGOBW-706280946 MINGW64 /d/Git Repository (master)$ ssh-keygen -t rsa -C &amp;quot;dongdatangjie@gmail.">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/pc1.PNG">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-通过Git上传我们的代码到GitHub平台" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      通过Git上传我们的代码到GitHub平台
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="1-首先确认自己已经安装了git，打开git-bash，输入ssh-keygen-t-rsa-C-“自己的邮箱地址-XXX-com”-，生成自己的公钥与私钥"><a href="#1-首先确认自己已经安装了git，打开git-bash，输入ssh-keygen-t-rsa-C-“自己的邮箱地址-XXX-com”-，生成自己的公钥与私钥" class="headerlink" title="1.首先确认自己已经安装了git，打开git bash，输入ssh-keygen -t rsa -C “自己的邮箱地址@XXX.com” ，生成自己的公钥与私钥"></a>1.首先确认自己已经安装了git，打开git bash，输入ssh-keygen -t rsa -C “自己的邮箱地址@XXX.com” ，生成自己的公钥与私钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Administrator@AGOBW-706280946 MINGW64 /d/Git Repository (master)</div><div class="line">$ ssh-keygen -t rsa -C &quot;dongdatangjie@gmail.com&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa):</div><div class="line">/c/Users/Administrator/.ssh/id_rsa already exists.</div><div class="line">Overwrite (y/n)?</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-一路默认回车，会生成公钥、私钥到以下文件夹下id-rsa是私钥，id-rsa-pub是公钥，打开公钥等下要用到"><a href="#2-一路默认回车，会生成公钥、私钥到以下文件夹下id-rsa是私钥，id-rsa-pub是公钥，打开公钥等下要用到" class="headerlink" title="2.一路默认回车，会生成公钥、私钥到以下文件夹下id_rsa是私钥，id_rsa.pub是公钥，打开公钥等下要用到"></a>2.一路默认回车，会生成公钥、私钥到以下文件夹下id_rsa是私钥，id_rsa.pub是公钥，打开公钥等下要用到</h3><p><img src="http://ofhbt8uhx.bkt.clouddn.com/pc1.PNG" alt=""></p>
+<h3 id="3-浏览器进入自己的github，打开设置，进入ssh-and-GPG-keys-点击NEW-ssh-key，自己填个标题，下面内容复制前面打开的公钥，最后添加"><a href="#3-浏览器进入自己的github，打开设置，进入ssh-and-GPG-keys-点击NEW-ssh-key，自己填个标题，下面内容复制前面打开的公钥，最后添加" class="headerlink" title="3.浏览器进入自己的github，打开设置，进入ssh and GPG keys,点击NEW ssh key，自己填个标题，下面内容复制前面打开的公钥，最后添加."></a>3.浏览器进入自己的github，打开设置，进入ssh and GPG keys,点击NEW ssh key，自己填个标题，下面内容复制前面打开的公钥，最后添加.</h3><p><img src="http://ofhbt8uhx.bkt.clouddn.com/pc2.PNG" alt=""></p>
+<h3 id="4-可以用ssh-T-git-github-com测试自己是否可以连接成功了，中间有个输入需要输入yes，后面可以看到Hi-XXXX…-access-表示成功。"><a href="#4-可以用ssh-T-git-github-com测试自己是否可以连接成功了，中间有个输入需要输入yes，后面可以看到Hi-XXXX…-access-表示成功。" class="headerlink" title="4.可以用ssh -T git@github.com测试自己是否可以连接成功了，中间有个输入需要输入yes，后面可以看到Hi XXXX….. access 表示成功。"></a>4.可以用ssh -T git@github.com测试自己是否可以连接成功了，中间有个输入需要输入yes，后面可以看到Hi XXXX….. access 表示成功。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Administrator@AGOBW-706280946 MINGW64 /d/Git Repository (master)</div><div class="line">$ ssh -T git@github.com</div><div class="line">The authenticity of host &apos;github.com (192.30.253.113)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</div><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div><div class="line">Warning: Permanently added &apos;github.com,192.30.253.113&apos; (RSA) to the list of known hosts.</div><div class="line">Hi dongdatangjie! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
+<h3 id="5-连接成功后，需要设置用户信息"><a href="#5-连接成功后，需要设置用户信息" class="headerlink" title="5.连接成功后，需要设置用户信息"></a>5.连接成功后，需要设置用户信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;你的用户名&quot;</div><div class="line"></div><div class="line">$ git config --global user.email &quot;你的邮箱&quot;</div></pre></td></tr></table></figure>
+<h3 id="6-到浏览器github上创建个项目，记好创建成功后的https，下面要用"><a href="#6-到浏览器github上创建个项目，记好创建成功后的https，下面要用" class="headerlink" title="6.到浏览器github上创建个项目，记好创建成功后的https，下面要用"></a>6.到浏览器github上创建个项目，记好创建成功后的https，下面要用</h3><p><img src="http://ofhbt8uhx.bkt.clouddn.com/pic3.PNG" alt=""></p>
+<h3 id="7-按次序输入下列命令"><a href="#7-按次序输入下列命令" class="headerlink" title="7.按次序输入下列命令"></a>7.按次序输入下列命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line"></div><div class="line">$ git add 文件路径</div><div class="line"></div><div class="line">$ git cmmmit -m &quot;给本次提交备注一下&quot;</div><div class="line"></div><div class="line">$ git remote add origin https:.........你的仓库地址地址</div><div class="line"></div><div class="line">$ git push -u origin master</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/22/通过Git上传我们的代码到GitHub平台/" class="archive-article-date">
+  	<time datetime="2017-03-22T13:27:59.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/22/我的2017开篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          我的2017开篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/Android登陆界面设计/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android登陆界面设计</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

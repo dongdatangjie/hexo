@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title> Scikit-learn之旅（2） | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="支持向量机(SVM)SVM是一个由分类超平面定义的判别分类器。也就是说给定一组带标签的训练样本，算法将会输出一个最优超平面对新样本(测试样本)进行分类。在SVM中，我们的优化目标是最大化间隔(margin)。间隔定义为两个分隔超平面(决策界)的距离，那些最靠近超平面的训练样本也被称为支持向量(suppor vectors)
+
+在介绍如何推到之前，了解一个定义：
+
+分隔超平面：上述将数据集分割开来">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" Scikit-learn之旅（2）">
+<meta property="og:url" content="http://yoursite.com/2017/06/21/Scikit-learn之旅（2）/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="支持向量机(SVM)SVM是一个由分类超平面定义的判别分类器。也就是说给定一组带标签的训练样本，算法将会输出一个最优超平面对新样本(测试样本)进行分类。在SVM中，我们的优化目标是最大化间隔(margin)。间隔定义为两个分隔超平面(决策界)的距离，那些最靠近超平面的训练样本也被称为支持向量(suppor vectors)
+
+在介绍如何推到之前，了解一个定义：
+
+分隔超平面：上述将数据集分割开来">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/svm1.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/svm2.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/svm3.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/kernel1.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/kernel2.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/tree1.png">
+<meta property="og:updated_time" content="2017-06-22T14:47:28.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" Scikit-learn之旅（2）">
+<meta name="twitter:description" content="支持向量机(SVM)SVM是一个由分类超平面定义的判别分类器。也就是说给定一组带标签的训练样本，算法将会输出一个最优超平面对新样本(测试样本)进行分类。在SVM中，我们的优化目标是最大化间隔(margin)。间隔定义为两个分隔超平面(决策界)的距离，那些最靠近超平面的训练样本也被称为支持向量(suppor vectors)
+
+在介绍如何推到之前，了解一个定义：
+
+分隔超平面：上述将数据集分割开来">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/svm1.PNG">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Scikit-learn之旅（2）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+       Scikit-learn之旅（2）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="支持向量机-SVM"><a href="#支持向量机-SVM" class="headerlink" title="支持向量机(SVM)"></a>支持向量机(SVM)</h3><p><strong>SVM是一个由分类超平面定义的判别分类器。也就是说给定一组带标签的训练样本，算法将会输出一个最优超平面对新样本(测试样本)进行分类。在SVM中，我们的优化目标是最大化间隔(margin)。间隔定义为两个分隔超平面(决策界)的距离，那些最靠近超平面的训练样本也被称为支持向量(suppor vectors)</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/svm1.PNG" alt=""></p>
+<blockquote>
+<p>在介绍如何推到之前，了解一个定义：</p>
+<ul>
+<li><strong>分隔超平面：</strong>上述将数据集分割开来的直线叫做分隔超平面。</li>
+<li><strong>超平面：</strong>如果数据集是N维的，那么就需要N-1维的某对象来对数据进行分割。该对象叫做超平面，也就是分类的决策边界。</li>
+<li><strong>间隔：</strong>一个点到分割面的距离，称为点相对于分割面的距离。数据集中所有的点到分割面的最小间隔的2倍，称为分类器或数据集的间隔。</li>
+<li><strong>最大间隔：</strong>SVM分类器是要找最大的数据集间隔。</li>
+<li><strong>支持向量：</strong>离分割超平面最近的那些点。<a id="more"></a>
+<h3 id="最大间隔"><a href="#最大间隔" class="headerlink" title="最大间隔"></a>最大间隔</h3><strong>最大化决策界的间隔，这么做的原因是间隔大的决策界趋向于含有更小的泛化误差，而间隔小的决策界更容易过拟合。为了更好地理解间隔最大化，我们先认识一下那些和决策界平行的正超平面和负超平面，他们可以表示为：</strong><br>$$\omega_0+ \omega^{T}x_p=1 \qquad (1)$$<br>$$\omega_0+ \omega^{T}x_n=-1 \qquad(2)$$</li>
+</ul>
+</blockquote>
+<p><strong>用(1)减去(2)，得到：</strong><br>$$\Rightarrow \omega^{T}(x_p-x_n)=2$$</p>
+<p><strong>对上式进行归一化，</strong><br>$$\frac{\omega^{T}(x_p-x_n)}{\parallel\omega\parallel}=\frac{2}{\parallel\omega\parallel}$$</p>
+<p><strong>其中，$\parallel\omega\parallel=\sqrt{\sum_{j=1}^{m}\omega_j^{2}}$</strong><br><strong>上式等号左边可以解释为正超平面和负超平面之间的距离，也就是所谓的间隔。</strong><br><strong>现在SVM的目标函数变成了最大化间隔 ,限制条件是样本被正确分类，可以写成：</strong><br>$$\omega_0+\omega^{T}x^{(i)}\ge1\qquad y^{(i)}=1$$<br>$$\omega_0+\omega^{T}x^{(i)}&lt;-1\qquad y^{(i)}=-1$$<br><strong>上面两个限制条件说的是所有负样本要落在负超平面那一侧，所有正样本要落在正超平面那侧。我们用更简洁的写法代替：</strong><br>$$y^{(i)}(\omega_0+\omega^{T}x^{(i)})\ge1\qquad \forall_i$$</p>
+<h3 id="使用松弛变量解决非线性可分的情况"><a href="#使用松弛变量解决非线性可分的情况" class="headerlink" title="使用松弛变量解决非线性可分的情况"></a>使用松弛变量解决非线性可分的情况</h3><p><strong>引入松弛变量的动机是原来的线性限制条件在面对非线性可分数据时需要松弛，这样才能保证算法收敛。</strong><br><strong>松弛变量值为正，添加到线性限制条件即可:</strong><br>$$\omega^{T}x^{(i)}\ge1\qquad y^{(i)}=1-\zeta^{(i)}$$<br>$$\omega^{T}x^{(i)}&lt;-1\qquad y^{(i)}=1+\zeta^{(i)}$$<br><strong>新的目标函数变成了:</strong><br>$$\frac{1}{2}\parallel\omega\parallel^{2}+C(\sum_{i}\zeta^{(i)})$$<br><strong>使用变量C，我们可以控制错分类的惩罚量。和逻辑斯蒂回归不同，这里C越大，对于错分类的惩罚越大。可以通过C控制间隔的宽度，在bias-variance之间找到某种平衡：</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/svm2.PNG" alt=""><br><strong>这个概念和正则化相关，如果增大C的值会增加bias而减小模型的方差。</strong><br><strong>代码如下：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="string">'''</span></div><div class="line">Created on 2017年6月16日</div><div class="line">SVM</div><div class="line">@author: 唐杰</div><div class="line">'''</div><div class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split </div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</div><div class="line"><span class="keyword">import</span> Util</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    lris=datasets.load_iris()</div><div class="line">    X=lris.data[:,[<span class="number">2</span>,<span class="number">3</span>]]</div><div class="line">    y=lris.target</div><div class="line">    <span class="comment">#将数据集分为训练集和测试集，训练集占30%</span></div><div class="line">    X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=<span class="number">0.3</span>,random_state=<span class="number">0</span>) </div><div class="line">    <span class="comment">#数据集标准化</span></div><div class="line">    sc=StandardScaler()</div><div class="line">    sc.fit(X_train)</div><div class="line">    X_train_std=sc.transform(X_train)</div><div class="line">    X_test_std=sc.transform(X_test)</div><div class="line">    X_combined_std=np.vstack((X_train_std,X_test_std))</div><div class="line">    y_combined=np.hstack((y_train,y_test))</div><div class="line">    svm=SVC(kernel=<span class="string">'linear'</span>,C=<span class="number">1.0</span>,random_state=<span class="number">0</span>)</div><div class="line">    svm.fit(X_train_std,y_train)</div><div class="line">    Util.plot_decision_region(X_combined_std, y_combined, classifier=svm)</div><div class="line">    plt.xlabel(<span class="string">'petal length [standardized]'</span>)</div><div class="line">    plt.ylabel(<span class="string">'sepal length [standardized]'</span>)</div><div class="line">    plt.legend(loc=<span class="string">'upper left'</span>)</div><div class="line">    plt.show()</div></pre></td></tr></table></figure></p>
+<p><strong>运行结果如下：</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/svm3.png" alt=""></p>
+<h3 id="使用核SVM解决非线性"><a href="#使用核SVM解决非线性" class="headerlink" title="使用核SVM解决非线性"></a>使用核SVM解决非线性</h3><blockquote>
+<p><strong>SVM之所以受欢迎度这么高，另一个重要的原因是它很容易核化(kernelized)，能够解决非线性分类问题</strong></p>
+</blockquote>
+<p><strong>使用下面的代码，我们将创造一个简单的数据集，其中100个样本是正类，100个样本是负类。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">np.random.seed(<span class="number">0</span>)<span class="comment">#保证每次生成的随机数相同</span></div><div class="line">   X_xor=np.random.randn(<span class="number">200</span>,<span class="number">2</span>)</div><div class="line">   y_xor=np.logical_xor(X_xor[:,<span class="number">0</span>]&gt;<span class="number">0</span>,X_xor[:,<span class="number">1</span>]&gt;<span class="number">0</span>)<span class="comment">#异或函数 符号不同为true</span></div><div class="line">   y_xor=np.where(y_xor,<span class="number">1</span>,<span class="number">-1</span>)</div><div class="line">   plt.scatter(X_xor[y_xor==<span class="number">1</span>,<span class="number">0</span>],X_xor[y_xor==<span class="number">1</span>,<span class="number">1</span>],c=<span class="string">'b'</span>,marker=<span class="string">'x'</span>,label=<span class="string">'1'</span>) </div><div class="line">   plt.scatter(X_xor[y_xor==<span class="number">-1</span>,<span class="number">0</span>],X_xor[y_xor==<span class="number">-1</span>,<span class="number">1</span>],c=<span class="string">'r'</span>,marker=<span class="string">'s'</span>,label=<span class="string">'-1'</span>)</div><div class="line">   plt.ylim(<span class="number">-3.0</span>)</div><div class="line">   plt.legend()</div><div class="line">   plt.show()</div></pre></td></tr></table></figure></p>
+<p><strong>实现效果：</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/kernel1.png" alt=""><br><strong>核方法的idea是为了解决线性不可分数据，在原来特征基础上创造出非线性的组合，然后利用映射函数 将现有特征维度映射到更高维的特征空间，并且这个高维度特征空间能够使得原来线性不可分数据变成了线性可分的</strong><br><strong>常用的一个核函数是Radial Basis Function kernel(RBF核)，也称为高斯核:</strong><br>$$k(x^{(i)},x^{(j)})=exp(-\frac{\parallel x^{(i)}-x^{(j)}\parallel^{2}}{2\sigma^{2}})$$<br><strong>通俗地讲，核(kernel)可以被解释为两个样本之间的相似形函数。高斯核中e的指数范围&lt;=0,当两个样本完全一样时，值为1，两个样本完全不同时，值为0</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">svm=SVC(kernel=<span class="string">'rbf'</span>,C=<span class="number">10.0</span>,gamma=<span class="number">1.0</span>,random_state=<span class="number">0</span>)</div><div class="line">   svm.fit(X_xor,y_xor)</div><div class="line">   Util.plot_decision_region(X_xor, y_xor, classifier=svm)</div><div class="line">   plt.legend(loc=<span class="string">'upper left'</span>)</div><div class="line">   plt.show()</div></pre></td></tr></table></figure></p>
+<p><img src="http://ofhbt8uhx.bkt.clouddn.com/kernel2.png" alt=""></p>
+<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="string">'''</span></div><div class="line">Created on 2017年6月16日</div><div class="line">决策树分类算法</div><div class="line">@author: 唐杰</div><div class="line">'''</div><div class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split </div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</div><div class="line"><span class="keyword">import</span> Util</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    lris=datasets.load_iris()</div><div class="line">    X=lris.data[:,[<span class="number">2</span>,<span class="number">3</span>]]</div><div class="line">    y=lris.target</div><div class="line">    <span class="comment">#将数据集分为训练集和测试集，训练集占30%</span></div><div class="line">    X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=<span class="number">0.3</span>,random_state=<span class="number">0</span>) </div><div class="line">    <span class="comment">#数据集标准化</span></div><div class="line">    sc=StandardScaler()</div><div class="line">    sc.fit(X_train)</div><div class="line">    X_train_std=sc.transform(X_train)</div><div class="line">    X_test_std=sc.transform(X_test)</div><div class="line">    X_combined_std=np.vstack((X_train_std,X_test_std))</div><div class="line">    y_combined=np.hstack((y_train,y_test))</div><div class="line">    tree=DecisionTreeClassifier(criterion=<span class="string">'entropy'</span>,max_depth=<span class="number">3</span>,random_state=<span class="number">0</span>)</div><div class="line">    tree.fit(X_train_std,y_train)</div><div class="line">    Util.plot_decision_region(X_combined_std, y_combined, classifier=tree)</div><div class="line">    plt.xlabel(<span class="string">'petal length [standardized]'</span>)</div><div class="line">    plt.ylabel(<span class="string">'sepal length [standardized]'</span>)</div><div class="line">    plt.legend(loc=<span class="string">'upper left'</span>)</div><div class="line">    plt.show()</div></pre></td></tr></table></figure>
+<p><img src="http://ofhbt8uhx.bkt.clouddn.com/tree1.png" alt=""></p>
+<h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><h3 id="K邻近"><a href="#K邻近" class="headerlink" title="K邻近"></a>K邻近</h3>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/21/Scikit-learn之旅（2）/" class="archive-article-date">
+  	<time datetime="2017-06-21T12:36:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/22/python机器学习之旅/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python机器学习之旅
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/21/Scikit-learn之旅（1）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Scikit-learn之旅（1）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

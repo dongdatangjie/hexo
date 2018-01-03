@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android手机实现过程中检测人脸 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前面我们实现了通过在图片中检测到人脸，之后我们通过在android的surfaceview预览相机功能中加入人脸识别的代码从而实现在行车过程中能够一直检测人脸。作用是预防驾驶员行驶时间过长导致疲劳驾驶的情况出现。
+
+人脸检测方面使用的是google自带的FaceDetection算法
+
+Android程序目录结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android手机实现过程中检测人脸">
+<meta property="og:url" content="http://yoursite.com/2016/10/25/Android手机实现过程中检测人脸/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="前面我们实现了通过在图片中检测到人脸，之后我们通过在android的surfaceview预览相机功能中加入人脸识别的代码从而实现在行车过程中能够一直检测人脸。作用是预防驾驶员行驶时间过长导致疲劳驾驶的情况出现。
+
+人脸检测方面使用的是google自带的FaceDetection算法
+
+Android程序目录结构">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/ca.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/Screenshot_2016-10-25-23-49-40_com.tencent.mm.png">
+<meta property="og:updated_time" content="2017-04-15T07:05:54.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android手机实现过程中检测人脸">
+<meta name="twitter:description" content="前面我们实现了通过在图片中检测到人脸，之后我们通过在android的surfaceview预览相机功能中加入人脸识别的代码从而实现在行车过程中能够一直检测人脸。作用是预防驾驶员行驶时间过长导致疲劳驾驶的情况出现。
+
+人脸检测方面使用的是google自带的FaceDetection算法
+
+Android程序目录结构">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/ca.png">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Android手机实现过程中检测人脸" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android手机实现过程中检测人脸
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><strong>前面我们实现了通过在图片中检测到人脸，之后我们通过在android的surfaceview预览相机功能中加入人脸识别的代码从而实现在行车过程中能够一直检测人脸。作用是预防驾驶员行驶时间过长导致疲劳驾驶的情况出现。</strong></p>
+<blockquote>
+<p>人脸检测方面使用的是google自带的FaceDetection算法</p>
+<hr>
+<h3 id="Android程序目录结构"><a href="#Android程序目录结构" class="headerlink" title="Android程序目录结构"></a>Android程序目录结构</h3><p><img src="http://ofhbt8uhx.bkt.clouddn.com/ca.png" alt="目录结构"><br><a id="more"></a></p>
+<hr>
+<h4 id="1-CameraInterface类"><a href="#1-CameraInterface类" class="headerlink" title="1.CameraInterface类"></a>1.CameraInterface类</h4><p><strong>主要用来创建单例模式的camera类用来打开android手机摄像头和进行相机预览操作和关闭操作的工具类</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fa1.camera;</div><div class="line"><span class="keyword">import</span> android.graphics.PixelFormat;</div><div class="line"><span class="keyword">import</span> android.hardware.Camera;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.SurfaceHolder;</div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.util.CamParaUtil;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Administrator on 2016/10/20.</div><div class="line"> * 相机的打开与关闭，获取相机图像预览和关闭预览接口控制，相机对象使用单例模式</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CameraInterface</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"CameraInterface"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mPreviwRate = -<span class="number">1f</span>;</div><div class="line">    <span class="keyword">private</span> Camera camera;</div><div class="line">    <span class="keyword">private</span> Camera.Parameters params;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> cameraId=-<span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isPreviewing = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> CameraInterface cameraInterface;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">CameraInterface</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">    <span class="comment">//获取单例的CameraInterface对象</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> CameraInterface <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(cameraInterface==<span class="keyword">null</span>)&#123;</div><div class="line">            cameraInterface=<span class="keyword">new</span> CameraInterface();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cameraInterface;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//打开摄像头</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doOpenCamera</span><span class="params">(<span class="keyword">int</span> cameraId)</span></span>&#123;</div><div class="line">        camera=Camera.open(cameraId);</div><div class="line">        <span class="keyword">this</span>.cameraId=cameraId;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//预览相机</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doStartPreview</span><span class="params">(SurfaceHolder holder, <span class="keyword">float</span> previewRate)</span></span>&#123;</div><div class="line">        Log.i(TAG, <span class="string">"doStartPreview..."</span>);</div><div class="line">        <span class="keyword">if</span>(isPreviewing)&#123;</div><div class="line">            camera.stopPreview();</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(camera!=<span class="keyword">null</span>) &#123;</div><div class="line">            params = camera.getParameters();</div><div class="line">            params.setPictureFormat(PixelFormat.JPEG);</div><div class="line">            Camera.Size pictureSize = CamParaUtil.getInstance().getPropPictureSize(params.getSupportedPictureSizes(),previewRate, <span class="number">800</span>);</div><div class="line">            params.setPictureSize(pictureSize.width, pictureSize.height);</div><div class="line">            Camera.Size previewSize = CamParaUtil.getInstance().getPropPreviewSize(</div><div class="line">                    params.getSupportedPreviewSizes(), previewRate, <span class="number">800</span>);</div><div class="line">            <span class="comment">//设置预览尺寸</span></div><div class="line">            params.setPreviewSize(previewSize.width, previewSize.height);</div><div class="line">            camera.setDisplayOrientation(<span class="number">90</span>);</div><div class="line">            <span class="comment">//设置是否支持对焦</span></div><div class="line">            List&lt;String&gt; focusModes = params.getSupportedFocusModes();</div><div class="line">            <span class="keyword">if</span>(focusModes.contains(<span class="string">"continuous-video"</span>))&#123;</div><div class="line">                params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);</div><div class="line">            &#125;</div><div class="line">            camera.setParameters(params);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                camera.setPreviewDisplay(holder);</div><div class="line">                camera.startPreview();<span class="comment">//����Ԥ��</span></div><div class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            isPreviewing = <span class="keyword">true</span>;</div><div class="line">            mPreviwRate = previewRate;</div><div class="line">            params = camera.getParameters();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//关闭相机预览</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doStopCamera</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(camera!=<span class="keyword">null</span>)</div><div class="line">        &#123;</div><div class="line">            camera.setPreviewCallback(<span class="keyword">null</span>);</div><div class="line">            camera.stopPreview();</div><div class="line">            isPreviewing = <span class="keyword">false</span>;</div><div class="line">            mPreviwRate = -<span class="number">1f</span>;</div><div class="line">            camera.release();</div><div class="line">            camera = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCameraId</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> cameraId;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> Camera.<span class="function">Parameters <span class="title">getCameraParams</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> params;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Camera <span class="title">getCamera</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> camera;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h4 id="2-CameraSurface类"><a href="#2-CameraSurface类" class="headerlink" title="2.CameraSurface类"></a>2.CameraSurface类</h4><p><strong>用来使用surfaceview创建相机预览的界面</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fa1.camera;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.PixelFormat;</div><div class="line"><span class="keyword">import</span> android.hardware.Camera;</div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.SurfaceHolder;</div><div class="line"><span class="keyword">import</span> android.view.SurfaceView;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Administrator on 2016/10/20.</div><div class="line"> * 创建相机预览的界面</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CameraSurface</span> <span class="keyword">extends</span> <span class="title">SurfaceView</span> <span class="keyword">implements</span> <span class="title">SurfaceHolder</span>.<span class="title">Callback</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"CameraSurface"</span>;</div><div class="line">    <span class="keyword">private</span> SurfaceHolder surfaceholder;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CameraSurface</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        Log.i(TAG, <span class="string">"初始化CameraSurface"</span>);</div><div class="line">        surfaceholder=getHolder();<span class="comment">//拿到holder对象</span></div><div class="line">        surfaceholder.setFormat(PixelFormat.TRANSLUCENT);<span class="comment">//是窗口透明</span></div><div class="line">        <span class="comment">//surfaceholder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);</span></div><div class="line">        surfaceholder.addCallback(<span class="keyword">this</span>);<span class="comment">//将callback回调添加到surfaceholder中</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">surfaceCreated</span><span class="params">(SurfaceHolder holder)</span> </span>&#123;</div><div class="line">        Log.i(TAG, <span class="string">"surfaceCreated..."</span>);</div><div class="line">        Log.i(TAG, CameraInterface.getInstance() + <span class="string">""</span>);</div><div class="line">        CameraInterface.getInstance().doOpenCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">surfaceChanged</span><span class="params">(SurfaceHolder holder, <span class="keyword">int</span> format, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        Log.i(TAG, <span class="string">"surfaceChanged..."</span>);</div><div class="line">        CameraInterface.getInstance().doStartPreview(surfaceholder, <span class="number">1.333f</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">surfaceDestroyed</span><span class="params">(SurfaceHolder holder)</span> </span>&#123;</div><div class="line">        Log.i(TAG, <span class="string">"surfaceDestroyed..."</span>);</div><div class="line">        CameraInterface.getInstance().doStopCamera();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> SurfaceHolder <span class="title">getSurfaceHolder</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> surfaceholder;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="3-GoogleFaceDetection类"><a href="#3-GoogleFaceDetection类" class="headerlink" title="3.GoogleFaceDetection类"></a>3.GoogleFaceDetection类</h4><p><strong>通过实现google的人脸监听类来判断是否检测到人脸，在其中通过消息处理机制Handler来接收消息，并且返回消息信息UPDATE_FACE_RECT，用来绘制人脸图像</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fa1.detect;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.hardware.Camera;</div><div class="line"><span class="keyword">import</span> android.os.Handler;</div><div class="line"><span class="keyword">import</span> android.os.Message;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.MainActivity;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Administrator on 2016/10/20.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GoogleFaceDetect</span> <span class="keyword">implements</span> <span class="title">Camera</span>.<span class="title">FaceDetectionListener</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG=<span class="string">"GoogleFaceDetect"</span>;</div><div class="line">    <span class="keyword">private</span> Handler handler;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GoogleFaceDetect</span><span class="params">(Handler handler)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.handler=handler;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFaceDetection</span><span class="params">(Camera.Face[] faces, Camera camera)</span> </span>&#123;</div><div class="line">        Log.i(TAG, <span class="string">"onFaceDetection..."</span>);</div><div class="line"></div><div class="line">        <span class="comment">//判断是否检测到人脸</span></div><div class="line">        <span class="keyword">if</span>(faces!=<span class="keyword">null</span>)&#123;</div><div class="line">            Message m=handler.obtainMessage();</div><div class="line">            m.what = MainActivity.UPDATE_FACE_RECT;</div><div class="line">            m.obj = faces;</div><div class="line">            m.sendToTarget();</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="4-FaceView类"><a href="#4-FaceView类" class="headerlink" title="4.FaceView类"></a>4.FaceView类</h4><p><strong>在检测到的人脸上绘制矩形红色方框，捕捉人脸</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fa1.ui;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Canvas;</div><div class="line"><span class="keyword">import</span> android.graphics.Color;</div><div class="line"><span class="keyword">import</span> android.graphics.Matrix;</div><div class="line"><span class="keyword">import</span> android.graphics.Paint;</div><div class="line"><span class="keyword">import</span> android.graphics.RectF;</div><div class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</div><div class="line"><span class="keyword">import</span> android.hardware.Camera;</div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.R;</div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.camera.CameraInterface;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Administrator on 2016/10/20.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FaceView</span> <span class="keyword">extends</span> <span class="title">ImageView</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Camera.Face[] mFaces;<span class="comment">//camera中检测到的face对象</span></div><div class="line">    <span class="keyword">private</span> Paint mLinePaint;<span class="comment">//绘图对象</span></div><div class="line">    <span class="keyword">private</span> Drawable mFaceIndicator = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> Matrix mMatrix = <span class="keyword">new</span> Matrix();</div><div class="line">    <span class="keyword">private</span> RectF mRect = <span class="keyword">new</span> RectF();</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FaceView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        initPaint();</div><div class="line">        mFaceIndicator = getResources().getDrawable(R.drawable.ic_face_find_2);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="comment">//如果检测不到人脸，则不进行绘制</span></div><div class="line">        <span class="keyword">if</span>(mFaces == <span class="keyword">null</span> || mFaces.length &lt; <span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">boolean</span> isMirror = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">int</span> Id = CameraInterface.getInstance().getCameraId();</div><div class="line">        <span class="keyword">if</span>(Id == Camera.CameraInfo.CAMERA_FACING_BACK)&#123;</div><div class="line">            isMirror = <span class="keyword">false</span>; </div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(Id == Camera.CameraInfo.CAMERA_FACING_FRONT)&#123;</div><div class="line">            isMirror = <span class="keyword">true</span>;  </div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Need mirror for front camera.</span></div><div class="line">        mMatrix.setScale(isMirror ? -<span class="number">1</span> : <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">        <span class="comment">// This is the value for android.hardware.Camera.setDisplayOrientation.</span></div><div class="line">        mMatrix.postRotate(<span class="number">90</span>);</div><div class="line">        <span class="comment">// Camera driver coordinates range from (-1000, -1000) to (1000, 1000).</span></div><div class="line">        <span class="comment">// UI coordinates range from (0, 0) to (width, height).</span></div><div class="line">        mMatrix.postScale(getWidth() / <span class="number">2000f</span>, getHeight() / <span class="number">2000f</span>);</div><div class="line">        mMatrix.postTranslate(getWidth() / <span class="number">2f</span>, getHeight()/ <span class="number">2f</span>);</div><div class="line">        canvas.save();</div><div class="line">        mMatrix.postRotate(<span class="number">0</span>); </div><div class="line">        canvas.rotate(-<span class="number">0</span>);   </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; mFaces.length; i++)&#123;</div><div class="line">            mRect.set(mFaces[i].rect);</div><div class="line">            mMatrix.mapRect(mRect);</div><div class="line">            mFaceIndicator.setBounds(Math.round(mRect.left), Math.round(mRect.top),</div><div class="line">                    Math.round(mRect.right), Math.round(mRect.bottom));</div><div class="line">            mFaceIndicator.draw(canvas);</div><div class="line"><span class="comment">//			canvas.drawRect(mRect, mLinePaint);</span></div><div class="line">        &#125;</div><div class="line">        canvas.restore();</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFaces</span><span class="params">(Camera.Face[] faces)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.mFaces = faces;</div><div class="line">        invalidate();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clearFaces</span><span class="params">()</span></span>&#123;</div><div class="line">        mFaces = <span class="keyword">null</span>;</div><div class="line">        <span class="comment">//请求对view树进行重绘，该方法会触发ondraw方法</span></div><div class="line">        invalidate();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPaint</span><span class="params">()</span></span>&#123;</div><div class="line">        mLinePaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</div><div class="line"><span class="comment">//		int color = Color.rgb(0, 150, 255);</span></div><div class="line">        <span class="keyword">int</span> color = Color.rgb(<span class="number">98</span>, <span class="number">212</span>, <span class="number">68</span>);</div><div class="line"><span class="comment">//		mLinePaint.setColor(Color.RED);</span></div><div class="line">        mLinePaint.setColor(color);</div><div class="line">        mLinePaint.setStyle(Paint.Style.STROKE);</div><div class="line">        mLinePaint.setStrokeWidth(<span class="number">5f</span>);</div><div class="line">        mLinePaint.setAlpha(<span class="number">180</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="5-CamParaUtil类"><a href="#5-CamParaUtil类" class="headerlink" title="5.CamParaUtil类"></a>5.CamParaUtil类</h4><p><strong>主要负责拿到camera的各种参数</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fa1.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.hardware.Camera;</div><div class="line"><span class="keyword">import</span> android.hardware.Camera.Size;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Collections;</div><div class="line"><span class="keyword">import</span> java.util.Comparator;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CamParaUtil</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"CamParaUtil"</span>;</div><div class="line">	<span class="keyword">private</span> CameraSizeComparator sizeComparator = <span class="keyword">new</span> CameraSizeComparator();</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> CamParaUtil myCamPara = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">CamParaUtil</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> CamParaUtil <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(myCamPara == <span class="keyword">null</span>)&#123;</div><div class="line">			myCamPara = <span class="keyword">new</span> CamParaUtil();</div><div class="line">			<span class="keyword">return</span> myCamPara;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">return</span> myCamPara;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> Size <span class="title">getPropPreviewSize</span><span class="params">(List&lt;Size&gt; list, <span class="keyword">float</span> th, <span class="keyword">int</span> minWidth)</span></span>&#123;</div><div class="line">		Collections.sort(list, sizeComparator);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(Size s:list)&#123;</div><div class="line">			<span class="keyword">if</span>((s.width &gt;= minWidth) &amp;&amp; equalRate(s, th))&#123;</div><div class="line">				Log.i(TAG, <span class="string">"PreviewSize:w = "</span> + s.width + <span class="string">"h = "</span> + s.height);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			i++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(i == list.size())&#123;</div><div class="line">			i = <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> list.get(i);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Size <span class="title">getPropPictureSize</span><span class="params">(List&lt;Size&gt; list, <span class="keyword">float</span> th, <span class="keyword">int</span> minWidth)</span></span>&#123;</div><div class="line">		Collections.sort(list, sizeComparator);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(Size s:list)&#123;</div><div class="line">			<span class="keyword">if</span>((s.width &gt;= minWidth) &amp;&amp; equalRate(s, th))&#123;</div><div class="line">				Log.i(TAG, <span class="string">"PictureSize : w = "</span> + s.width + <span class="string">"h = "</span> + s.height);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			i++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(i == list.size())&#123;</div><div class="line">			i = <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> list.get(i);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equalRate</span><span class="params">(Size s, <span class="keyword">float</span> rate)</span></span>&#123;</div><div class="line">		<span class="keyword">float</span> r = (<span class="keyword">float</span>)(s.width)/(<span class="keyword">float</span>)(s.height);</div><div class="line">		<span class="keyword">if</span>(Math.abs(r - rate) &lt;= <span class="number">0.03</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">CameraSizeComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Size</span>&gt; </span>&#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Size lhs, Size rhs)</span> </span>&#123;</div><div class="line">			<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">			<span class="keyword">if</span>(lhs.width == rhs.width)&#123;</div><div class="line">				<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(lhs.width &gt; rhs.width)&#123;</div><div class="line">				<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * <span class="doctag">@param</span> params</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">printSupportPreviewSize</span><span class="params">(Camera.Parameters params)</span></span>&#123;</div><div class="line">		List&lt;Size&gt; previewSizes = params.getSupportedPreviewSizes();</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; previewSizes.size(); i++)&#123;</div><div class="line">			Size size = previewSizes.get(i);</div><div class="line">			Log.i(TAG, <span class="string">"previewSizes:width = "</span> + size.width + <span class="string">" height = "</span> + size.height);</div><div class="line">		&#125;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * <span class="doctag">@param</span> params</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">printSupportPictureSize</span><span class="params">(Camera.Parameters params)</span></span>&#123;</div><div class="line">		List&lt;Size&gt; pictureSizes = params.getSupportedPictureSizes();</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; pictureSizes.size(); i++)&#123;</div><div class="line">			Size size = pictureSizes.get(i);</div><div class="line">			Log.i(TAG, <span class="string">"pictureSizes:width = "</span> + size.width</div><div class="line">					+ <span class="string">" height = "</span> + size.height);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * <span class="doctag">@param</span> params</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printSupportFocusMode</span><span class="params">(Camera.Parameters params)</span></span>&#123;</div><div class="line">		List&lt;String&gt; focusModes = params.getSupportedFocusModes();</div><div class="line">		<span class="keyword">for</span>(String mode : focusModes)&#123;</div><div class="line">			Log.i(TAG, <span class="string">"focusModes--"</span> + mode);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="6-DisplayUtil类"><a href="#6-DisplayUtil类" class="headerlink" title="6.DisplayUtil类"></a>6.DisplayUtil类</h4><p><strong>用来适配屏幕的大小，适用不同手机的效果</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fa1.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Point;</div><div class="line"><span class="keyword">import</span> android.util.DisplayMetrics;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DisplayUtil</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"DisplayUtil"</span>;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">dip2px</span><span class="params">(Context context, <span class="keyword">float</span> dipValue)</span></span>&#123;</div><div class="line">		<span class="keyword">final</span> <span class="keyword">float</span> scale = context.getResources().getDisplayMetrics().density;                 </div><div class="line">		<span class="keyword">return</span> (<span class="keyword">int</span>)(dipValue * scale + <span class="number">0.5f</span>);         </div><div class="line">	&#125;     </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">px2dip</span><span class="params">(Context context, <span class="keyword">float</span> pxValue)</span></span>&#123;</div><div class="line">		<span class="keyword">final</span> <span class="keyword">float</span> scale = context.getResources().getDisplayMetrics().density;                 </div><div class="line">		<span class="keyword">return</span> (<span class="keyword">int</span>)(pxValue / scale + <span class="number">0.5f</span>);         </div><div class="line">	&#125; </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Point <span class="title">getScreenMetrics</span><span class="params">(Context context)</span></span>&#123;</div><div class="line">		DisplayMetrics dm =context.getResources().getDisplayMetrics();</div><div class="line">		<span class="keyword">int</span> w_screen = dm.widthPixels;</div><div class="line">		<span class="keyword">int</span> h_screen = dm.heightPixels;</div><div class="line">		Log.i(TAG, <span class="string">"Screen---Width = "</span> + w_screen + <span class="string">" Height = "</span> + h_screen + <span class="string">" densityDpi = "</span> + dm.densityDpi);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Point(w_screen, h_screen);</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getScreenRate</span><span class="params">(Context context)</span></span>&#123;</div><div class="line">		Point P = getScreenMetrics(context);</div><div class="line">		<span class="keyword">float</span> H = P.y;</div><div class="line">		<span class="keyword">float</span> W = P.x;</div><div class="line">		<span class="keyword">return</span> (H/W);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="7-MainActivity类"><a href="#7-MainActivity类" class="headerlink" title="7.MainActivity类"></a>7.MainActivity类</h4><p><strong>显示的UI，带有计时器的代码</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fa1;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;</div><div class="line"><span class="keyword">import</span> android.graphics.Point;</div><div class="line"><span class="keyword">import</span> android.hardware.Camera;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.os.Handler;</div><div class="line"><span class="keyword">import</span> android.os.Message;</div><div class="line"><span class="keyword">import</span> android.os.SystemClock;</div><div class="line"><span class="keyword">import</span> android.speech.tts.TextToSpeech;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.webkit.WebChromeClient;</div><div class="line"><span class="keyword">import</span> android.widget.Chronometer;</div><div class="line"><span class="keyword">import</span> android.widget.ImageButton;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.camera.CameraInterface;</div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.camera.CameraSurface;</div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.detect.GoogleFaceDetect;</div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.ui.FaceView;</div><div class="line"><span class="keyword">import</span> com.tangjie.fa1.util.DisplayUtil;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Locale;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MainActivity"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> UPDATE_FACE_RECT = <span class="number">0</span>;<span class="comment">//重新绘制矩形人脸检测框</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CAMERA_HAS_STARTED_PREVIEW = <span class="number">1</span>;<span class="comment">//相机开始预览</span></div><div class="line"></div><div class="line">    <span class="keyword">private</span> Chronometer driverTime;</div><div class="line">    <span class="keyword">private</span> Chronometer leaveTime;</div><div class="line">    <span class="keyword">private</span> TextToSpeech textToSpeech;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isleave=<span class="keyword">false</span>;</div><div class="line"></div><div class="line">    CameraSurface surfaceView = <span class="keyword">null</span>;</div><div class="line">    FaceView faceView;</div><div class="line">    ImageButton switchBtn;<span class="comment">//切换前后摄像头</span></div><div class="line">    <span class="comment">//ImageButton shutterBtn;//切换前后摄像头</span></div><div class="line">    <span class="keyword">float</span> previewRate = -<span class="number">1f</span>;<span class="comment">//屏幕长宽比</span></div><div class="line">    <span class="keyword">private</span> MainHandler mMainHandler = <span class="keyword">null</span>;<span class="comment">//handler消息队列用来处理事件消息</span></div><div class="line">    GoogleFaceDetect googleFaceDetect = <span class="keyword">null</span>;<span class="comment">//人脸检测监听器</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        initUI();</div><div class="line">        initViewParams();</div><div class="line">        mMainHandler=<span class="keyword">new</span> MainHandler();</div><div class="line">        googleFaceDetect=<span class="keyword">new</span> GoogleFaceDetect(mMainHandler);</div><div class="line">        switchBtn.setOnClickListener(<span class="keyword">new</span> BtnListeners());</div><div class="line">        mMainHandler.sendEmptyMessageDelayed(CAMERA_HAS_STARTED_PREVIEW, <span class="number">1500</span>);</div><div class="line">        textToSpeech = <span class="keyword">new</span> TextToSpeech(<span class="keyword">this</span>,<span class="keyword">new</span> TextToSpeechListener());</div><div class="line">        driverTime=(Chronometer)findViewById(R.id.driverTime);</div><div class="line">        leaveTime=(Chronometer)findViewById(R.id.leaveTime);</div><div class="line">        driverTime.setOnChronometerTickListener(<span class="keyword">new</span> Chronometer.OnChronometerTickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChronometerTick</span><span class="params">(Chronometer chronometer)</span> </span>&#123;</div><div class="line">                String currTime = chronometer.getText().toString();</div><div class="line">                <span class="keyword">if</span> (<span class="string">"00:03:00"</span>.equals(currTime)) &#123;</div><div class="line">                    textToSpeech.speak(<span class="string">"您的驾驶时间已经超过了3分钟了，请停止驾驶休息！"</span>, TextToSpeech.QUEUE_FLUSH, <span class="keyword">null</span>);</div><div class="line">                    <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                            System.exit(<span class="number">0</span>);</div><div class="line">                        &#125;</div><div class="line">                    &#125;, <span class="number">4000</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        leaveTime.setOnChronometerTickListener(<span class="keyword">new</span> Chronometer.OnChronometerTickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChronometerTick</span><span class="params">(Chronometer chronometer)</span> </span>&#123;</div><div class="line">                String currTime = chronometer.getText().toString();</div><div class="line">                Log.i(TAG, mMainHandler.obtainMessage().obj+<span class="string">""</span>);</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (<span class="string">"00:00:30"</span>.equals(currTime)) &#123;</div><div class="line">                    textToSpeech.speak(<span class="string">"您的离开时间已经超过了30秒了，需要重新验证人脸！"</span>, TextToSpeech.QUEUE_FLUSH, <span class="keyword">null</span>);</div><div class="line">                    <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                            System.exit(<span class="number">0</span>);</div><div class="line">                        &#125;</div><div class="line">                    &#125;, <span class="number">4000</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        driverTime.setBase(SystemClock.elapsedRealtime());<span class="comment">//计时器清零</span></div><div class="line">        <span class="keyword">int</span> driverhour = (<span class="keyword">int</span>) ((SystemClock.elapsedRealtime() - driverTime.getBase()) / <span class="number">1000</span> / <span class="number">60</span>);</div><div class="line">        driverTime.setFormat(<span class="string">"0"</span> + String.valueOf(driverhour) + <span class="string">":%s"</span>);</div><div class="line">        driverTime.start();</div><div class="line">        leaveTime.setBase(SystemClock.elapsedRealtime());<span class="comment">//计时器清零</span></div><div class="line">        <span class="keyword">int</span> leavehour = (<span class="keyword">int</span>) ((SystemClock.elapsedRealtime() - leaveTime.getBase()) / <span class="number">1000</span> / <span class="number">60</span>);</div><div class="line">        leaveTime.setFormat(<span class="string">"0"</span> + String.valueOf(leavehour) + <span class="string">":%s"</span>);</div><div class="line">        leaveTime.start();</div><div class="line"></div><div class="line"><span class="comment">//        leaveTime.setBase(SystemClock.elapsedRealtime());//计时器清零</span></div><div class="line"><span class="comment">//        int leavehour = (int) ((SystemClock.elapsedRealtime() - driverTime.getBase()) / 1000 / 60);</span></div><div class="line"><span class="comment">//        leaveTime.setFormat("0"+String.valueOf(leavehour) + ":%s");</span></div><div class="line"><span class="comment">//        leaveTime.start();</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initUI</span><span class="params">()</span></span>&#123;</div><div class="line">        surfaceView = (CameraSurface)findViewById(R.id.camera_surfaceview);</div><div class="line">        switchBtn=(ImageButton)findViewById(R.id.btn_switch);</div><div class="line">        faceView = (FaceView)findViewById(R.id.face_view);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initViewParams</span><span class="params">()</span></span>&#123;</div><div class="line">        ViewGroup.LayoutParams params = surfaceView.getLayoutParams();</div><div class="line">        Point p = DisplayUtil.getScreenMetrics(<span class="keyword">this</span>);<span class="comment">//得到屏幕的分辨率(像素)</span></div><div class="line">        params.width = p.x;</div><div class="line">        params.height = p.y;</div><div class="line">        previewRate = DisplayUtil.getScreenRate(<span class="keyword">this</span>);</div><div class="line">        surfaceView.setLayoutParams(params);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">BtnListeners</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">            <span class="keyword">switch</span>(v.getId())&#123;</div><div class="line">                <span class="keyword">case</span> R.id.btn_switch:</div><div class="line">                    switchCamera();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">switchCamera</span><span class="params">()</span></span>&#123;</div><div class="line">        stopGoogleFaceDetect();</div><div class="line">        <span class="keyword">int</span> newId = (CameraInterface.getInstance().getCameraId() + <span class="number">1</span>)%<span class="number">2</span>;</div><div class="line">        CameraInterface.getInstance().doStopCamera();</div><div class="line">        CameraInterface.getInstance().doOpenCamera(newId);</div><div class="line">        CameraInterface.getInstance().doStartPreview(surfaceView.getSurfaceHolder(), previewRate);</div><div class="line">        <span class="comment">//延时人脸检测</span></div><div class="line">        mMainHandler.sendEmptyMessageDelayed(CAMERA_HAS_STARTED_PREVIEW, <span class="number">1500</span>);</div><div class="line">		<span class="comment">//startGoogleFaceDetect();</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//创建一个消息队列用来收发消息</span></div><div class="line">    <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span> <span class="title">MainHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">            <span class="keyword">switch</span> (msg.what)&#123;</div><div class="line">                <span class="keyword">case</span> UPDATE_FACE_RECT:</div><div class="line">                    <span class="keyword">if</span>(msg.obj!=<span class="keyword">null</span>)&#123;</div><div class="line">                        leaveTime.setBase(SystemClock.elapsedRealtime());</div><div class="line">                        Camera.Face[] faces = (Camera.Face[]) msg.obj;</div><div class="line">                        faceView.setFaces(faces);</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> CAMERA_HAS_STARTED_PREVIEW:</div><div class="line">                    startGoogleFaceDetect();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">super</span>.handleMessage(msg);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startGoogleFaceDetect</span><span class="params">()</span></span>&#123;</div><div class="line">        Camera.Parameters params = CameraInterface.getInstance().getCameraParams();</div><div class="line">        <span class="comment">//判断设备是否具备人脸检测功能</span></div><div class="line">        <span class="keyword">if</span>(params.getMaxNumDetectedFaces() &gt; <span class="number">0</span>)&#123;</div><div class="line">            <span class="comment">//如果具备则绘制矩形框</span></div><div class="line">            <span class="keyword">if</span>(faceView != <span class="keyword">null</span>)&#123;</div><div class="line">                <span class="comment">//先清空人脸然后就阻止了绘制</span></div><div class="line">                faceView.clearFaces();</div><div class="line">                <span class="comment">//放view可见</span></div><div class="line">                faceView.setVisibility(View.VISIBLE);</div><div class="line">            &#125;</div><div class="line">            CameraInterface.getInstance().getCamera().setFaceDetectionListener(googleFaceDetect);</div><div class="line">            CameraInterface.getInstance().getCamera().startFaceDetection();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">stopGoogleFaceDetect</span><span class="params">()</span></span>&#123;</div><div class="line">        Camera.Parameters params = CameraInterface.getInstance().getCameraParams();</div><div class="line">        <span class="keyword">if</span>(params.getMaxNumDetectedFaces() &gt; <span class="number">0</span>)&#123;</div><div class="line">            CameraInterface.getInstance().getCamera().setFaceDetectionListener(<span class="keyword">null</span>);</div><div class="line">            CameraInterface.getInstance().getCamera().stopFaceDetection();</div><div class="line">            faceView.clearFaces();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextToSpeechListener</span> <span class="keyword">implements</span> <span class="title">TextToSpeech</span>.<span class="title">OnInitListener</span> </span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInit</span><span class="params">(<span class="keyword">int</span> status)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (status == TextToSpeech.SUCCESS) &#123;</div><div class="line">                <span class="keyword">int</span> result = textToSpeech.setLanguage(Locale.CHINA);</div><div class="line">                <span class="keyword">if</span> (result == TextToSpeech.LANG_MISSING_DATA</div><div class="line">                        || result == TextToSpeech.LANG_NOT_SUPPORTED) &#123;</div><div class="line">                &#125;<span class="keyword">else</span> &#123;</div><div class="line"><span class="comment">//                  textToSpeech.speak("人脸验证成功，进入下个程序", TextToSpeech.QUEUE_FLUSH,</span></div><div class="line"><span class="comment">//                                null);</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="http://ofhbt8uhx.bkt.clouddn.com/Screenshot_2016-10-25-23-49-40_com.tencent.mm.png" alt="截图"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/25/Android手机实现过程中检测人脸/" class="archive-article-date">
+  	<time datetime="2016-10-25T15:56:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-25</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸检测/">人脸检测</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/30/Android-Studio-NDK及so文件开发/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Android Studio NDK及so文件开发
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/23/ArrayList数组实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ArrayList数组实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

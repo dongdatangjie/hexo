@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java排序算法 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.冒泡排序冒泡排序是从头部到尾部进行比较，假设有n个元素，前一个元素和后一个元素比较，大的放在后面，一个轮回之后，最大的元素到了最后一个位置，然后对前面的n-1个元素，继续进行这样的操作，就可以依次得到尾部的最大元素的排列，反过来就是从小到大的排序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java排序算法">
+<meta property="og:url" content="http://yoursite.com/2016/12/19/Java排序算法/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="1.冒泡排序冒泡排序是从头部到尾部进行比较，假设有n个元素，前一个元素和后一个元素比较，大的放在后面，一个轮回之后，最大的元素到了最后一个位置，然后对前面的n-1个元素，继续进行这样的操作，就可以依次得到尾部的最大元素的排列，反过来就是从小到大的排序。">
+<meta property="og:updated_time" content="2017-04-15T07:09:12.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java排序算法">
+<meta name="twitter:description" content="1.冒泡排序冒泡排序是从头部到尾部进行比较，假设有n个元素，前一个元素和后一个元素比较，大的放在后面，一个轮回之后，最大的元素到了最后一个位置，然后对前面的n-1个元素，继续进行这样的操作，就可以依次得到尾部的最大元素的排列，反过来就是从小到大的排序。">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java排序算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><p><strong>冒泡排序是从头部到尾部进行比较，假设有n个元素，前一个元素和后一个元素比较，大的放在后面，一个轮回之后，最大的元素到了最后一个位置，然后对前面的n-1个元素，继续进行这样的操作，就可以依次得到尾部的最大元素的排列，反过来就是从小到大的排序。</strong><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 冒泡排序算法</div><div class="line"> * <span class="doctag">@author</span> tangjie</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSort</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] array;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.array=array;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 小到大</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortAsc</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length-<span class="number">1</span>;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;array.length-<span class="number">1</span>-i;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(array[j]&gt;array[j+<span class="number">1</span>])&#123;</div><div class="line">					<span class="keyword">int</span> temp=array[j];</div><div class="line">					array[j]=array[j+<span class="number">1</span>];</div><div class="line">					array[j+<span class="number">1</span>]=temp;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 大到小</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortDesc</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length-<span class="number">1</span>;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;array.length-i-<span class="number">1</span>;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(array[j]&lt;array[j+<span class="number">1</span>])&#123;</div><div class="line">					<span class="keyword">int</span> temp=array[j];</div><div class="line">					array[j]=array[j+<span class="number">1</span>];</div><div class="line">					array[j+<span class="number">1</span>]=temp;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">			System.out.println(array[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2-快速排序算法"><a href="#2-快速排序算法" class="headerlink" title="2.快速排序算法"></a>2.快速排序算法</h2><p><strong>首先选择一个基准数，下面以第一个数作为基准数，比较这个基准和最后一个元素大小，如果基准大的话就互换位置，然后比较基准和前面第二个元素大小，如果基准小的话，互换位置，之后再和后面倒数第二个元素互换，如果出现前下标和后下标的大小出现变化，则继续比较这个时候基准左右两边的数列，同样使用上面的方法，即迭代上面的函数</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 快速排序</div><div class="line"> * <span class="doctag">@author</span> tangjie</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] array;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> array[])</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.array=array;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span></span>&#123;</div><div class="line">		quickSort(array, <span class="number">0</span>, array.length-<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">			System.out.println(array[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> src[],<span class="keyword">int</span> begin,<span class="keyword">int</span> end)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(begin&lt;end)&#123;</div><div class="line">			<span class="keyword">int</span> key=src[begin];</div><div class="line">			<span class="keyword">int</span> i=begin;</div><div class="line">			<span class="keyword">int</span> j=end;</div><div class="line">			<span class="keyword">while</span>(i&lt;j)&#123;</div><div class="line">				<span class="keyword">while</span>(i&lt;j&amp;&amp;src[j]&gt;key)&#123;</div><div class="line">					j--;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">				<span class="keyword">if</span>(i&lt;j)&#123;</div><div class="line">					src[i]=src[j];</div><div class="line">					i++;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">while</span>(i&lt;j&amp;&amp;src[i]&lt;key)&#123;</div><div class="line">					i++;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span>(i&lt;j)&#123;</div><div class="line">					src[j]=src[i];</div><div class="line">					j--;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			src[i]=key;</div><div class="line">			quickSort(src, begin, i-<span class="number">1</span>);</div><div class="line">			quickSort(src, i+<span class="number">1</span>, end);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3.插入排序"></a>3.插入排序</h2><p><strong>从第一个元素开始取出来和前面的元素对比，如果比前面元素小，就让前面元素后移，然后找到位置插入</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 插入排序</div><div class="line"> * <span class="doctag">@author</span> tangjie</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InsertSort</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] array;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">InsertSort</span><span class="params">(<span class="keyword">int</span> array[])</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.array=array;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(array.length&gt;<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;array.length;i++)&#123;</div><div class="line">				<span class="keyword">int</span> temp=array[i];</div><div class="line">				<span class="keyword">int</span> j=i;</div><div class="line">				<span class="keyword">for</span>(;j&gt;<span class="number">0</span>&amp;&amp;array[j-<span class="number">1</span>]&gt;temp;j--)&#123;</div><div class="line">					array[j]=array[j-<span class="number">1</span>];</div><div class="line">				&#125;</div><div class="line">				array[j]=temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">			System.out.println(array[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4.希尔排序"></a>4.希尔排序</h2><p><strong>把待排序的数列按照一定的增量分割成多个子数列，子数列不是连续的，是通过前面提到的增量，按照一定的相隔的增量进行分割的，对各个子数列进行插入排序，然后减小增量再排序，直到增量为1</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShellSort</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] array;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> array[])</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.array=array;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> temp;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=array.length/<span class="number">2</span>;k&gt;<span class="number">0</span>;k/=<span class="number">2</span>)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=k;i&lt;array.length;i++)&#123;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&gt;=k;j-=k)&#123;</div><div class="line">					<span class="keyword">if</span>(array[j-k]&gt;array[j])&#123;</div><div class="line">						temp=array[j-k];</div><div class="line">						array[j-k]=array[j];</div><div class="line">						array[j]=temp;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">			System.out.println(array[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="5-简单选择排序"><a href="#5-简单选择排序" class="headerlink" title="5.简单选择排序"></a>5.简单选择排序</h2><p><strong>首先找到数列中最小的元素与第一个元素对换，然后找后面n-1个元素的最小值和第二个元素对换，一直这样直到只剩下一个元素</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 简单选择排序</div><div class="line"> * <span class="doctag">@author</span> tangjie</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SelectSort</span> </span>&#123;</div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span>[] array;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SelectSort</span><span class="params">(<span class="keyword">int</span> array[])</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.array=array;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">			<span class="keyword">int</span> minIndex=i;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;array.length;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(array[j]&lt;array[minIndex])&#123;</div><div class="line">					minIndex=j;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(minIndex!=i)&#123;</div><div class="line">				<span class="keyword">int</span> temp=array[minIndex];</div><div class="line">				array[minIndex]=array[i];</div><div class="line">				array[i]=temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">			System.out.println(array[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>下面我们测试下这五种算法的执行效率如何<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">int</span> array[]=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10000</span>];</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">			array[i]=(<span class="keyword">int</span>)Math.round(Math.random()*<span class="number">100000</span>);</div><div class="line">		&#125;</div><div class="line">		BubbleSort b=<span class="keyword">new</span> BubbleSort(array);</div><div class="line">		QuickSort q=<span class="keyword">new</span> QuickSort(array);</div><div class="line">		InsertSort i=<span class="keyword">new</span> InsertSort(array);</div><div class="line">		ShellSort sh=<span class="keyword">new</span> ShellSort(array);</div><div class="line">		SelectSort se=<span class="keyword">new</span> SelectSort(array);</div><div class="line">	</div><div class="line">		<span class="keyword">long</span> Bubblestart=System.currentTimeMillis();</div><div class="line">		b.sortDesc();</div><div class="line">		<span class="keyword">long</span> Bubbleend=System.currentTimeMillis();</div><div class="line">		System.out.println(<span class="string">"Bubble:"</span>+(Bubbleend-Bubblestart));</div><div class="line">		</div><div class="line">		<span class="keyword">long</span> Quickstart=System.currentTimeMillis();</div><div class="line">		q.sort();</div><div class="line">		<span class="keyword">long</span> Quickend=System.currentTimeMillis();</div><div class="line">		System.out.println(<span class="string">"Quick:"</span>+(Quickend-Quickstart));</div><div class="line">		</div><div class="line">		<span class="keyword">long</span> Insertstart=System.currentTimeMillis();</div><div class="line">		i.sort();</div><div class="line">		<span class="keyword">long</span> Insertend=System.currentTimeMillis();</div><div class="line">		System.out.println(<span class="string">"Insert:"</span>+(Insertend-Insertstart));</div><div class="line">		</div><div class="line">		<span class="keyword">long</span> Shellstart=System.currentTimeMillis();</div><div class="line">		sh.sort();</div><div class="line">		<span class="keyword">long</span> Shellend=System.currentTimeMillis();</div><div class="line">		System.out.println(<span class="string">"Shell:"</span>+(Shellend-Shellstart));</div><div class="line">		</div><div class="line">		<span class="keyword">long</span> Selectstart=System.currentTimeMillis();</div><div class="line">		se.sort();</div><div class="line">		<span class="keyword">long</span> Selectend=System.currentTimeMillis();</div><div class="line">		System.out.println(<span class="string">"Select:"</span>+(Selectend-Selectstart));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Bubble:<span class="number">220</span></div><div class="line">Quick:<span class="number">109</span></div><div class="line">Insert:<span class="number">1</span></div><div class="line">Shell:<span class="number">196</span></div><div class="line">Select:<span class="number">30</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/19/Java排序算法/" class="archive-article-date">
+  	<time datetime="2016-12-19T14:10:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/02/13/SQL-Server-2008-R2如何开启数据库的远程连接/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SQL Server 2008 R2如何开启数据库的远程连接
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/08/Java链表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java链表</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

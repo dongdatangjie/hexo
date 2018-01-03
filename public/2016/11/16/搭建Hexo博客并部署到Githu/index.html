@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>搭建Hexo博客并部署到Githu | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#搭建Hexo博客并部署到Githu
+
+大家也搭建过博客，很多时候，按着教程来做就可以了，但是我当时为了搭建Hexo博客并部署到Github，走了不少弯路。现在终于搭建出来了，为了帮助大家，我决定写一篇“史上最详细“截图”搭建Hexo博客并部署到Github”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建Hexo博客并部署到Githu">
+<meta property="og:url" content="http://yoursite.com/2016/11/16/搭建Hexo博客并部署到Githu/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="#搭建Hexo博客并部署到Githu
+
+大家也搭建过博客，很多时候，按着教程来做就可以了，但是我当时为了搭建Hexo博客并部署到Github，走了不少弯路。现在终于搭建出来了，为了帮助大家，我决定写一篇“史上最详细“截图”搭建Hexo博客并部署到Github”。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1060239-61093512a29e9578.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://raw.githubusercontent.com/dongdatangjie/dongdatangjie.github.io/master/css/images/banner.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1060239-6c0530dba11443fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1060239-f223b2c844606bc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://h.hiphotos.baidu.com/exp/w=480/sign=4f13cb0357e736d158138d00ab514ffc/9d82d158ccbf6c817717a937bf3eb13532fa40c9.jpg">
+<meta property="og:image" content="http://g.hiphotos.baidu.com/exp/w=480/sign=b93880a1261f95caa6f593bef9167fc5/0824ab18972bd4071bc8562278899e510eb309e5.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1060239-29b6bf4ce3326e7c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1060239-455bfc8e1484c71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1060239-798aed85b58215a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-04-15T07:10:13.749Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建Hexo博客并部署到Githu">
+<meta name="twitter:description" content="#搭建Hexo博客并部署到Githu
+
+大家也搭建过博客，很多时候，按着教程来做就可以了，但是我当时为了搭建Hexo博客并部署到Github，走了不少弯路。现在终于搭建出来了，为了帮助大家，我决定写一篇“史上最详细“截图”搭建Hexo博客并部署到Github”。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1060239-61093512a29e9578.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-搭建Hexo博客并部署到Githu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      搭建Hexo博客并部署到Githu
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#搭建Hexo博客并部署到Githu</p>
+<hr>
+<p>大家也搭建过博客，很多时候，按着教程来做就可以了，但是我当时为了搭建Hexo博客并部署到Github，走了不少弯路。现在终于搭建出来了，为了帮助大家，我决定写一篇“史上最详细“截图”搭建Hexo博客并部署到Github”。<br><img src="http://upload-images.jianshu.io/upload_images/1060239-61093512a29e9578.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Hexo"><br><a id="more"></a><em>*</em></p>
+<h3 id="工具-原料"><a href="#工具-原料" class="headerlink" title="工具/原料"></a>工具/原料</h3><ul>
+<li>windows</li>
+<li>GIt</li>
+<li>Node.js</li>
+</ul>
+<hr>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h3 id="初始化Hexo的目录"><a href="#初始化Hexo的目录" class="headerlink" title="初始化Hexo的目录"></a>初始化Hexo的目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
+<h3 id="在hexo目录下执行-安装依赖项"><a href="#在hexo目录下执行-安装依赖项" class="headerlink" title="在hexo目录下执行(安装依赖项)"></a>在hexo目录下执行(安装依赖项)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<h3 id="输入下面命令后，浏览器输入localhost-4000-本地查看"><a href="#输入下面命令后，浏览器输入localhost-4000-本地查看" class="headerlink" title="输入下面命令后，浏览器输入localhost:4000/ 本地查看"></a>输入下面命令后，浏览器输入localhost:4000/ 本地查看</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/dongdatangjie/dongdatangjie.github.io/master/css/images/banner.jpg" alt=""></p>
+<h3 id="创建GitHub账号"><a href="#创建GitHub账号" class="headerlink" title="创建GitHub账号"></a>创建GitHub账号</h3><p>不做讲解</p>
+<h3 id="创建Repository"><a href="#创建Repository" class="headerlink" title="创建Repository"></a>创建Repository</h3><p>登陆Github账号后，点击右上角的“+”号按钮，选择“New repository”<br><img src="http://upload-images.jianshu.io/upload_images/1060239-6c0530dba11443fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dongdatangjie"><br>在Create a new repository界面填写格式如下图所示: 用户名.github.io<br>填写完成点Create repository创建完成<br><img src="http://upload-images.jianshu.io/upload_images/1060239-f223b2c844606bc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>先点击HTTPS，然后复制里面的地址。然后编辑_config.yml文件（在d:\Hexo下）。<br><img src="http://h.hiphotos.baidu.com/exp/w=480/sign=4f13cb0357e736d158138d00ab514ffc/9d82d158ccbf6c817717a937bf3eb13532fa40c9.jpg" alt=""></p>
+<p>修改文件里面的deploy。其中的repository就改成你刚刚复制的地址。保存这个文件.<br><img src="http://g.hiphotos.baidu.com/exp/w=480/sign=b93880a1261f95caa6f593bef9167fc5/0824ab18972bd4071bc8562278899e510eb309e5.jpg" alt=""></p>
+<h3 id="生成SSH-Keys"><a href="#生成SSH-Keys" class="headerlink" title="生成SSH Keys"></a>生成SSH Keys</h3><p>使用ssh-keygen命令生成密钥对</p>
+<p>ssh-keygen -t rsa -C”这里是你申请Github账号时的邮箱”</p>
+<p>然后系统会要你输入密码：（我们输入的密码会在你提交项目的时候使用）</p>
+<p>Enter passphrase (emptyforno passphrase):&lt;输入加密串&gt;Enter same passphrase again:&lt;再次输入加密串&gt;</p>
+<p>（终端提示生成的文件路径）找到你生成的密钥找到id_rsa.pub用终端进入编辑，复制密钥。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1060239-29b6bf4ce3326e7c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="添加SSH-Key"><a href="#添加SSH-Key" class="headerlink" title="添加SSH Key"></a>添加SSH Key</h3><p>通过命令复制SSH Key内容到系统剪贴板</p>
+<p>pbcopy &lt; ~/.ssh/id_rsa.pub</p>
+<p>登陆Github,点击右侧用户按钮，选择Settings</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1060239-455bfc8e1484c71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>点击 Add SSH key 按钮，将复制的密钥粘贴到 Key 栏</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1060239-798aed85b58215a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>ssh-T git@github.com</p>
+<p>执行结果</p>
+<p>Permanently addedtheRSA host keyforIP address ‘192.30.252.130’tothelistofknown hosts.Are you sure you wanttocontinueconnecting (yes/no)?&lt;输入yes&gt;Hi username! You’ve successfully authenticated,butGitHubdoesnot</p>
+<p>现在你已经可以通过SSH链接到Github了</p>
+<p>如果有问题，请再配置。参考网站</p>
+<p>生成SSH Keys</p>
+<p>Generating SSH Keys</p>
+<p>Error: Permission denied (publickey)错误</p>
+<p>Error: Permission denied (publickey)</p>
+<p>设置你的用户名和密码：</p>
+<p>Git会根据用户的名字和邮箱来记录提交，GitHub也是用这些信息来做权限的处理。</p>
+<p>git config –global user.name”这里是你申请Github账号时的name”git config –global user.email”这里是你申请Github账号时的邮箱”</p>
+<p>###部署<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
+<p>可能出现错误：</p>
+<blockquote>
+<p>搭建 hexo，在执行 hexo deploy 后,出现 error deployer not found:github 的错误</p>
+</blockquote>
+<p>解决方法：</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save 改了之后执行，然后再部署试试</p>
+</blockquote>
+<p>解决完成之后出现部署完成我们的博客啦！<a href="https://dongdatangjie.github.io/" target="_blank" rel="external">博客地址</a></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/16/搭建Hexo博客并部署到Githu/" class="archive-article-date">
+  	<time datetime="2016-11-16T03:23:14.118Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/16/Java-IO流/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java IO流
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/31/散列表的j实现原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">散列表的实现原理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="搭建Hexo博客并部署到Githu" data-title="搭建Hexo博客并部署到Githu" data-url="http://yoursite.com/2016/11/16/搭建Hexo博客并部署到Githu/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 15px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

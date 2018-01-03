@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java IO流 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.架构1.1 常用字节流字符流
+1.2 IO流的分类
+1.根据处理的数据类型分为：字节流和字符流
+2.根据流向不同分为输出流和输入流1.3 字符流的由来因为文件编码不同而出现了对字符高效操作的字符流对象，其实就是基于字节流读取字节时查看码表1.4 字节流和字符流的区别
+1.字节流读取的时候，读到一个字节就返回一个字节
+2.字符流读取的时候，适用字节流读取一个或多个字节时，先查看码表，将查到的字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java IO流">
+<meta property="og:url" content="http://yoursite.com/2016/11/16/Java-IO流/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="1.架构1.1 常用字节流字符流
+1.2 IO流的分类
+1.根据处理的数据类型分为：字节流和字符流
+2.根据流向不同分为输出流和输入流1.3 字符流的由来因为文件编码不同而出现了对字符高效操作的字符流对象，其实就是基于字节流读取字节时查看码表1.4 字节流和字符流的区别
+1.字节流读取的时候，读到一个字节就返回一个字节
+2.字符流读取的时候，适用字节流读取一个或多个字节时，先查看码表，将查到的字">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/IO.png">
+<meta property="og:updated_time" content="2017-04-15T07:06:34.429Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java IO流">
+<meta name="twitter:description" content="1.架构1.1 常用字节流字符流
+1.2 IO流的分类
+1.根据处理的数据类型分为：字节流和字符流
+2.根据流向不同分为输出流和输入流1.3 字符流的由来因为文件编码不同而出现了对字符高效操作的字符流对象，其实就是基于字节流读取字节时查看码表1.4 字节流和字符流的区别
+1.字节流读取的时候，读到一个字节就返回一个字节
+2.字符流读取的时候，适用字节流读取一个或多个字节时，先查看码表，将查到的字">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/IO.png">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java-IO流" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java IO流
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-架构"><a href="#1-架构" class="headerlink" title="1.架构"></a>1.架构</h2><h3 id="1-1-常用字节流字符流"><a href="#1-1-常用字节流字符流" class="headerlink" title="1.1 常用字节流字符流"></a>1.1 常用字节流字符流</h3><p><img src="http://ofhbt8uhx.bkt.clouddn.com/IO.png" alt=""></p>
+<h3 id="1-2-IO流的分类"><a href="#1-2-IO流的分类" class="headerlink" title="1.2 IO流的分类"></a>1.2 IO流的分类</h3><ul>
+<li><strong>1.根据处理的数据类型分为：字节流和字符流</strong></li>
+<li><strong>2.根据流向不同分为输出流和输入流</strong><h3 id="1-3-字符流的由来"><a href="#1-3-字符流的由来" class="headerlink" title="1.3 字符流的由来"></a>1.3 字符流的由来</h3><strong>因为文件编码不同而出现了对字符高效操作的字符流对象，其实就是基于字节流读取字节时查看码表</strong><h3 id="1-4-字节流和字符流的区别"><a href="#1-4-字节流和字符流的区别" class="headerlink" title="1.4 字节流和字符流的区别"></a>1.4 字节流和字符流的区别</h3></li>
+<li><strong>1.字节流读取的时候，读到一个字节就返回一个字节</strong></li>
+<li><strong>2.字符流读取的时候，适用字节流读取一个或多个字节时，先查看码表，将查到的字符返回</strong><a id="more"></a>
+<h2 id="2-FileReader"><a href="#2-FileReader" class="headerlink" title="2.FileReader"></a>2.FileReader</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 读取文件数据，并且一个字符一个字符打印出来</div><div class="line"> * <span class="doctag">@author</span> Administrator</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		StringBuffer sb=<span class="keyword">new</span> StringBuffer();</div><div class="line">		FileReader fr = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">int</span> num;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			fr=<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>));</div><div class="line">			<span class="keyword">while</span>((num=fr.read())!=-<span class="number">1</span>)&#123;</div><div class="line">				sb.append((<span class="keyword">char</span>)num);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				fr.close();</div><div class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">				<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		System.out.println(sb.toString());</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意：这里的文件路径如果使用反斜杠，需要使用双反斜杠”\“，但是这一个字符一个字符的读取效率很低，我们可以创建一个1k的数组，让他读完再打印出来字符串。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 读取文件数据，并且一个字符一个字符打印出来</div><div class="line"> * <span class="doctag">@author</span> Administrator</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		StringBuffer sb=<span class="keyword">new</span> StringBuffer();</div><div class="line">		FileReader fr = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">char</span>[] ch=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];</div><div class="line">		<span class="keyword">int</span> num;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			fr=<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>));</div><div class="line">			<span class="keyword">while</span>((num=fr.read(ch))!=-<span class="number">1</span>)&#123;</div><div class="line">				sb.append(<span class="keyword">new</span> String(ch,<span class="number">0</span>,num));</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				fr.close();</div><div class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">				<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		System.out.println(sb.toString());</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>结果</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">锘縶<span class="string">"name"</span>:<span class="string">"tangjie"</span>,</div><div class="line">	<span class="string">"age"</span>:<span class="number">25</span>,</div><div class="line">	<span class="string">"job"</span>:<span class="string">"student"</span>,</div><div class="line">	<span class="string">"hobby"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"basketball"</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"volleyball"</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"pingpang"</span>&#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>可以看出这里出现了乱码，猜测可能是在读取字符的时候没有使用字节的转换流进行转码，下面我们使用转换流转码之后再打印出字符串</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 读取文件数据，并且一个字符一个字符打印出来</div><div class="line"> * <span class="doctag">@author</span> Administrator</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		StringBuffer sb=<span class="keyword">new</span> StringBuffer();</div><div class="line">		InputStreamReader in = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">char</span>[] ch=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];</div><div class="line">		<span class="keyword">int</span> num;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			in=<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>)),<span class="string">"UTF-8"</span>);</div><div class="line">			<span class="keyword">while</span>((num=in.read(ch))!=-<span class="number">1</span>)&#123;</div><div class="line">				sb.append(<span class="keyword">new</span> String(ch,<span class="number">0</span>,num));</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				in.close();</div><div class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">				<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		System.out.println(sb.toString());</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>结果</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">?&#123;<span class="string">"name"</span>:<span class="string">"tangjie"</span>,</div><div class="line">	<span class="string">"age"</span>:<span class="number">25</span>,</div><div class="line">	<span class="string">"job"</span>:<span class="string">"student"</span>,</div><div class="line">	<span class="string">"hobby"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"basketball"</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"volleyball"</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"pingpang"</span>&#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>我们可以看到乱码没有了，但是json文件前面出现了一个问号，当时我一脸懵逼，于是我去找度娘问了一下，然后我发现大牛们是这么解释的！</strong><br>上网找了一下，找到几篇比较好文章，这里就不转载啦把链接搞过来。<br><a href="http://blog.csdn.net/fancyaphy/article/details/619972" target="_blank" rel="external">文件编码问题集锦</a><br><a href="http://www.iteye.com/topic/31860" target="_blank" rel="external">字符串编码(charset,encoding，decoding)问题原理</a><br><a href="http://www.iteye.com/topic/311583" target="_blank" rel="external">Java编码浅析</a><br><a href="http://www.iteye.com/topic/108540" target="_blank" rel="external">定文件编码或文本流编码的方法</a><br>上面的几篇文章可以看成认识编码问题的“从入门到精通” </p>
+<blockquote>
+<p>于是得出结论<br>Java在读文件时没能正确处理UTF-8文件的BOM编码，将前3个字节当作文本内容来处理了。<br>使用链接中提供的代码可以解决碰到的乱码问题：<br><a href="http://koti.mbnet.fi/akini/java/unicodereader/" target="_blank" rel="external">http://koti.mbnet.fi/akini/java/unicodereader/</a> </p>
+</blockquote>
+<p><strong>于是在代码中加入对UnicodeReader工具类的使用</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> version: 1.1 / 2007-01-25</div><div class="line"> - changed BOM recognition ordering (longer boms first)</div><div class="line"></div><div class="line"> Original pseudocode   : Thomas Weidenfeller</div><div class="line"> Implementation tweaked: Aki Nieminen</div><div class="line"></div><div class="line"> http://www.unicode.org/unicode/faq/utf_bom.html</div><div class="line"> BOMs:</div><div class="line">   00 00 FE FF    = UTF-32, big-endian</div><div class="line">   FF FE 00 00    = UTF-32, little-endian</div><div class="line">   EF BB BF       = UTF-8,</div><div class="line">   FE FF          = UTF-16, big-endian</div><div class="line">   FF FE          = UTF-16, little-endian</div><div class="line"></div><div class="line"> Win2k Notepad:</div><div class="line">   Unicode format = UTF-16LE</div><div class="line">***/</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Generic unicode textreader, which will use BOM mark</div><div class="line"> * to identify the encoding to be used. If BOM is not found</div><div class="line"> * then use a given default or system encoding.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnicodeReader</span> <span class="keyword">extends</span> <span class="title">Reader</span> </span>&#123;</div><div class="line">   PushbackInputStream internalIn;</div><div class="line">   InputStreamReader   internalIn2 = <span class="keyword">null</span>;</div><div class="line">   String              defaultEnc;</div><div class="line"></div><div class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BOM_SIZE = <span class="number">4</span>;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    *</div><div class="line">    * <span class="doctag">@param</span> in  inputstream to be read</div><div class="line">    * <span class="doctag">@param</span> defaultEnc default encoding if stream does not have </div><div class="line">    *                   BOM marker. Give NULL to use system-level default.</div><div class="line">    */</div><div class="line">   UnicodeReader(InputStream in, String defaultEnc) &#123;</div><div class="line">      internalIn = <span class="keyword">new</span> PushbackInputStream(in, BOM_SIZE);</div><div class="line">      <span class="keyword">this</span>.defaultEnc = defaultEnc;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getDefaultEncoding</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> defaultEnc;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * Get stream encoding or NULL if stream is uninitialized.</div><div class="line">    * Call init() or read() method to initialize it.</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getEncoding</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (internalIn2 == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">      <span class="keyword">return</span> internalIn2.getEncoding();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * Read-ahead four bytes and check for BOM marks. Extra bytes are</div><div class="line">    * unread back to the stream, only BOM bytes are skipped.</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">      <span class="keyword">if</span> (internalIn2 != <span class="keyword">null</span>) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">      String encoding;</div><div class="line">      <span class="keyword">byte</span> bom[] = <span class="keyword">new</span> <span class="keyword">byte</span>[BOM_SIZE];</div><div class="line">      <span class="keyword">int</span> n, unread;</div><div class="line">      n = internalIn.read(bom, <span class="number">0</span>, bom.length);</div><div class="line"></div><div class="line">      <span class="keyword">if</span> ( (bom[<span class="number">0</span>] == (<span class="keyword">byte</span>)<span class="number">0x00</span>) &amp;&amp; (bom[<span class="number">1</span>] == (<span class="keyword">byte</span>)<span class="number">0x00</span>) &amp;&amp;</div><div class="line">                  (bom[<span class="number">2</span>] == (<span class="keyword">byte</span>)<span class="number">0xFE</span>) &amp;&amp; (bom[<span class="number">3</span>] == (<span class="keyword">byte</span>)<span class="number">0xFF</span>) ) &#123;</div><div class="line">         encoding = <span class="string">"UTF-32BE"</span>;</div><div class="line">         unread = n - <span class="number">4</span>;</div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( (bom[<span class="number">0</span>] == (<span class="keyword">byte</span>)<span class="number">0xFF</span>) &amp;&amp; (bom[<span class="number">1</span>] == (<span class="keyword">byte</span>)<span class="number">0xFE</span>) &amp;&amp;</div><div class="line">                  (bom[<span class="number">2</span>] == (<span class="keyword">byte</span>)<span class="number">0x00</span>) &amp;&amp; (bom[<span class="number">3</span>] == (<span class="keyword">byte</span>)<span class="number">0x00</span>) ) &#123;</div><div class="line">         encoding = <span class="string">"UTF-32LE"</span>;</div><div class="line">         unread = n - <span class="number">4</span>;</div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (  (bom[<span class="number">0</span>] == (<span class="keyword">byte</span>)<span class="number">0xEF</span>) &amp;&amp; (bom[<span class="number">1</span>] == (<span class="keyword">byte</span>)<span class="number">0xBB</span>) &amp;&amp;</div><div class="line">            (bom[<span class="number">2</span>] == (<span class="keyword">byte</span>)<span class="number">0xBF</span>) ) &#123;</div><div class="line">         encoding = <span class="string">"UTF-8"</span>;</div><div class="line">         unread = n - <span class="number">3</span>;</div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( (bom[<span class="number">0</span>] == (<span class="keyword">byte</span>)<span class="number">0xFE</span>) &amp;&amp; (bom[<span class="number">1</span>] == (<span class="keyword">byte</span>)<span class="number">0xFF</span>) ) &#123;</div><div class="line">         encoding = <span class="string">"UTF-16BE"</span>;</div><div class="line">         unread = n - <span class="number">2</span>;</div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( (bom[<span class="number">0</span>] == (<span class="keyword">byte</span>)<span class="number">0xFF</span>) &amp;&amp; (bom[<span class="number">1</span>] == (<span class="keyword">byte</span>)<span class="number">0xFE</span>) ) &#123;</div><div class="line">         encoding = <span class="string">"UTF-16LE"</span>;</div><div class="line">         unread = n - <span class="number">2</span>;</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">         <span class="comment">// Unicode BOM mark not found, unread all bytes</span></div><div class="line">         encoding = defaultEnc;</div><div class="line">         unread = n;</div><div class="line">      &#125;    </div><div class="line">      <span class="comment">//System.out.println("read=" + n + ", unread=" + unread);</span></div><div class="line"></div><div class="line">      <span class="keyword">if</span> (unread &gt; <span class="number">0</span>) internalIn.unread(bom, (n - unread), unread);</div><div class="line"></div><div class="line">      <span class="comment">// Use given encoding</span></div><div class="line">      <span class="keyword">if</span> (encoding == <span class="keyword">null</span>) &#123;</div><div class="line">         internalIn2 = <span class="keyword">new</span> InputStreamReader(internalIn);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">         internalIn2 = <span class="keyword">new</span> InputStreamReader(internalIn, encoding);</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">      init();</div><div class="line">      internalIn2.close();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">char</span>[] cbuf, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">      init();</div><div class="line">      <span class="keyword">return</span> internalIn2.read(cbuf, off, len);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>下面是加入编码之后的字符读取代码</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.nio.charset.Charset;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 读取文件数据，并且一个字符一个字符打印出来</div><div class="line"> * <span class="doctag">@author</span> Administrator</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		StringBuffer sb=<span class="keyword">new</span> StringBuffer();</div><div class="line">		BufferedReader in = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">char</span>[] ch=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];</div><div class="line">		<span class="keyword">int</span> num;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			in=<span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> UnicodeReader(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>)),Charset.defaultCharset().name()));</div><div class="line">			<span class="keyword">while</span>((num=in.read(ch))!=-<span class="number">1</span>)&#123;</div><div class="line">				sb.append(<span class="keyword">new</span> String(ch,<span class="number">0</span>,num));</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				in.close();</div><div class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">				<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		System.out.println(sb.toString());</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>结果</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"name"</span>:<span class="string">"tangjie"</span>,</div><div class="line">	<span class="string">"age"</span>:<span class="number">25</span>,</div><div class="line">	<span class="string">"job"</span>:<span class="string">"student"</span>,</div><div class="line">	<span class="string">"hobby"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"basketball"</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"volleyball"</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"pingpang"</span>&#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-字符流的读写"><a href="#3-字符流的读写" class="headerlink" title="3.字符流的读写"></a>3.字符流的读写</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.FileWriter;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test6</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">char</span>[] ch=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">int</span> num;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			FileReader fr=<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>));</div><div class="line">			FileWriter fw=<span class="keyword">new</span> FileWriter(<span class="keyword">new</span> File(<span class="string">"D:/data2.json"</span>));</div><div class="line">			<span class="keyword">while</span>((num=fr.read(ch))!=-<span class="number">1</span>)&#123;</div><div class="line">				fw.write(ch);</div><div class="line">			&#125;</div><div class="line">			fr.close();</div><div class="line">			fw.close();</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.BufferedWriter;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.FileWriter;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test6</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">char</span>[] ch=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">int</span> num;</div><div class="line">		BufferedReader br;</div><div class="line">		BufferedWriter bw;</div><div class="line">		<span class="keyword">int</span> s;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			 br=<span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>)));</div><div class="line">			bw=<span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(<span class="keyword">new</span> File(<span class="string">"D:/data2.json"</span>)));</div><div class="line">			<span class="keyword">while</span>((s=br.read(ch))!=-<span class="number">1</span>)&#123;</div><div class="line">				bw.write(ch);</div><div class="line">			&#125;</div><div class="line">			br.close();</div><div class="line">			bw.close();</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>通常，Reader 所作的每个读取请求都会导致对基础字符或字节流进行相应的读取请求。因此，建议用 BufferedReader 包装所有其 read() 操作可能开销很高的 Reader（如 FileReader 和 InputStreamReader）。例如，</strong></p>
+<pre><code>BufferedReader in = new BufferedReader(new FileReader(&quot;foo.in&quot;));
+</code></pre><p><strong>将缓冲指定文件的输入。如果没有缓冲，则每次调用 read() 或 readLine() 都会导致从文件中读取字节，并将其转换为字符后返回，而这是极其低效的.</strong></p>
+<h2 id="4-字节流的读写"><a href="#4-字节流的读写" class="headerlink" title="4.字节流的读写"></a>4.字节流的读写</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test7</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">byte</span>[] b=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line">		<span class="keyword">int</span> len;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			FileInputStream in=<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>));</div><div class="line">			FileOutputStream out=<span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"D:/data2.json"</span>));</div><div class="line">			<span class="keyword">while</span>((len=in.read(b))!=-<span class="number">1</span>)&#123;</div><div class="line">				out.write(b, <span class="number">0</span>, len);</div><div class="line">			&#125;</div><div class="line">			in.close();</div><div class="line">			out.close();</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.BufferedInputStream;</div><div class="line"><span class="keyword">import</span> java.io.BufferedOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test7</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">byte</span>[] b=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line">		<span class="keyword">int</span> len;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			BufferedInputStream bi=<span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"D:/data.json"</span>)));</div><div class="line">			BufferedOutputStream bo=<span class="keyword">new</span> BufferedOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"D:/data2.json"</span>)));</div><div class="line">			<span class="keyword">while</span>((len=bi.read(b))!=-<span class="number">1</span>)&#123;</div><div class="line">				bo.write(b, <span class="number">0</span>, len);</div><div class="line">			&#125;</div><div class="line">			bi.close();</div><div class="line">			bo.close();</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-字节流转换为字符流"><a href="#5-字节流转换为字符流" class="headerlink" title="5.字节流转换为字符流"></a>5.字节流转换为字符流</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            BufferedReader br=<span class="keyword">new</span> BufferedReader(</div><div class="line">                    <span class="keyword">new</span> InputStreamReader(</div><div class="line">                            <span class="keyword">new</span> FileInputStream(<span class="string">"F:\\t.txt"</span>)));</div><div class="line">            BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(</div><div class="line">                    <span class="keyword">new</span> OutputStreamWriter(</div><div class="line">                            <span class="keyword">new</span> FileOutputStream(<span class="string">"F:\\d.txt"</span>)));</div><div class="line">            String s;</div><div class="line">            StringBuilder sb=<span class="keyword">new</span> StringBuilder();</div><div class="line">            <span class="keyword">while</span>((s=br.readLine())!=<span class="keyword">null</span>)&#123;</div><div class="line">                System.out.println(s);</div><div class="line">                bw.write(s);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/16/Java-IO流/" class="archive-article-date">
+  	<time datetime="2016-11-16T03:24:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/04/java集合框架/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java集合框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/16/搭建Hexo博客并部署到Github/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建Hexo博客并部署到Githu</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

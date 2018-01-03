@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Django搭建博客系统(一) | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 - 搭建开发环境1.1 - 开发环境
+win10 64位
+python3.6
+Django1.10.61.2 - Pycharm创建工程（不详述）下面是生成的目录结构：使用快捷键Ctrl + Alt + /运行runserver命令开启本地服务器，然后 输入命令runserver 5000开启5000端口，然后打开浏览器看到Django的欢迎界面！Django默认的语言是英语，我们使用中文需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django搭建博客系统(一)">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/Django搭建博客系统-一/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="1 - 搭建开发环境1.1 - 开发环境
+win10 64位
+python3.6
+Django1.10.61.2 - Pycharm创建工程（不详述）下面是生成的目录结构：使用快捷键Ctrl + Alt + /运行runserver命令开启本地服务器，然后 输入命令runserver 5000开启5000端口，然后打开浏览器看到Django的欢迎界面！Django默认的语言是英语，我们使用中文需">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/3.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/4.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/5.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%284%29.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/6.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/8.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/9.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/10.PNG">
+<meta property="og:updated_time" content="2017-08-10T08:58:00.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django搭建博客系统(一)">
+<meta name="twitter:description" content="1 - 搭建开发环境1.1 - 开发环境
+win10 64位
+python3.6
+Django1.10.61.2 - Pycharm创建工程（不详述）下面是生成的目录结构：使用快捷键Ctrl + Alt + /运行runserver命令开启本地服务器，然后 输入命令runserver 5000开启5000端口，然后打开浏览器看到Django的欢迎界面！Django默认的语言是英语，我们使用中文需">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/3.PNG">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Django搭建博客系统-一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Django搭建博客系统(一)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-搭建开发环境"><a href="#1-搭建开发环境" class="headerlink" title="1 - 搭建开发环境"></a>1 - 搭建开发环境</h2><h3 id="1-1-开发环境"><a href="#1-1-开发环境" class="headerlink" title="1.1 - 开发环境"></a>1.1 - 开发环境</h3><ul>
+<li><strong>win10 64位</strong></li>
+<li><strong>python3.6</strong></li>
+<li><strong>Django1.10.6</strong><h3 id="1-2-Pycharm创建工程（不详述）"><a href="#1-2-Pycharm创建工程（不详述）" class="headerlink" title="1.2 - Pycharm创建工程（不详述）"></a>1.2 - Pycharm创建工程（不详述）</h3><strong>下面是生成的目录结构：</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/3.PNG" alt=""><br><strong>使用快捷键<code>Ctrl + Alt + /</code>运行runserver命令开启本地服务器，然后 输入命令<code>runserver 5000</code>开启5000端口，然后打开浏览器看到Django的欢迎界面！</strong><br><strong>Django默认的语言是英语，我们使用中文需要在<code>settings.py</code>中修改：</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LANGUAGE_CODE = &apos;zh-hans&apos;</div><div class="line">TIME_ZONE = &apos;Asia/Shanghai&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>再次运行开发服务器，并在浏览器打开 localhost:5000/，可以看到 Django 已经支持中文了。</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/4.PNG" alt=""></p>
+<h2 id="2-建立博客应用"><a href="#2-建立博客应用" class="headerlink" title="2 - 建立博客应用"></a>2 - 建立博客应用</h2><p><strong>在pycharm的工具栏找到 Tools，点击之后会有“Run manage.py task”选项，点击它之后，在pycharm下面会出现一个输入界面，在里面输入“startapp appName(你的App名称)”，回车之后就可以在工程下面看到你新建的App了。</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/5.PNG" alt=""><br><strong>不同名称的文件用于存放特定功能的代码，这些将会在后面详细介绍。总之这个应用的文件夹结构 Django 已经为我们建立好了，但它还只是包含各种文件的一个文件夹而已，Django 目前还不知道这是一个应用。我们得告诉 Django 这是我们建立的应用，专业一点说就是在 Django 的配置文件中注册这个应用。</strong><br><strong>打开 HexoBlogDjango\ 目录下的 settings.py 文件，看名字就知道 settings.py 是一个设置文件（setting 意为设置），找到 INSTALLED_APPS 设置项，将 blog 应用添加进去。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = [</div><div class="line">    &apos;django.contrib.admin&apos;,</div><div class="line">    &apos;django.contrib.auth&apos;,</div><div class="line">    &apos;django.contrib.contenttypes&apos;,</div><div class="line">    &apos;django.contrib.sessions&apos;,</div><div class="line">    &apos;django.contrib.messages&apos;,</div><div class="line">    &apos;django.contrib.staticfiles&apos;,</div><div class="line">    &apos;Hexo&apos;,#注册Hexo应用</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="3-创建-Django-博客的数据库模型"><a href="#3-创建-Django-博客的数据库模型" class="headerlink" title="3 - 创建 Django 博客的数据库模型"></a>3 - 创建 Django 博客的数据库模型</h2><h3 id="3-1-设计博客的数据库表结构"><a href="#3-1-设计博客的数据库表结构" class="headerlink" title="3.1 - 设计博客的数据库表结构"></a>3.1 - 设计博客的数据库表结构</h3><h4 id="Post表（文章表）"><a href="#Post表（文章表）" class="headerlink" title="Post表（文章表）"></a>Post表（文章表）</h4><p><strong>Post表包括文章编号，标题，正文，创建时间，修改时间，摘要，类别，标签</strong><br>|id|title|body|created_time|modified_time|excerpt|category|tags|<br>| :–:      | :–:     | :–: |:–: |:–: |:–: |:–: |:–: |<br>| 1  | title1|  text1   |2017-08-09|2017-08-09|summary1|Django|Django学习|<br>| 2  | title2|  text2   |2017-08-09|2017-08-09|summary2|Django|Django学习|<br>| 3  | title3|  text3   |2017-08-09|2017-08-09|summary3|Django|Django学习|</p>
+<h4 id="Category表（分类表）"><a href="#Category表（分类表）" class="headerlink" title="Category表（分类表）"></a>Category表（分类表）</h4><p><strong>Category表包括分类编号，分类名</strong><br>|id|name |<br>| :–:      | :–:     |<br>| 1  | Django|<br>| 2  | Hexo|  </p>
+<h4 id="Tag表（分类表）"><a href="#Tag表（分类表）" class="headerlink" title="Tag表（分类表）"></a>Tag表（分类表）</h4><p><strong>Tag表包括标签编号，标签名</strong><br>|id|name |<br>| :–:      | :–:     |<br>| 1  | Django学习|<br>| 2  | Hexo学习|<br><strong>表之间的映射关系为：</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%284%29.png" alt=""></p>
+<h3 id="3-2-编写博客模型代码"><a href="#3-2-编写博客模型代码" class="headerlink" title="3.2 - 编写博客模型代码"></a>3.2 - 编写博客模型代码</h3><p><strong>Django 为我们提供了一套 ORM（Object Relational Mapping）系统。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">Hexo/models.py</div><div class="line"></div><div class="line">from django.db import models</div><div class="line">from django.contrib.auth.models import User</div><div class="line"></div><div class="line">class Category(models.Model):</div><div class="line">    &quot;&quot;&quot;</div><div class="line">        Django 要求模型必须继承 models.Model 类。</div><div class="line">        Category 只需要一个简单的分类名 name 就可以了。</div><div class="line">        CharField 指定了分类名 name 的数据类型，CharField 是字符型，</div><div class="line">        CharField 的 max_length 参数指定其最大长度，超过这个长度的分类名就不能被存入数据库。</div><div class="line">        当然 Django 还为我们提供了多种其它的数据类型，如日期时间类型 DateTimeField、整数类型 IntegerField 等等。</div><div class="line">        Django 内置的全部类型可查看文档：</div><div class="line">        https://docs.djangoproject.com/en/1.10/ref/models/fields/#field-types</div><div class="line">        &quot;&quot;&quot;</div><div class="line">    name = models.CharField(max_length=100)</div><div class="line"></div><div class="line"></div><div class="line">class Tag(models.Model):</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    标签 Tag 也比较简单，和 Category 一样。</div><div class="line">    再次强调一定要继承 models.Model 类！</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    name = models.CharField(max_length=100)</div><div class="line"></div><div class="line"></div><div class="line"># Create your models here.</div><div class="line">class Post(models.Model):</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    文章的数据库表稍微复杂一点，主要是涉及的字段更多。</div><div class="line">    &quot;&quot;&quot;</div><div class="line"></div><div class="line">    # 文章标题</div><div class="line">    title = models.CharField(max_length=70)</div><div class="line"></div><div class="line">    # 文章正文，我们使用了 TextField。</div><div class="line">    # 存储比较短的字符串可以使用 CharField，但对于文章的正文来说可能会是一大段文本，因此使用 TextField 来存储大段文本。</div><div class="line">    body = models.TextField()</div><div class="line"></div><div class="line">    # 这两个列分别表示文章的创建时间和最后一次修改时间，存储时间的字段用 DateTimeField 类型。</div><div class="line">    created_time = models.DateTimeField()</div><div class="line">    modified_time = models.DateTimeField()</div><div class="line"></div><div class="line">    # 文章摘要，可以没有文章摘要，但默认情况下 CharField 要求我们必须存入数据，否则就会报错。</div><div class="line">    # 指定 CharField 的 blank=True 参数值后就可以允许空值了。</div><div class="line">    excerpt = models.TextField(max_length=500, blank=True)</div><div class="line"></div><div class="line">    # 这是分类与标签，分类与标签的模型我们已经定义在上面。</div><div class="line">    # 我们在这里把文章对应的数据库表和分类、标签对应的数据库表关联了起来，但是关联形式稍微有点不同。</div><div class="line">    # 我们规定一篇文章只能对应一个分类，但是一个分类下可以有多篇文章，所以我们使用的是 ForeignKey，即一对多的关联关系。</div><div class="line">    # 而对于标签来说，一篇文章可以有多个标签，同一个标签下也可能有多篇文章，所以我们使用 ManyToManyField，表明这是多对多的关联关系。</div><div class="line">    # 同时我们规定文章可以没有标签，因此为标签 tags 指定了 blank=True。</div><div class="line">    # 如果你对 ForeignKey、ManyToManyField 不了解，请看教程中的解释，亦可参考官方文档：</div><div class="line">    # https://docs.djangoproject.com/en/1.10/topics/db/models/#relationships</div><div class="line">    category = models.ForeignKey(Category)</div><div class="line">    tags = models.ManyToManyField(Tag, blank=True)</div><div class="line"></div><div class="line">    # 文章作者，这里 User 是从 django.contrib.auth.models 导入的。</div><div class="line">    # django.contrib.auth 是 Django 内置的应用，专门用于处理网站用户的注册、登录等流程，User 是 Django 为我们已经写好的用户模型。</div><div class="line">    # 这里我们通过 ForeignKey 把文章和 User 关联了起来。</div><div class="line">    # 因为我们规定一篇文章只能有一个作者，而一个作者可能会写多篇文章，因此这是一对多的关联关系，和 Category 类似。</div><div class="line">    author = models.ForeignKey(User)</div></pre></td></tr></table></figure></p>
+<h2 id="4-让-Django-完成翻译：迁移数据库"><a href="#4-让-Django-完成翻译：迁移数据库" class="headerlink" title="4 - 让 Django 完成翻译：迁移数据库"></a>4 - 让 Django 完成翻译：迁移数据库</h2><h3 id="4-1-迁移数据库"><a href="#4-1-迁移数据库" class="headerlink" title="4.1 - 迁移数据库"></a>4.1 - 迁移数据库</h3><p><strong>打开pycharm的<code>Tool</code>工具栏，点击<code>Run maange.py Task</code>运行如下命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">manage.py@HexoBlogDjango &gt; makemigrations Hexo</div><div class="line">&quot;F:\PyCharm 2017.1.4\bin\runnerw.exe&quot; F:\pythonflaskproject\Scripts\python.exe &quot;F:\PyCharm 2017.1.4\helpers\pycharm\django_manage.py&quot; makemigrations Hexo F:/HexoBlogDjango</div><div class="line">Migrations for &apos;Hexo&apos;:</div><div class="line">  Hexo\migrations\0001_initial.py</div><div class="line">    - Create model Category</div><div class="line">    - Create model Post</div><div class="line">    - Create model Tag</div><div class="line">    - Add field tags to post</div><div class="line">Following files were affected </div><div class="line"> F:\HexoBlogDjango\Hexo\migrations\0001_initial.py</div><div class="line">Process finished with exit code 0</div><div class="line">manage.py@HexoBlogDjango &gt; migrate Hexo</div><div class="line">&quot;F:\PyCharm 2017.1.4\bin\runnerw.exe&quot; F:\pythonflaskproject\Scripts\python.exe &quot;F:\PyCharm 2017.1.4\helpers\pycharm\django_manage.py&quot; migrate Hexo F:/HexoBlogDjango</div><div class="line">Operations to perform:</div><div class="line">  Apply all migrations: Hexo</div><div class="line">Running migrations:</div><div class="line">  Applying contenttypes.0001_initial... OK</div><div class="line">  Applying auth.0001_initial... OK</div><div class="line">  Applying Hexo.0001_initial... OK</div><div class="line">Following files were affected </div><div class="line"> F:\HexoBlogDjango\db.sqlite3</div><div class="line">Process finished with exit code 0</div></pre></td></tr></table></figure></p>
+<p><strong>我们加入<code>_str_</code>方法用来获取对象时直接输出关键字段信息</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Hexo/models.py</div><div class="line"></div><div class="line">from django.utils.six import python_2_unicode_compatible</div><div class="line"></div><div class="line"># python_2_unicode_compatible 装饰器用于兼容 Python2</div><div class="line">@python_2_unicode_compatible</div><div class="line">class Category(models.Model):</div><div class="line">    ...</div><div class="line"></div><div class="line">    def __str__(self):</div><div class="line">        return self.name</div><div class="line"></div><div class="line">@python_2_unicode_compatible</div><div class="line">class Tag(models.Model):</div><div class="line">    ...</div><div class="line"></div><div class="line">    def __str__(self):</div><div class="line">        return self.name</div><div class="line"></div><div class="line">@python_2_unicode_compatible</div><div class="line">class Post(models.Model):</div><div class="line">    ...</div><div class="line"></div><div class="line">    def __str__(self):</div><div class="line">        return self.title</div></pre></td></tr></table></figure></p>
+<p><strong>通过<code>python manage.py createsuperuser</code>创建后台管理员，管理数据库，本想通过pycharm自带的<code>Run manage.py Task</code>创建管理员但是出现<code>django.db.utils.IntegrityError: NOT NULL constraint failed: auth_user.last_login</code>的错误，所以建议还是使用<code>python manage.py createsuperuser</code>创建管理员</strong></p>
+<h2 id="5-Django-博客首页视图"><a href="#5-Django-博客首页视图" class="headerlink" title="5 - Django 博客首页视图"></a>5 - Django 博客首页视图</h2><h3 id="5-1-route路由机制"><a href="#5-1-route路由机制" class="headerlink" title="5.1 - route路由机制"></a>5.1 - route路由机制</h3><p><strong>在Hexo应用目录下创建urls.py文件，在文件中写入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Hexo/urls.py</div><div class="line"></div><div class="line">from django.conf.urls import url</div><div class="line"></div><div class="line">from . import views</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^$&apos;, views.index, name=&apos;index&apos;),</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><strong>我们首先从 django.conf.urls 导入了 url 函数，又从当前目录下导入了 views 模块。然后我们把网址和处理函数的关系写在了 urlpatterns 列表里。</strong><br><strong>绑定关系的写法是把网址和对应的处理函数作为参数传给 url 函数（第一个参数是网址，第二个参数是处理函数），另外我们还传递了另外一个参数 name，这个参数的值将作为处理函数 index 的别名，这在以后会用到。</strong></p>
+<h3 id="5-2-视图函数"><a href="#5-2-视图函数" class="headerlink" title="5.2 - 视图函数"></a>5.2 - 视图函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Hexo/views.py</div><div class="line"></div><div class="line">from django.http import HttpResponse</div><div class="line">from .models import Post</div><div class="line">from django.shortcuts import render</div><div class="line"></div><div class="line"></div><div class="line">def index(request):</div><div class="line">    post_list = Post.objects.all().order_by(&apos;-created_time&apos;)</div><div class="line">    return render(request, &apos;Hexo/index.html&apos;, context=&#123;&apos;post_list&apos;: post_list&#125;)</div></pre></td></tr></table></figure>
+<p><strong>我们曾经在前面的章节讲解过模型管理器 objects 的使用。这里我们使用 all() 方法从数据库里获取了全部的文章，存在了 post_list 变量里。all 方法返回的是一个 QuerySet（可以理解成一个类似于列表的数据结构），由于通常来说博客文章列表是按文章发表时间倒序排列的，即最新的文章排在最前面，所以我们紧接着调用了 order_by 方法对这个返回的 queryset 进行排序。排序依据的字段是 created_time，即文章的创建时间。- 号表示逆序，如果不加 - 则是正序。 接着如之前所做，我们渲染了 blog\index.html 模板文件，并且把包含文章列表数据的 post_list 变量传给了模板。</strong></p>
+<h3 id="5-3-使用-Django-模板系统"><a href="#5-3-使用-Django-模板系统" class="headerlink" title="5.3 - 使用 Django 模板系统"></a>5.3 - 使用 Django 模板系统</h3><p><strong>首先在我们的项目根目录（即 manage.py 文件所在目录）下建立一个名为 templates 的文件夹，用来存放我们的模板。然后在 templates\ 目录下建立一个名为 blog 的文件夹，用来存放和 blog 应用相关的模板。</strong><br><strong>当然模板存放在哪里是无关紧要的，只要 Django 能够找到的就好。但是我们建立这样的文件夹结构的目的是把不同应用用到的模板隔离开来，这样方便以后维护。我们在 templates\Hexo 目录下建立一个名为 index.html 的文件，此时你的目录结构应该是这样的：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">HexoBlogDjango\</div><div class="line">    manage.py</div><div class="line">    HexoBlogDjango\</div><div class="line">        __init__.py</div><div class="line">        settings.py</div><div class="line">        ...</div><div class="line">    Hexo\</div><div class="line">        __init__.py</div><div class="line">        models.py</div><div class="line">        ,,,</div><div class="line">    templates\</div><div class="line">        Hexo\</div><div class="line">            index.html</div></pre></td></tr></table></figure></p>
+<h3 id="5-4-处理静态文件"><a href="#5-4-处理静态文件" class="headerlink" title="5.4 - 处理静态文件"></a>5.4 - 处理静态文件</h3><p><strong>我们的项目使用了从网上下载的一套博客模板<a href="https://github.com/zmrenwu/django-blog-tutorial-templates" target="_blank" rel="external">点击这里下载全套模板</a>。这里面除了 HTML 文档外，还包含了一些 CSS 文件和 JavaScript 文件以让网页呈现出我们现在看到的样式。同样我们需要对 Django 做一些必要的配置，才能让 Django 知道如何在开发服务器中引入这些 CSS 和 JavaScript 文件，这样才能让博客页面的 CSS 样式生效。</strong><br><strong>按照惯例，我们把 CSS 和 JavaScript 文件放在 Hexo应用的 static\ 目录下。因此，先在 Hexo应用下建立一个 static 文件夹。同时，为了避免和其它应用中的 CSS 和 JavaScript 文件命名冲突（别的应用下也可能有和 blog 应用下同名的 CSS 、JavaScript 文件），我们再在 static\ 目录下建立一个 Hexo文件夹，把下载的博客模板中的 css 和 js 文件夹连同里面的全部文件一同拷贝进这个目录。最终我们的 Hexo应用目录结构应该是这样的：</strong></p>
+<h3 id="5-5-配置函数"><a href="#5-5-配置函数" class="headerlink" title="5.5 - 配置函数"></a>5.5 - 配置函数</h3><p><strong>将Hexo应用中的url配置到主程序的urls.py中</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- from django.conf.urls import url</div><div class="line">+ from django.conf.urls import url, include</div><div class="line">from django.contrib import admin</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</div><div class="line">+   url(r&apos;&apos;, include(&apos;Hexo.urls&apos;)),</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="5-6-运行结果"><a href="#5-6-运行结果" class="headerlink" title="5.6 - 运行结果"></a>5.6 - 运行结果</h3><p><strong>运行<code>python manage.py runserver</code>打开开发服务器，在浏览器输入开发服务器的地址 <a href="http://127.0.0.1:8000/，可以看到" target="_blank" rel="external">http://127.0.0.1:8000/，可以看到</a> Django 返回的内容了。</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/6.PNG" alt=""><br><strong>如图所示，你会看到首页显示的样式非常混乱，原因是浏览器无法正确加载 CSS 等样式文件。需要以 Django 的方式来正确地处理 CSS 和 JavaScript 等静态文件的加载路径。CSS 样式文件通常在 HTML 文档的 head 标签里引入，打开 index.html 文件，在文件的开始处找到 head 标签包裹的内容，大概像这样：在头部添加load staticfiles,把所有引入的样式修改改成static ‘Hexo/css/bootstrap.min.css’得到</strong><br>![](<a href="http://ofhbt8uhx.bkt.clouddn.com/7.PNG" target="_blank" rel="external">http://ofhbt8uhx.bkt.clouddn.com/7.PNG</a></p>
+<h3 id="5-7-修改模板"><a href="#5-7-修改模板" class="headerlink" title="5.7 - 修改模板"></a>5.7 - 修改模板</h3><p><strong>将数据引入：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;% for post in post_list %&#125;</div><div class="line">  &lt;article class=&quot;post post-&#123;&#123; post.pk &#125;&#125;&quot;&gt;</div><div class="line">    &lt;header class=&quot;entry-header&quot;&gt;</div><div class="line">                       &lt;h1 class=&quot;entry-title&quot;&gt;</div><div class="line">    &lt;a href=&quot;single.html&quot;&gt;&#123;&#123; post.title &#125;&#125;&lt;/a&gt;</div><div class="line">&lt;/h1&gt;</div><div class="line">                        &lt;div class=&quot;entry-meta&quot;&gt;</div><div class="line">                            &lt;span class=&quot;post-category&quot;&gt;&lt;a href=&quot;#&quot;&gt;Django 博客教程&lt;/a&gt;&lt;/span&gt;</div><div class="line">                            &lt;span class=&quot;post-date&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;time class=&quot;entry-date&quot;</div><div class="line">                                                                      datetime=&quot;2012-11-09T23:15:57+00:00&quot;&gt;2017年5月11日&lt;/time&gt;&lt;/a&gt;&lt;/span&gt;</div><div class="line">                            &lt;span class=&quot;post-author&quot;&gt;&lt;a href=&quot;#&quot;&gt;追梦人物&lt;/a&gt;&lt;/span&gt;</div><div class="line">                            &lt;span class=&quot;comments-link&quot;&gt;&lt;a href=&quot;#&quot;&gt;4 评论&lt;/a&gt;&lt;/span&gt;</div><div class="line">                            &lt;span class=&quot;views-count&quot;&gt;&lt;a href=&quot;#&quot;&gt;588 阅读&lt;/a&gt;&lt;/span&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                    &lt;/header&gt;</div><div class="line">                    &lt;div class=&quot;entry-content clearfix&quot;&gt;</div><div class="line">                        &lt;p&gt;免费、中文、零基础，完整的项目，基于最新版 Django 1.10 和 Python 3.5。带你从零开始一步步开发属于自己的博客网站，帮助你以最快的速度掌握 Django</div><div class="line">                            开发的技巧...&lt;/p&gt;</div><div class="line">                        &lt;div class=&quot;read-more cl-effect-14&quot;&gt;</div><div class="line">                            &lt;a href=&quot;#&quot; class=&quot;more-link&quot;&gt;继续阅读 &lt;span class=&quot;meta-nav&quot;&gt;→&lt;/span&gt;&lt;/a&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                    &lt;/div&gt;</div><div class="line">  &lt;/article&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="5-7-在-Admin-后台注册模型"><a href="#5-7-在-Admin-后台注册模型" class="headerlink" title="5.7 - 在 Admin 后台注册模型"></a>5.7 - 在 Admin 后台注册模型</h3><p><strong>要在后台注册我们自己创建的几个模型，这样 Django Admin 才能知道它们的存在，注册非常简单，只需要在 blog\admin.py 中加入下面的代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Hexo/admin.py</div><div class="line"></div><div class="line">from django.contrib import admin</div><div class="line">from .models import Post, Category, Tag</div><div class="line"></div><div class="line">admin.site.register(Post)</div><div class="line">admin.site.register(Category)</div><div class="line">admin.site.register(Tag)</div></pre></td></tr></table></figure></p>
+<p><strong>我们重新浏览locahost:5000/，发现我们没有发布任何文章，于是我们登陆localhost:5000/admin进入Django的后台管理系统添加文章和分类标签</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/8.PNG" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">HexoBlogDjango/settings.py</div><div class="line"></div><div class="line">#&apos;django.middleware.csrf.CsrfViewMiddleware&apos;,#注释此句，屏蔽CSRF</div></pre></td></tr></table></figure></p>
+<p><img src="http://ofhbt8uhx.bkt.clouddn.com/9.PNG" alt=""><br><strong>此时可以看出post的信息已经显示在界面上了，但是我们发现格式有很大的问题，这个我们后面再做修改，添加上Markdown的支持。</strong></p>
+<h2 id="6-Django-博客文章详情页"><a href="#6-Django-博客文章详情页" class="headerlink" title="6 - Django 博客文章详情页"></a>6 - Django 博客文章详情页</h2><h3 id="6-1-设计文章详情页的-URL"><a href="#6-1-设计文章详情页的-URL" class="headerlink" title="6.1 - 设计文章详情页的 URL"></a>6.1 - 设计文章详情页的 URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Hexo/urls.py</div><div class="line"></div><div class="line">from django.conf.urls import url</div><div class="line"></div><div class="line">from . import views</div><div class="line"></div><div class="line">app_name = &apos;Hexo&apos;</div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^$&apos;, views.index, name=&apos;index&apos;),</div><div class="line">    url(r&apos;^post/(?P&lt;pk&gt;[0-9]+)/$&apos;, views.detail, name=&apos;detail&apos;),</div><div class="line">]</div></pre></td></tr></table></figure>
+<h3 id="6-2-获取文章详情模板"><a href="#6-2-获取文章详情模板" class="headerlink" title="6.2 - 获取文章详情模板"></a>6.2 - 获取文章详情模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Hexo/models.py</div><div class="line"></div><div class="line">from django.db import models</div><div class="line">from django.contrib.auth.models import User</div><div class="line">from django.urls import reverse</div><div class="line">from django.utils.six import python_2_unicode_compatible</div><div class="line"></div><div class="line">@python_2_unicode_compatible</div><div class="line">class Post(models.Model):</div><div class="line">    ...</div><div class="line"></div><div class="line">    def __str__(self):</div><div class="line">        return self.title</div><div class="line"></div><div class="line">    # 自定义 get_absolute_url 方法</div><div class="line">    # 记得从 django.urls 中导入 reverse 函数</div><div class="line">    def get_absolute_url(self):</div><div class="line">        return reverse(&apos;Hexo:detail&apos;, kwargs=&#123;&apos;pk&apos;: self.pk&#125;)</div></pre></td></tr></table></figure>
+<h3 id="6-2-编写-detail-视图函数"><a href="#6-2-编写-detail-视图函数" class="headerlink" title="6.2 - 编写 detail 视图函数"></a>6.2 - 编写 detail 视图函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">blog/views.py</div><div class="line"></div><div class="line">from django.shortcuts import render, get_object_or_404</div><div class="line">from .models import Post</div><div class="line"></div><div class="line">def index(request):</div><div class="line">    # ...</div><div class="line"></div><div class="line">def detail(request, pk):</div><div class="line">    post = get_object_or_404(Post, pk=pk)</div><div class="line">    return render(request, &apos;Hexo/detail.html&apos;, context=&#123;&apos;post&apos;: post&#125;)</div></pre></td></tr></table></figure>
+<h3 id="6-2-编写详情页模板-detail-html"><a href="#6-2-编写详情页模板-detail-html" class="headerlink" title="6.2 - 编写详情页模板(detail.html)"></a>6.2 - 编写详情页模板(detail.html)</h3><p><strong>修改之前的index界面</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">templates/blog/index.html</div><div class="line"></div><div class="line">&lt;article class=&quot;post post-1&quot;&gt;</div><div class="line">  &lt;header class=&quot;entry-header&quot;&gt;</div><div class="line">    &lt;h1 class=&quot;entry-title&quot;&gt;</div><div class="line">      &lt;a href=&quot;&#123;&#123; post.get_absolute_url &#125;&#125;&quot;&gt;&#123;&#123; post.title &#125;&#125;&lt;/a&gt;</div><div class="line">    &lt;/h1&gt;</div><div class="line">    ...</div><div class="line">  &lt;/header&gt;</div><div class="line">  &lt;div class=&quot;entry-content clearfix&quot;&gt;</div><div class="line">    ...</div><div class="line">    &lt;div class=&quot;read-more cl-effect-14&quot;&gt;</div><div class="line">      &lt;a href=&quot;&#123;&#123; post.get_absolute_url &#125;&#125;&quot; class=&quot;more-link&quot;&gt;继续阅读 &lt;span class=&quot;meta-nav&quot;&gt;→&lt;/span&gt;&lt;/a&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/article&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>这个时候我们发现其实很多界面上的元素是重复的，我们使用类似于 jsp中的include方法将重复元素提取出来然后多次调用。</strong><br><strong>在templates目录下新建base.html文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">HexoBlogDjango\</div><div class="line">    manage.py</div><div class="line">    HexoBlogDjango\</div><div class="line">        __init__.py</div><div class="line">        settings.py</div><div class="line">        ...</div><div class="line">    Hexo\</div><div class="line">        __init__.py</div><div class="line">        models.py</div><div class="line">        ,,,</div><div class="line">    templates\</div><div class="line">        base.html</div><div class="line">        Hexo\</div><div class="line">            index.html</div><div class="line">            detail.html</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">templates/base.html</div><div class="line"></div><div class="line">...</div><div class="line">&lt;main class=&quot;col-md-8&quot;&gt;</div><div class="line">    &#123;% block main %&#125;</div><div class="line">    &#123;% endblock main %&#125;</div><div class="line">&lt;/main&gt;</div><div class="line">&lt;aside class=&quot;col-md-4&quot;&gt;</div><div class="line">  &#123;% block toc %&#125;</div><div class="line">  &#123;% endblock toc %&#125;</div><div class="line">  ...</div><div class="line">&lt;/aside&gt;</div><div class="line">...</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">templates/Hexo/index.html</div><div class="line"></div><div class="line">&#123;% extends &apos;base.html&apos; %&#125;</div><div class="line"></div><div class="line">&#123;% block main %&#125;</div><div class="line">    &#123;% for post in post_list %&#125;</div><div class="line">        &lt;article class=&quot;post post-1&quot;&gt;</div><div class="line">          ...</div><div class="line">        &lt;/article&gt;</div><div class="line">    &#123;% empty %&#125;</div><div class="line">        &lt;div class=&quot;no-post&quot;&gt;暂时还没有发布的文章！&lt;/div&gt;</div><div class="line">    &#123;% endfor %&#125;</div><div class="line">    &lt;!-- 简单分页效果</div><div class="line">    &lt;div class=&quot;pagination-simple&quot;&gt;</div><div class="line">        &lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;</div><div class="line">        &lt;span class=&quot;current&quot;&gt;第 6 页 / 共 11 页&lt;/span&gt;</div><div class="line">        &lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    --&gt;</div><div class="line">    &lt;div class=&quot;pagination&quot;&gt;</div><div class="line">      ...</div><div class="line">    &lt;/div&gt;</div><div class="line">&#123;% endblock main %&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">templates/Hexo/detail.html</div><div class="line"></div><div class="line">&#123;% extends &apos;base.html&apos; %&#125;</div><div class="line"></div><div class="line">&#123;% block main %&#125;</div><div class="line">    &lt;article class=&quot;post post-&#123;&#123; post.pk &#125;&#125;&quot;&gt;</div><div class="line">  &lt;header class=&quot;entry-header&quot;&gt;</div><div class="line">    &lt;h1 class=&quot;entry-title&quot;&gt;&#123;&#123; post.title &#125;&#125;&lt;/h1&gt;</div><div class="line">    &lt;div class=&quot;entry-meta&quot;&gt;</div><div class="line">      &lt;span class=&quot;post-category&quot;&gt;&lt;a href=&quot;#&quot;&gt;&#123;&#123; post.category.name &#125;&#125;&lt;/a&gt;&lt;/span&gt;</div><div class="line">      &lt;span class=&quot;post-date&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;time class=&quot;entry-date&quot;</div><div class="line">                                                datetime=&quot;&#123;&#123; post.created_time &#125;&#125;&quot;&gt;&#123;&#123; post.created_time &#125;&#125;&lt;/time&gt;&lt;/a&gt;&lt;/span&gt;</div><div class="line">      &lt;span class=&quot;post-author&quot;&gt;&lt;a href=&quot;#&quot;&gt;&#123;&#123; post.author &#125;&#125;&lt;/a&gt;&lt;/span&gt;</div><div class="line">      &lt;span class=&quot;comments-link&quot;&gt;&lt;a href=&quot;#&quot;&gt;4 评论&lt;/a&gt;&lt;/span&gt;</div><div class="line">      &lt;span class=&quot;views-count&quot;&gt;&lt;a href=&quot;#&quot;&gt;588 阅读&lt;/a&gt;&lt;/span&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/header&gt;</div><div class="line">  &lt;div class=&quot;entry-content clearfix&quot;&gt;</div><div class="line">    &#123;&#123; post.body &#125;&#125;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/article&gt;</div><div class="line">    &lt;section class=&quot;comment-area&quot;&gt;</div><div class="line">      ...</div><div class="line">    &lt;/section&gt;</div><div class="line">&#123;% endblock main %&#125;</div><div class="line">&#123;% block toc %&#125;</div><div class="line">    &lt;div class=&quot;widget widget-content&quot;&gt;</div><div class="line">        &lt;h3 class=&quot;widget-title&quot;&gt;文章目录&lt;/h3&gt;</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li&gt;</div><div class="line">                &lt;a href=&quot;#&quot;&gt;教程特点&lt;/a&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">            &lt;li&gt;</div><div class="line">                &lt;a href=&quot;#&quot;&gt;谁适合这个教程&lt;/a&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">            &lt;li&gt;</div><div class="line">                &lt;a href=&quot;#&quot;&gt;在线预览&lt;/a&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">            &lt;li&gt;</div><div class="line">                &lt;a href=&quot;#&quot;&gt;资源列表&lt;/a&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">            &lt;li&gt;</div><div class="line">                &lt;a href=&quot;#&quot;&gt;获取帮助&lt;/a&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&#123;% endblock toc %&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://ofhbt8uhx.bkt.clouddn.com/10.PNG" alt=""></p>
+<h2 id="7-支持-Markdown-语法和代码高亮"><a href="#7-支持-Markdown-语法和代码高亮" class="headerlink" title="7 - 支持 Markdown 语法和代码高亮"></a>7 - 支持 Markdown 语法和代码高亮</h2><h3 id="7-1-安装-Python-Markdown"><a href="#7-1-安装-Python-Markdown" class="headerlink" title="7.1 - 安装 Python Markdown"></a>7.1 - 安装 Python Markdown</h3><p><strong>将 Markdown 格式的文本渲染成标准的 HTML 文档是一个复杂的工作，好在已有好心人帮我们完成了这些工作，我们直接使用即可。首先安装 Markdown，这是一个 Python 第三方库，激活虚拟环境，然后使用命令 <code>pip install markdown</code>安装即可。</strong></p>
+<h3 id="7-2-在-detail-视图中渲染-Markdown"><a href="#7-2-在-detail-视图中渲染-Markdown" class="headerlink" title="7.2 - 在 detail 视图中渲染 Markdown"></a>7.2 - 在 detail 视图中渲染 Markdown</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">blog/views.py</div><div class="line"></div><div class="line">import markdown</div><div class="line">from django.shortcuts import render, get_object_or_404</div><div class="line">from .models import Post</div><div class="line"></div><div class="line">def detail(request, pk):</div><div class="line">    post = get_object_or_404(Post, pk=pk)</div><div class="line">    # 记得在顶部引入 markdown 模块</div><div class="line">    post.body = markdown.markdown(post.body,</div><div class="line">                                  extensions=[</div><div class="line">                                     &apos;markdown.extensions.extra&apos;,</div><div class="line">                                     &apos;markdown.extensions.codehilite&apos;,</div><div class="line">                                     &apos;markdown.extensions.toc&apos;,</div><div class="line">                                  ])</div><div class="line">    return render(request, &apos;Hexo/detail.html&apos;, context=&#123;&apos;post&apos;: post&#125;)</div></pre></td></tr></table></figure>
+<p><strong>引入下面的样式同时安装pygments,<code>pip install Pygments</code></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;&#123;% static &apos;blog/css/highlights/github.css&apos; %&#125;&quot;&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/10/Django搭建博客系统-一/" class="archive-article-date">
+  	<time datetime="2017-08-10T08:35:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/09/Hexo解决多说服务器关闭的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo解决多说服务器关闭的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

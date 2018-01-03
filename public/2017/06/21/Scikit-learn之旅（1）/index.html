@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Scikit-learn之旅（1） | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="sklearn 训练感知机
+感知机对于不能够线性可分的数据，算法永远不会收敛
+
+之前好像写过关于感知机类型的博客，正好最近看到思维导图很火，于是我也好用思维导图写博客吧！嘿嘿
+
+
+代码运行结果：
+
+
+从图中可见三个类别无法被线性决策界完美分类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scikit-learn之旅（1）">
+<meta property="og:url" content="http://yoursite.com/2017/06/21/Scikit-learn之旅（1）/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="sklearn 训练感知机
+感知机对于不能够线性可分的数据，算法永远不会收敛
+
+之前好像写过关于感知机类型的博客，正好最近看到思维导图很火，于是我也好用思维导图写博客吧！嘿嘿
+
+
+代码运行结果：
+
+
+从图中可见三个类别无法被线性决策界完美分类">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/scikit-learn%E8%AE%AD%E7%BB%83%E6%84%9F%E7%9F%A5%E5%99%A8.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/%E6%84%9F%E7%9F%A5%E5%99%A8.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/sigmod.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/20170109132626537.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/logistic.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/gs.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-b39c695a3cce1613.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-87a59f428b2e5999.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-922a62ce004e4924.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-634361468feae857.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-4c5a0ad538d9e329.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-a7d67c2410bd7e27.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/logisticMenu.png">
+<meta property="og:updated_time" content="2017-06-22T14:47:15.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scikit-learn之旅（1）">
+<meta name="twitter:description" content="sklearn 训练感知机
+感知机对于不能够线性可分的数据，算法永远不会收敛
+
+之前好像写过关于感知机类型的博客，正好最近看到思维导图很火，于是我也好用思维导图写博客吧！嘿嘿
+
+
+代码运行结果：
+
+
+从图中可见三个类别无法被线性决策界完美分类">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/scikit-learn%E8%AE%AD%E7%BB%83%E6%84%9F%E7%9F%A5%E5%99%A8.png">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Scikit-learn之旅（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Scikit-learn之旅（1）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="sklearn-训练感知机"><a href="#sklearn-训练感知机" class="headerlink" title="sklearn 训练感知机"></a>sklearn 训练感知机</h2><blockquote>
+<p><strong>感知机对于不能够线性可分的数据，算法永远不会收敛</strong></p>
+</blockquote>
+<p><strong>之前好像写过关于感知机类型的博客，正好最近看到思维导图很火，于是我也好用思维导图写博客吧！嘿嘿</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/scikit-learn%E8%AE%AD%E7%BB%83%E6%84%9F%E7%9F%A5%E5%99%A8.png" alt=""><br></div>
+
+<p><strong>代码运行结果：</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/%E6%84%9F%E7%9F%A5%E5%99%A8.png" alt=""><br></div>
+
+<p><strong>从图中可见三个类别无法被线性决策界完美分类</strong><br><a id="more"></a></p>
+<h2 id="逻辑斯蒂回归对类别概率建模"><a href="#逻辑斯蒂回归对类别概率建模" class="headerlink" title="逻辑斯蒂回归对类别概率建模"></a>逻辑斯蒂回归对类别概率建模</h2><h3 id="逻辑斯蒂回归和条件概率"><a href="#逻辑斯蒂回归和条件概率" class="headerlink" title="逻辑斯蒂回归和条件概率"></a>逻辑斯蒂回归和条件概率</h3><p><strong>数学上，正例类别表示y=1，于是我们定义对数几率函数$logit$</strong>，对数几率函数的自变量$p$取值范围$[0,1]$，因变量值域为实数域，将上式中的$p$视为类后验概率估计$p(y=1| x)$,然后定义如下线性关系：<br>$$logit(p(y=1|x))=\omega_0x_0+\omega_1x_1+\omega_m x<em>m=\sum</em>{i=0}^{n}\omega_mx_m=\omega^{T}x$$<br><strong>实际上我们关心的是某个样本属于类别的概率，恰恰是对数几率函数的反函数，也被称为逻辑斯底函数(logistic function)，有时简写为sigmoid函数，函数图像是S型：</strong><br>$$\phi(z)=\frac{1}{1+e^{-z}}$$<br><strong>其中z是网络输入，即权重参数和特征的线性组合:</strong><br>$$z=\omega^{T}x=\omega_0x_0+\omega_1x_1+\omega_m x_m$$<br><strong>sigmoid(S曲线)函数很重要，我们不妨画图看一看：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="string">'''</span></div><div class="line">Created on 2017年6月21日</div><div class="line"></div><div class="line">@author: 唐杰</div><div class="line">'''</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmod</span><span class="params">(z)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="number">1.0</span>/(<span class="number">1.0</span>+np.exp(-z))</div><div class="line">z=np.arange(<span class="number">-7</span>,<span class="number">7</span>,<span class="number">0.1</span>)</div><div class="line">phi_z=sigmod(z)</div><div class="line">plt.plot(z,phi_z)</div><div class="line">plt.axvline(<span class="number">0.0</span>,color=<span class="string">'k'</span>)</div><div class="line">plt.axhspan(<span class="number">0.0</span>, <span class="number">1.0</span>,facecolor=<span class="string">'1.0'</span>,alpha=<span class="number">1.0</span>,ls=<span class="string">'dotted'</span>)</div><div class="line">plt.axhline(y=<span class="number">0.5</span>,ls=<span class="string">'dotted'</span>,color=<span class="string">'k'</span>)</div><div class="line">plt.axhline(y=<span class="number">0.0</span>,ls=<span class="string">'dotted'</span>,color=<span class="string">'k'</span>)</div><div class="line">plt.axhline(y=<span class="number">1.0</span>,ls=<span class="string">'dotted'</span>,color=<span class="string">'k'</span>)</div><div class="line">plt.yticks([<span class="number">0.0</span>,<span class="number">0.5</span>,<span class="number">1.0</span>])</div><div class="line">plt.ylim(<span class="number">-0.1</span>,<span class="number">1.1</span>)</div><div class="line">plt.xlabel(<span class="string">'z'</span>)</div><div class="line">plt.ylabel(<span class="string">'$\phi(z)$'</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/sigmod.png" alt=""><br></div>
+
+<p><strong>为了直观上对逻辑回归有更好的理解，我们可以和Adaline模型联系起来，二者的唯一区别是：Adaline模型，激活函数 是线性函数，在逻辑回归中，激活函数变成了sigmoid函数。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/20170109132626537.png" alt=""><br><img src="http://ofhbt8uhx.bkt.clouddn.com/logistic.PNG" alt=""><br></div>
+
+<p><strong>有了样本的预测概率，再得到样本的类别值就很简单了,和Adaline一样，使用单位阶跃函数：</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/gs.PNG" alt=""><br></div>
+
+<p><strong>逻辑回归之所以应用广泛，一大优点就是它不但能预测类别，还能输出具体的概率值，概率值很很多场景往往比单纯的类别值重要的多。比如在天气预测中下雨的可能性，病人患病的可能性等等。</strong></p>
+<h3 id="学习逻辑斯底损失函数中的权重参数"><a href="#学习逻辑斯底损失函数中的权重参数" class="headerlink" title="学习逻辑斯底损失函数中的权重参数"></a>学习逻辑斯底损失函数中的权重参数</h3><p><strong>类似上一章感知器中的差平方损失函数</strong><br>$$J(\omega)=\sum_{i}{}\frac{1}{2}(\phi(z^{(i)})-y^{(i)})^{2}$$<br><strong>我们求解损失函数最小时的权重参数，同样，对于逻辑回归，我们也需要定义损失函数，在这之前，先定义似然(likelihood)L的概念，假设训练集中样本独立，似然定义：</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-b39c695a3cce1613.png" alt=""><br></div>
+
+<p><strong>与损失函数费尽全力找最小值相反，对于似然函数，我们要找的是最大值。实际上，对于似然的log值，是很容易找到最大值的，也就是最大化log-likelihood函数：</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-87a59f428b2e5999.png" alt=""><br></div>
+
+<p><strong>接下来，我们可以运用梯度下降等优化算法来求解最大化log-likelihood时的参数。最大化和最小化本质上没有区别，所以我们还是将log-likelihood写成求最小值的损失函数形式：</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-922a62ce004e4924.png" alt=""><br></div>
+
+<p><strong>为了更好地理解此损失函数，假设现在训练集只有一个样本：</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-634361468feae857.png" alt=""><br></div>
+
+<p><strong>在预测y=0和y=1的情况下，如下图公式所示:</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-4c5a0ad538d9e329.png" alt=""><br></div>
+
+<p><strong>对于蓝线，如果逻辑回归预测结果正确，类别为1，则损失为0；对于绿线，如果逻辑回归预测正确，类别为0，则损失为0。 如果预测错误，则损失趋向正无穷。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-a7d67c2410bd7e27.png" alt=""><br></div>
+
+<h3 id="调用scikit-learn训练逻辑回归模型"><a href="#调用scikit-learn训练逻辑回归模型" class="headerlink" title="调用scikit-learn训练逻辑回归模型"></a>调用scikit-learn训练逻辑回归模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="string">'''</span></div><div class="line">Created on 2017年6月16日</div><div class="line">逻辑回归模型</div><div class="line">@author: 唐杰</div><div class="line">'''</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split </div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</div><div class="line"><span class="keyword">import</span> Util</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    lris=datasets.load_iris()</div><div class="line">    X=lris.data[:,[<span class="number">2</span>,<span class="number">3</span>]]</div><div class="line">    y=lris.target</div><div class="line">    <span class="comment">#将数据集分为训练集和测试集，训练集占30%</span></div><div class="line">    X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=<span class="number">0.3</span>,random_state=<span class="number">0</span>) </div><div class="line">    <span class="comment">#数据集标准化</span></div><div class="line">    sc=StandardScaler()</div><div class="line">    sc.fit(X_train)</div><div class="line">    X_train_std=sc.transform(X_train)</div><div class="line">    X_test_std=sc.transform(X_test)</div><div class="line">    X_combined_std=np.vstack((X_train_std,X_test_std))</div><div class="line">    y_combined=np.hstack((y_train,y_test))</div><div class="line">    lr=LogisticRegression(C=<span class="number">1000.0</span>,random_state=<span class="number">0</span>)</div><div class="line">    lr.fit(X_train_std,y_train)</div><div class="line">    Util.plot_decision_region(X_combined_std, y_combined, classifier=lr)</div><div class="line">    plt.xlabel(<span class="string">'petal length [standardized]'</span>)</div><div class="line">    plt.ylabel(<span class="string">'sepal length [standardized]'</span>)</div><div class="line">    plt.legend(loc=<span class="string">'upper left'</span>)</div><div class="line">    plt.show()</div></pre></td></tr></table></figure>
+<p><strong>训练模型后，我们画出决策界</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/logisticMenu.png" alt=""><br></div>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/21/Scikit-learn之旅（1）/" class="archive-article-date">
+  	<time datetime="2017-06-21T06:33:58.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/21/Scikit-learn之旅（2）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+           Scikit-learn之旅（2）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/15/Android-动态人脸关键点定位/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 动态人脸关键点定位</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

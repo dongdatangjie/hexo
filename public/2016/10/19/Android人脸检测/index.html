@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android人脸检测 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Google Play Service提供给我们一个FaceDetection的方法用来检测人脸并绘制出人脸的8个特征点。
+具体的在Git
+1.项目部署新建一个Andorid项目(Android Studio)，在build.gradle中需要添加dependencies1compile &apos;com.google.android.gms:play-services-vision:8.1.0&apos;
+然后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android人脸检测">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/Android人脸检测/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="Google Play Service提供给我们一个FaceDetection的方法用来检测人脸并绘制出人脸的8个特征点。
+具体的在Git
+1.项目部署新建一个Andorid项目(Android Studio)，在build.gradle中需要添加dependencies1compile &apos;com.google.android.gms:play-services-vision:8.1.0&apos;
+然后">
+<meta property="og:image" content="https://cms-assets.tutsplus.com/uploads/users/798/posts/25212/image/facebox.png">
+<meta property="og:updated_time" content="2017-04-15T07:05:37.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android人脸检测">
+<meta name="twitter:description" content="Google Play Service提供给我们一个FaceDetection的方法用来检测人脸并绘制出人脸的8个特征点。
+具体的在Git
+1.项目部署新建一个Andorid项目(Android Studio)，在build.gradle中需要添加dependencies1compile &apos;com.google.android.gms:play-services-vision:8.1.0&apos;
+然后">
+<meta name="twitter:image" content="https://cms-assets.tutsplus.com/uploads/users/798/posts/25212/image/facebox.png">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Android人脸检测" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android人脸检测
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><strong>Google Play Service提供给我们一个FaceDetection的方法用来检测人脸并绘制出人脸的8个特征点。</strong></p>
+<p><strong>具体的在<a href="https://github.com/tutsplus/Android-PlayServices-FaceDetection" target="_blank" rel="external">Git</a></strong></p>
+<h3 id="1-项目部署"><a href="#1-项目部署" class="headerlink" title="1.项目部署"></a>1.项目部署</h3><p>新建一个Andorid项目(Android Studio)，在build.gradle中需要添加dependencies<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.google.android.gms:play-services-vision:8.1.0'</span></div></pre></td></tr></table></figure></p>
+<p>然后在AndroidManifest.xml的Application代码段中加入google play service对于人脸检测的依赖配置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data android:name=<span class="string">"com.google.android.gms.vision.DEPENDENCIES"</span> android:value=<span class="string">"face"</span>/&gt;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>下面创建一个自定的View用来显示资源文件中图片，创建两个对象句柄<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FaceOverlayView</span> <span class="keyword">extends</span> <span class="title">View</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> Bitmap mBitmap;</div><div class="line">    <span class="keyword">private</span> SparseArray&lt;Face&gt; mFaces;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FaceOverlayView</span><span class="params">(Context context)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FaceOverlayView</span><span class="params">(Context context, AttributeSet attrs)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">FaceOverlayView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Bitmap用来接受图片的信息，SparseArray是稀疏数组，用来存储每张人脸的信息.</strong></p>
+<p>设置bitmap<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBitmap</span><span class="params">( Bitmap bitmap )</span> </span>&#123;</div><div class="line">    mBitmap = bitmap;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在res的layout中加入<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;com.tutsplus.facedetection.FaceOverlayView</div><div class="line">    xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    android:id=<span class="string">"@+id/face_overlay"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>读取资源图片的数据放到andorid view上<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="keyword">private</span> FaceOverlayView mFaceOverlayView;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mFaceOverlayView = (FaceOverlayView) findViewById( R.id.face_overlay );</div><div class="line"> </div><div class="line">        InputStream stream = getResources().openRawResource( R.raw.face );</div><div class="line">        Bitmap bitmap = BitmapFactory.decodeStream(stream);</div><div class="line"> </div><div class="line">        mFaceOverlayView.setBitmap(bitmap);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-人脸检测"><a href="#2-人脸检测" class="headerlink" title="2.人脸检测"></a>2.人脸检测</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tangjie.fac;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"><span class="keyword">import</span> android.graphics.Canvas;</div><div class="line"><span class="keyword">import</span> android.graphics.Color;</div><div class="line"><span class="keyword">import</span> android.graphics.Paint;</div><div class="line"><span class="keyword">import</span> android.graphics.Rect;</div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.util.SparseArray;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.google.android.gms.vision.Frame;</div><div class="line"><span class="keyword">import</span> com.google.android.gms.vision.face.Face;</div><div class="line"><span class="keyword">import</span> com.google.android.gms.vision.face.FaceDetector;</div><div class="line"><span class="keyword">import</span> com.google.android.gms.vision.face.Landmark;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Administrator on 2016/10/19.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FaceOverlayView</span> <span class="keyword">extends</span> <span class="title">View</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> Bitmap mBitmap;</div><div class="line">    <span class="keyword">private</span> SparseArray&lt;Face&gt; mFaces;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FaceOverlayView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FaceOverlayView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FaceOverlayView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBitmap</span><span class="params">( Bitmap bitmap )</span> </span>&#123;</div><div class="line">        mBitmap = bitmap;</div><div class="line">        FaceDetector detector = <span class="keyword">new</span> FaceDetector.Builder(getContext())</div><div class="line">                .setTrackingEnabled(<span class="keyword">true</span>)</div><div class="line">                .setLandmarkType(FaceDetector.ALL_LANDMARKS)</div><div class="line">                .setMode(FaceDetector.ACCURATE_MODE)</div><div class="line">                .build();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!detector.isOperational()) &#123;</div><div class="line">            <span class="comment">//Handle contingency</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            Frame frame = <span class="keyword">new</span> Frame.Builder().setBitmap(bitmap).build();</div><div class="line">            mFaces = detector.detect(frame);</div><div class="line">            Log.i(<span class="string">"mFaces"</span>,mFaces+<span class="string">""</span>);</div><div class="line">            detector.release();</div><div class="line">        &#125;</div><div class="line">        logFaceData();</div><div class="line">        invalidate();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ((mBitmap != <span class="keyword">null</span>) &amp;&amp; (mFaces != <span class="keyword">null</span>)) &#123;</div><div class="line">            <span class="keyword">double</span> scale = drawBitmap(canvas);</div><div class="line">            drawFaceLandmarks(canvas, scale);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">drawBitmap</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">double</span> viewWidth = canvas.getWidth();</div><div class="line">        <span class="keyword">double</span> viewHeight = canvas.getHeight();</div><div class="line">        <span class="keyword">double</span> imageWidth = mBitmap.getWidth();</div><div class="line">        <span class="keyword">double</span> imageHeight = mBitmap.getHeight();</div><div class="line">        <span class="keyword">double</span> scale = Math.min(viewWidth / imageWidth, viewHeight / imageHeight);</div><div class="line"></div><div class="line">        Rect destBounds = <span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, (<span class="keyword">int</span>)(imageWidth * scale), (<span class="keyword">int</span>)(imageHeight * scale));</div><div class="line">        canvas.drawBitmap(mBitmap, <span class="keyword">null</span>, destBounds, <span class="keyword">null</span>);</div><div class="line">        <span class="keyword">return</span> scale;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawFaceBox</span><span class="params">(Canvas canvas, <span class="keyword">double</span> scale)</span> </span>&#123;</div><div class="line">        <span class="comment">//This should be defined as a member variable rather than</span></div><div class="line">        <span class="comment">//being created on each onDraw request, but left here for</span></div><div class="line">        <span class="comment">//emphasis.</span></div><div class="line">        Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">        paint.setColor(Color.GREEN);</div><div class="line">        paint.setStyle(Paint.Style.STROKE);</div><div class="line">        paint.setStrokeWidth(<span class="number">5</span>);</div><div class="line"></div><div class="line">        <span class="keyword">float</span> left = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> top = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> right = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> bottom = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mFaces.size(); i++ ) &#123;</div><div class="line">            Face face = mFaces.valueAt(i);</div><div class="line"></div><div class="line">            left = (<span class="keyword">float</span>) ( face.getPosition().x * scale );</div><div class="line">            top = (<span class="keyword">float</span>) ( face.getPosition().y * scale );</div><div class="line">            right = (<span class="keyword">float</span>) scale * ( face.getPosition().x + face.getWidth() );</div><div class="line">            bottom = (<span class="keyword">float</span>) scale * ( face.getPosition().y + face.getHeight() );</div><div class="line"></div><div class="line">            canvas.drawRect( left, top, right, bottom, paint );</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawFaceLandmarks</span><span class="params">( Canvas canvas, <span class="keyword">double</span> scale )</span> </span>&#123;</div><div class="line">        Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">        paint.setColor( Color.GREEN );</div><div class="line">        paint.setStyle( Paint.Style.STROKE );</div><div class="line">        paint.setStrokeWidth( <span class="number">5</span> );</div><div class="line"></div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mFaces.size(); i++ ) &#123;</div><div class="line">            Face face = mFaces.valueAt(i);</div><div class="line"></div><div class="line">            <span class="keyword">for</span> ( Landmark landmark : face.getLandmarks() ) &#123;</div><div class="line">                <span class="keyword">int</span> cx = (<span class="keyword">int</span>) ( landmark.getPosition().x * scale );</div><div class="line">                <span class="keyword">int</span> cy = (<span class="keyword">int</span>) ( landmark.getPosition().y * scale );</div><div class="line">                canvas.drawCircle( cx, cy, <span class="number">10</span>, paint );</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">logFaceData</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">float</span> smilingProbability;</div><div class="line">        <span class="keyword">float</span> leftEyeOpenProbability;</div><div class="line">        <span class="keyword">float</span> rightEyeOpenProbability;</div><div class="line">        <span class="keyword">float</span> eulerY;</div><div class="line">        <span class="keyword">float</span> eulerZ;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mFaces.size(); i++ ) &#123;</div><div class="line">            Face face = mFaces.valueAt(i);</div><div class="line"></div><div class="line">            smilingProbability = face.getIsSmilingProbability();</div><div class="line">            leftEyeOpenProbability = face.getIsLeftEyeOpenProbability();</div><div class="line">            rightEyeOpenProbability = face.getIsRightEyeOpenProbability();</div><div class="line">            eulerY = face.getEulerY();</div><div class="line">            eulerZ = face.getEulerZ();</div><div class="line">            Log.e(<span class="string">"脸数"</span>,i+<span class="string">""</span>);</div><div class="line">            Log.e(<span class="string">"Tuts+ Face Detection"</span>, <span class="string">"Smiling: "</span> + smilingProbability);</div><div class="line">            Log.e( <span class="string">"Tuts+ Face Detection"</span>, <span class="string">"Left eye open: "</span> + leftEyeOpenProbability );</div><div class="line">            Log.e( <span class="string">"Tuts+ Face Detection"</span>, <span class="string">"Right eye open: "</span> + rightEyeOpenProbability );</div><div class="line">            Log.e( <span class="string">"Tuts+ Face Detection"</span>, <span class="string">"Euler Y: "</span> + eulerY );</div><div class="line">            Log.e( <span class="string">"Tuts+ Face Detection"</span>, <span class="string">"Euler Z: "</span> + eulerZ );</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-结果"><a href="#3-结果" class="headerlink" title="3.结果"></a>3.结果</h3><p><img src="https://cms-assets.tutsplus.com/uploads/users/798/posts/25212/image/facebox.png" alt=""></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/19/Android人脸检测/" class="archive-article-date">
+  	<time datetime="2016-10-19T12:13:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸检测/">人脸检测</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/20/单例模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          单例模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/18/java基础知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基础知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

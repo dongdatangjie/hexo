@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java链表 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.java实现单向链表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java链表">
+<meta property="og:url" content="http://yoursite.com/2016/12/08/Java链表/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="1.java实现单向链表">
+<meta property="og:updated_time" content="2017-04-15T07:08:56.988Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java链表">
+<meta name="twitter:description" content="1.java实现单向链表">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java链表" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java链表
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="1-java实现单向链表"><a href="#1-java实现单向链表" class="headerlink" title="1.java实现单向链表"></a>1.java实现单向链表</h3><a id="more"></a>
+<h4 id="Node-类（节点类）"><a href="#Node-类（节点类）" class="headerlink" title="Node 类（节点类）"></a>Node 类（节点类）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 链表的节点类</div><div class="line"> * <span class="doctag">@author</span> dongdatangjie</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> data;</div><div class="line">	<span class="keyword">private</span> Node next;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> data;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.data = data;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Node <span class="title">getNext</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> next;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNext</span><span class="params">(Node next)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.next = next;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Link-类-（链表实现类）"><a href="#Link-类-（链表实现类）" class="headerlink" title="Link 类 （链表实现类）"></a>Link 类 （链表实现类）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 单向链表</div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> Administrator</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Link</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;<span class="comment">// 链表长度</span></div><div class="line">	<span class="keyword">private</span> Node first;<span class="comment">// 头节点</span></div><div class="line">	<span class="keyword">private</span> Node last;<span class="comment">// 尾节点</span></div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 链表初始化</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Link</span><span class="params">()</span> </span>&#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 当链表为空时插入新元素</div><div class="line">	 * <span class="doctag">@param</span> data</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fillStart</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</div><div class="line">		first = <span class="keyword">new</span> Node();</div><div class="line">		first.setData(data);</div><div class="line">		last = first;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 只有一个元素时清空链表</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</div><div class="line">		first=<span class="keyword">null</span>;</div><div class="line">		last=<span class="keyword">null</span>;</div><div class="line">		size=<span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 链表头部插入</div><div class="line">	 * <span class="doctag">@param</span> data</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span>(size==<span class="number">0</span>)&#123;</div><div class="line">			<span class="comment">//初始化头尾元素</span></div><div class="line">			fillStart(data);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			Node node=<span class="keyword">new</span> Node();</div><div class="line">			node.setData(data);</div><div class="line">			node.setNext(first);<span class="comment">//把元素的下一个位置指向头元素</span></div><div class="line">			first=node;<span class="comment">//把元素指定为头元素</span></div><div class="line">		&#125;</div><div class="line">		size++;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 链表尾部插入元素</div><div class="line">	 * <span class="doctag">@param</span> data</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> data)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(size==<span class="number">0</span>)&#123;</div><div class="line">			fillStart(data);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			Node node=<span class="keyword">new</span> Node();</div><div class="line">			node.setData(data);</div><div class="line">			last.setNext(node);</div><div class="line">			last=node;</div><div class="line">		&#125;</div><div class="line">		size++;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 获取指定下标元素</div><div class="line">	 * <span class="doctag">@param</span> index</div><div class="line">	 * <span class="doctag">@return</span></div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> Node <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</div><div class="line">		Node temp=first;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;index;i++)&#123;</div><div class="line">			temp=temp.getNext();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> temp;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 在链表指定位置后面插入元素</div><div class="line">	 * <span class="doctag">@param</span> data</div><div class="line">	 * <span class="doctag">@param</span> index</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> data,<span class="keyword">int</span> index)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(size&gt;index)&#123;</div><div class="line">			<span class="keyword">if</span>(size==<span class="number">0</span>)&#123;</div><div class="line">				<span class="comment">//初始化链表</span></div><div class="line">				fillStart(data);</div><div class="line">				size++;	</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(index==-<span class="number">1</span>)&#123;</div><div class="line">				addFirst(data);</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(size==index+<span class="number">1</span>)&#123;</div><div class="line">				addLast(data);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				Node temp=get(index);</div><div class="line">				Node node=<span class="keyword">new</span> Node();</div><div class="line">				node.setData(data);</div><div class="line">				node.setNext(temp.getNext());</div><div class="line">				temp.setNext(node);</div><div class="line">				size++;</div><div class="line">			&#125;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"元素下标超出链表长度"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 删除表头元素</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeFirst</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(size==<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"元素下标超出链表长度"</span>);</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(size==<span class="number">1</span>)&#123;</div><div class="line">			<span class="comment">//清除所有</span></div><div class="line">			clear();</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			Node temp=first;</div><div class="line">			first=temp.getNext();</div><div class="line">			temp=<span class="keyword">null</span>;</div><div class="line">			size--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 删除尾部元素</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeLast</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(size==<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"元素下标超出链表长度"</span>);</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(size==<span class="number">1</span>)&#123;</div><div class="line">			<span class="comment">//清除所有</span></div><div class="line">			clear();</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			Node temp=get(size-<span class="number">2</span>);<span class="comment">//获取尾元素之前的元素</span></div><div class="line">			temp.setNext(<span class="keyword">null</span>);</div><div class="line">			size--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 删除中间元素</div><div class="line">	 * <span class="doctag">@param</span> index</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeMiddle</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(size==<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"元素下标超出链表长度"</span>);</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(size==<span class="number">1</span>)&#123;</div><div class="line">			<span class="comment">//清除所有</span></div><div class="line">			clear();</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">if</span>(index==<span class="number">0</span>)&#123;</div><div class="line">				removeFirst();</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(size==index+<span class="number">1</span>)&#123;</div><div class="line">				removeLast();</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				Node temp=get(index-<span class="number">1</span>);<span class="comment">//获取要删除元素之前的一个元素</span></div><div class="line">				Node next=temp.getNext();</div><div class="line">				temp.setNext(next.getNext());</div><div class="line">				next=<span class="keyword">null</span>;</div><div class="line">				size--;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 打印所有数据</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printAll</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;size;i++)&#123;</div><div class="line">			System.out.print(get(i).getData()+<span class="string">","</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">""</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 链表大小</div><div class="line">	 * <span class="doctag">@return</span></div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> size;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 实现反转链表的功能</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">()</span></span>&#123;</div><div class="line">		Node temp=first;</div><div class="line">		last=first;</div><div class="line">		Node next=first.getNext();</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;size-<span class="number">1</span>;i++)&#123;</div><div class="line">			Node nextNext=next.getNext();</div><div class="line">			next.setNext(temp);</div><div class="line">			temp=next;</div><div class="line">			next=nextNext;</div><div class="line">		&#125;</div><div class="line">		last.setNext(<span class="keyword">null</span>);</div><div class="line">		first=temp;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="LinkTest-类（链表测试类）"><a href="#LinkTest-类（链表测试类）" class="headerlink" title="LinkTest 类（链表测试类）"></a>LinkTest 类（链表测试类）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkTest</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		Link link=<span class="keyword">new</span> Link();</div><div class="line">		link.addFirst(<span class="number">2</span>);</div><div class="line">		link.addFirst(<span class="number">1</span>);</div><div class="line">		link.addLast(<span class="number">4</span>);</div><div class="line">		link.addLast(<span class="number">5</span>);</div><div class="line">		link.add(<span class="number">3</span>,<span class="number">1</span>);</div><div class="line">		link.printAll();</div><div class="line"><span class="comment">//		link.removeFirst();</span></div><div class="line"><span class="comment">//		link.removeFirst();</span></div><div class="line"><span class="comment">//		System.out.println(link.size());</span></div><div class="line">		link.reverse();</div><div class="line">		link.printAll();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-java实现双向链表"><a href="#2-java实现双向链表" class="headerlink" title="2.java实现双向链表"></a>2.java实现双向链表</h3><h4 id="DoubleNode-类-节点类"><a href="#DoubleNode-类-节点类" class="headerlink" title="DoubleNode 类(节点类)"></a>DoubleNode 类(节点类)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleNode</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> Object obj;</div><div class="line">	<span class="keyword">private</span> DoubleNode prev;</div><div class="line">	<span class="keyword">private</span> DoubleNode next;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DoubleNode</span><span class="params">(Object obj)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.obj=obj;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getObj</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> obj;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setObj</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.obj = obj;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> DoubleNode <span class="title">getPrev</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> prev;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrev</span><span class="params">(DoubleNode prev)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.prev = prev;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> DoubleNode <span class="title">getNext</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> next;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNext</span><span class="params">(DoubleNode next)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.next = next;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="DoubleLink-类（链表实现类）"><a href="#DoubleLink-类（链表实现类）" class="headerlink" title="DoubleLink 类（链表实现类）"></a>DoubleLink 类（链表实现类）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleLink</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> DoubleNode head = <span class="keyword">null</span>;<span class="comment">// 头节点</span></div><div class="line">	<span class="keyword">private</span> DoubleNode tail = head;<span class="comment">// 尾节点</span></div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size;<span class="comment">// 链表大小</span></div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 链表后添加元素</div><div class="line">	 * <span class="doctag">@param</span> o</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">		<span class="comment">//根据给定值创建节点</span></div><div class="line">		DoubleNode node=<span class="keyword">new</span> DoubleNode(obj);</div><div class="line">		<span class="keyword">if</span>(head==<span class="keyword">null</span>)&#123;</div><div class="line">			<span class="comment">//如果链表为空，添加为第一个节点，既是头节点有事尾节点</span></div><div class="line">			head=node;</div><div class="line">			tail=head; </div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			tail.setNext(node);</div><div class="line">			node.setPrev(tail);</div><div class="line">			tail=node;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 在指定位置添加元素</div><div class="line">	 * <span class="doctag">@param</span> index</div><div class="line">	 * <span class="doctag">@param</span> obj</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index,Object obj)</span></span>&#123;</div><div class="line">		<span class="comment">//创建节点</span></div><div class="line">		DoubleNode node=<span class="keyword">new</span> DoubleNode(obj);</div><div class="line">		<span class="comment">//判断下标</span></div><div class="line">		<span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;size())&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"下标越界：size："</span>+size()+<span class="string">"index："</span>+index);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">if</span>(head==<span class="keyword">null</span>)&#123;</div><div class="line">				head=node;</div><div class="line">				tail=head;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(index==size())&#123;</div><div class="line">				add(node);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="comment">//链表不为空时，取得当前下标的节点</span></div><div class="line">				DoubleNode newnode=getCurrNode(index);</div><div class="line">				DoubleNode fnode=newnode.getPrev();</div><div class="line">				fnode.setNext(node);</div><div class="line">				node.setPrev(fnode);</div><div class="line">				node.setNext(newnode);</div><div class="line">				newnode.setPrev(node);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 根据下标删除当前节点</div><div class="line">	 * <span class="doctag">@param</span> index</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;size())&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"下标越界：size："</span>+size()+<span class="string">"index："</span>+index);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">if</span>(head==<span class="keyword">null</span>)&#123;</div><div class="line">				System.out.println(<span class="string">"链表为空，不能删除！"</span>);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="comment">//取得当前下标节点</span></div><div class="line">				DoubleNode newnode=getCurrNode(index);</div><div class="line">				DoubleNode pnode=newnode.getPrev();</div><div class="line">				DoubleNode nnode=newnode.getNext();</div><div class="line">				</div><div class="line">				pnode.setNext(nnode);</div><div class="line">				nnode.setPrev(pnode);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 获取链表大小</div><div class="line">	 * <span class="doctag">@return</span></div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(head==<span class="keyword">null</span>)&#123;</div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			DoubleNode node=head;</div><div class="line">			<span class="keyword">int</span> count=<span class="number">0</span>;</div><div class="line">			<span class="keyword">while</span>(node!=<span class="keyword">null</span>)&#123;</div><div class="line">				count++;</div><div class="line">				node=node.getNext();</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> count;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 根据下标取得当前的节点</div><div class="line">	 * <span class="doctag">@param</span> index</div><div class="line">	 * <span class="doctag">@return</span></div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> DoubleNode <span class="title">getCurrNode</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</div><div class="line">		<span class="comment">//判断传入下标</span></div><div class="line">		<span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;size())&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"下标越界：size："</span>+size()+<span class="string">"index："</span>+index);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			DoubleNode node=head;</div><div class="line">			<span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">			<span class="keyword">while</span>(i&lt;index)&#123;</div><div class="line">				i++;</div><div class="line">				node=node.getNext();</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> node;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 在指定位置更新节点值</div><div class="line">	 * <span class="doctag">@param</span> index</div><div class="line">	 * <span class="doctag">@param</span> obj</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">upDate</span><span class="params">(<span class="keyword">int</span> index,Object obj)</span></span>&#123;</div><div class="line">		<span class="comment">//判断传入下标</span></div><div class="line">		<span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;size())&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"下标越界：size："</span>+size()+<span class="string">"index："</span>+index);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			DoubleNode newnode=getCurrNode(index);</div><div class="line">			newnode.setObj(obj);</div><div class="line">		&#125;		</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printDoubleLink</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(head==<span class="keyword">null</span>)&#123;</div><div class="line">			System.out.println(<span class="string">"链表为空"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">int</span> count=<span class="number">0</span>;</div><div class="line">			DoubleNode node=head;</div><div class="line">			<span class="keyword">while</span>(node!=<span class="keyword">null</span>)&#123;</div><div class="line">				count++;</div><div class="line">				Object obj=node.getObj();</div><div class="line">				System.out.print(obj+<span class="string">" "</span>);</div><div class="line">				node=node.getNext();</div><div class="line">			&#125;</div><div class="line">			System.out.println(<span class="string">""</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="DoubleLinkTest-链表测试类"><a href="#DoubleLinkTest-链表测试类" class="headerlink" title="DoubleLinkTest(链表测试类)"></a>DoubleLinkTest(链表测试类)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleLinkTest</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		DoubleLink dl=<span class="keyword">new</span> DoubleLink();</div><div class="line">		dl.add(<span class="string">"头节点"</span>);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">			dl.add(<span class="string">"结点"</span>+i);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//测试指定位置下取得结点</span></div><div class="line">		Object obj=dl.getCurrNode(<span class="number">3</span>).getObj();</div><div class="line">		<span class="comment">//测试在指定位置插入元素</span></div><div class="line">		dl.add(<span class="number">3</span>, <span class="string">"新来的元素"</span>);</div><div class="line">		System.out.println(<span class="string">"&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;"</span>+obj);</div><div class="line">		dl.printDoubleLink();</div><div class="line">		System.out.println(<span class="string">"&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;"</span>);</div><div class="line">		<span class="comment">// list.remove(3);</span></div><div class="line">		<span class="comment">// list.printLinkNode(front);</span></div><div class="line">		dl.upDate(<span class="number">3</span>, <span class="string">"值被改变的元素"</span>);</div><div class="line">		dl.printDoubleLink();</div><div class="line">		System.out.println(<span class="string">"&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-java循环链表，实现原理就是，将头节点和尾节点作为有个节点。"><a href="#3-java循环链表，实现原理就是，将头节点和尾节点作为有个节点。" class="headerlink" title="3.java循环链表，实现原理就是，将头节点和尾节点作为有个节点。"></a>3.java循环链表，实现原理就是，将头节点和尾节点作为有个节点。</h3>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/08/Java链表/" class="archive-article-date">
+  	<time datetime="2016-12-08T13:06:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/19/Java排序算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java排序算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/04/java集合框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

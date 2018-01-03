@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>自适应线性神经网络 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本节我们学习另一种单层神经网络：自适应线性神经元(ADAptive    LInear    NEuron,    简称 Adaline)。在Frank    Rosenblatt提出感知计算法不久，Bernard    Widrow和他的博士生Tedd    Hoff 提出了Adaline算法作为感知机的改进算法(B.Widrow    et    al.    Adaptive    “Ad">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自适应线性神经网络">
+<meta property="og:url" content="http://yoursite.com/2017/06/14/自适应线性神经网络/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="本节我们学习另一种单层神经网络：自适应线性神经元(ADAptive    LInear    NEuron,    简称 Adaline)。在Frank    Rosenblatt提出感知计算法不久，Bernard    Widrow和他的博士生Tedd    Hoff 提出了Adaline算法作为感知机的改进算法(B.Widrow    et    al.    Adaptive    “Ad">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-93a03f14c2401c5c.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-d4695ed1848fce85.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/%E6%8D%95%E8%8E%B722.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-ae88a5c0acfa11f9.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/Figure_11111.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/1222.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/Figure_33333.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/Figure_2222.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/Figure_11423.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/Figure_122.png">
+<meta property="og:updated_time" content="2017-06-14T12:43:13.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自适应线性神经网络">
+<meta name="twitter:description" content="本节我们学习另一种单层神经网络：自适应线性神经元(ADAptive    LInear    NEuron,    简称 Adaline)。在Frank    Rosenblatt提出感知计算法不久，Bernard    Widrow和他的博士生Tedd    Hoff 提出了Adaline算法作为感知机的改进算法(B.Widrow    et    al.    Adaptive    “Ad">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/1207849-93a03f14c2401c5c.png">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-自适应线性神经网络" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自适应线性神经网络
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><strong>本节我们学习另一种单层神经网络：自适应线性神经元(ADAptive    LInear    NEuron,    简称 Adaline)。在Frank    Rosenblatt提出感知计算法不久，Bernard    Widrow和他的博士生Tedd    Hoff 提出了Adaline算法作为感知机的改进算法(B.Widrow    et    al.    Adaptive    “Adaline”    neuron    using chemical    “memistors”.)</strong></p>
+<p><strong>相对于感知机，Adaline算法有趣的多，因为在学习Adaline的过程中涉及到机器学习中一个重 要的概念：定义、最小化损失函数。学习Adaline为以后学习更复杂高端的算法(比如逻辑斯蒂 回归、SVM等)起到抛砖引玉的作用。</strong></p>
+<p><strong>Adaline和感知机的一个重要区别是Adaline算法中权重参数更新按照线性激活函数而不是单位 阶跃函数。当然，Adaline中激活函数也简单的很。</strong></p>
+<p><strong>虽然Adaline中参数更新不是使用阶跃函数，但是在对测试集样本输出预测类别时还是使用阶 跃函数，毕竟要输出离散值-1,1。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-93a03f14c2401c5c.png" alt=""><br></div><br><a id="more"></a><br>## 使用梯度下降算法最小化损失函数<br><strong>在监督机器学习算法中，一个重要的概念就是定义目标函数(objective    function)，而目标函数 就是机器学习算法的学习过程中要优化的目标，目标函数我们常称为损失函数(cost function)，在算法学习(即，参数更新)的过程中就是要最小化损失函数。</strong><br><br><strong>对于Adaline算法，我们定义损失函数为样本真实值和预测值之间的误差平方和(Sum    of Squared    Erros,    SSE):</strong><br>$$J(\omega)=\frac{1}{2}\sum_{i=1}^{n} \lgroup y^{(i)}-\phi \lgroup  z^{(i)} \rgroup \rgroup$$<br><br><strong>寻找最小均方误差就像下山一样，每次算法循环都相当于下降一步，下降一步的歩幅取决于学习率，与图中的权值点的切线斜率相关</strong><br><br><div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-d4695ed1848fce85.png" alt=""><br></div>
+
+<p><strong>每次权值逼近均方误差最小点的过程就是梯度下降（Gradient Descent）</strong></p>
+<h4 id="权值更新"><a href="#权值更新" class="headerlink" title="权值更新"></a>权值更新</h4><p>$$\omega :=\omega+\Delta \omega$$</p>
+<h4 id="权值变化"><a href="#权值变化" class="headerlink" title="权值变化"></a>权值变化</h4><p>$$\Delta\omega =-\eta \Delta J \lgroup \omega \rgroup$$</p>
+<h4 id="Delta-J-lgroup-omega-rgroup-是代价函数对权值的偏导函数"><a href="#Delta-J-lgroup-omega-rgroup-是代价函数对权值的偏导函数" class="headerlink" title="$\Delta J \lgroup \omega \rgroup$是代价函数对权值的偏导函数"></a>$\Delta J \lgroup \omega \rgroup$是代价函数对权值的偏导函数</h4><p><strong>福利：    详细的损失函数对权重的偏导数计算过程为</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/%E6%8D%95%E8%8E%B722.PNG" alt=""><br></div>
+
+<p><strong>最终的权值更新公式如下</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1207849-ae88a5c0acfa11f9.png" alt=""><br></div>
+
+<h2 id="Python实现自适应线性神经元"><a href="#Python实现自适应线性神经元" class="headerlink" title="Python实现自适应线性神经元"></a>Python实现自适应线性神经元</h2><p><strong>既然感知机和Adaline的学习规则非常相似，所以在实现Adaline的时候我们不需要完全重写， 而是在感知机代码基础上进行修改得到Adaline，具体地，我们需要修改fit方法，实现梯度下 降算法:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="string">'''</span></div><div class="line">Created on 2017年6月14日</div><div class="line">自适应神经元（梯度下降法）</div><div class="line">@author: 唐杰</div><div class="line">'''</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AdlineGD</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, eta=<span class="number">0.01</span>, n_iter=<span class="number">50</span>)</span>:</span></div><div class="line">        self.eta = eta</div><div class="line">        self.n_iter = n_iter</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">net_input</span><span class="params">(self,X)</span>:</span></div><div class="line">        <span class="keyword">return</span> np.dot(X,self.w_[<span class="number">1</span>:])+self.w_[<span class="number">0</span>]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">activation</span><span class="params">(self,X)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.net_input(X)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self,X)</span>:</span></div><div class="line">        <span class="keyword">return</span> np.where(self.activation(X)&gt;=<span class="number">0.0</span>,<span class="number">1</span>,<span class="number">-1</span>)</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self,X,y)</span>:</span></div><div class="line">        self.w_=np.zeros(<span class="number">1</span>+X.shape[<span class="number">1</span>])</div><div class="line">        self.cost_=[]</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.n_iter):</div><div class="line">            output=self.net_input(X)</div><div class="line">            errors=(y-output)</div><div class="line">            self.w_[<span class="number">1</span>:]+=self.eta*X.T.dot(errors)</div><div class="line">            self.w_[<span class="number">0</span>]+self.eta*errors.sum()</div><div class="line">            cost=(errors**<span class="number">2</span>).sum()/<span class="number">2.0</span></div><div class="line">            self.cost_.append(cost)</div><div class="line">        <span class="keyword">return</span> self    </div><div class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</div><div class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_decision_region</span><span class="params">(X,y,classifier,resolution=<span class="number">0.02</span>)</span>:</span></div><div class="line">    markers=(<span class="string">'s'</span>,<span class="string">'x'</span>,<span class="string">'o'</span>,<span class="string">'^'</span>,<span class="string">'v'</span>)</div><div class="line">    colors=(<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'lightgreen'</span>,<span class="string">'gray'</span>,<span class="string">'cyan'</span>)</div><div class="line">    cmap=ListedColormap(colors[:len(np.unique(y))])</div><div class="line">    </div><div class="line">    x1_min,x1_max=X[:,<span class="number">0</span>].min()<span class="number">-1</span>,X[:,<span class="number">0</span>].max()+<span class="number">1</span></div><div class="line">    x2_min,x2_max=X[:,<span class="number">1</span>].min()<span class="number">-1</span>,X[:,<span class="number">1</span>].max()+<span class="number">1</span></div><div class="line">    </div><div class="line">    xx1,xx2=np.meshgrid(np.arange(x1_min,x1_max,resolution),</div><div class="line">                        np.arange(x2_min,x2_max,resolution))</div><div class="line">    Z=classifier.predict(np.array([xx1.ravel(),xx2.ravel()]).T)</div><div class="line">    Z=Z.reshape(xx1.shape)</div><div class="line">    </div><div class="line">    plt.contourf(xx1,xx2,Z,alpha=<span class="number">0.4</span>,cmap=cmap)</div><div class="line">    plt.xlim(xx1.min(),xx1.max())</div><div class="line">    plt.ylim(xx2.min(),xx2.max())</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> idx,cl <span class="keyword">in</span> enumerate(np.unique(y)):</div><div class="line">        plt.scatter(x=X[y==cl,<span class="number">0</span>], y=X[y==cl,<span class="number">1</span>], alpha=<span class="number">0.8</span>, c=cmap(idx), marker=markers[idx], label=cl)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="comment">#pandas读取csv文件，header=none表示原始文件没有列索引需要自己加上  </span></div><div class="line">    df=pd.read_csv(<span class="string">'http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'</span>,header=<span class="keyword">None</span>)</div><div class="line">    <span class="comment">#print(df.tail())#显示后五条的记录</span></div><div class="line">    y=df.iloc[<span class="number">0</span>:<span class="number">100</span>,<span class="number">4</span>].values<span class="comment">#类别标记</span></div><div class="line">    y=np.where(y==<span class="string">'Iris-setosa'</span>,<span class="number">-1</span>,<span class="number">1</span>)</div><div class="line">    X=df.iloc[<span class="number">0</span>:<span class="number">100</span>,[<span class="number">0</span>,<span class="number">2</span>]].values </div><div class="line">    fig,ax=plt.subplots(nrows=<span class="number">1</span>,ncols=<span class="number">2</span>,figsize=(<span class="number">8</span>,<span class="number">4</span>))</div><div class="line">    ada1=AdlineGD(eta=<span class="number">0.01</span>, n_iter=<span class="number">10</span>).fit(X,y)</div><div class="line">    ax[<span class="number">0</span>].plot(range(<span class="number">1</span>,len(ada1.cost_)+<span class="number">1</span>),np.log10(ada1.cost_),marker=<span class="string">'o'</span>)</div><div class="line">    ax[<span class="number">0</span>].set_xlabel(<span class="string">'Epoches'</span>)</div><div class="line">    ax[<span class="number">0</span>].set_ylabel(<span class="string">'log(Sum-squared-error)'</span>)</div><div class="line">    ax[<span class="number">0</span>].set_title(<span class="string">'Adalie-learning rate 0.01'</span>)</div><div class="line">    ada2=AdlineGD(eta=<span class="number">0.0001</span>, n_iter=<span class="number">10</span>).fit(X,y)</div><div class="line">    ax[<span class="number">1</span>].plot(range(<span class="number">1</span>,len(ada2.cost_)+<span class="number">1</span>),np.log10(ada2.cost_),marker=<span class="string">'o'</span>)</div><div class="line">    ax[<span class="number">1</span>].set_xlabel(<span class="string">'Epoches'</span>)</div><div class="line">    ax[<span class="number">1</span>].set_ylabel(<span class="string">'log(Sum-squared-error)'</span>)</div><div class="line">    ax[<span class="number">1</span>].set_title(<span class="string">'Adalie-learning rate 0.0001'</span>)</div><div class="line">    plt.show()</div><div class="line">    </div><div class="line">    X_std=np.copy(X)</div><div class="line">    X_std[:,<span class="number">0</span>]=(X[:,<span class="number">0</span>]-X[:,<span class="number">0</span>].mean())/X[:,<span class="number">0</span>].std()</div><div class="line">    X_std[:,<span class="number">1</span>]=(X[:,<span class="number">1</span>]-X[:,<span class="number">1</span>].mean())/X[:,<span class="number">1</span>].std()</div><div class="line">    adal=AdlineGD(eta=<span class="number">0.01</span>, n_iter=<span class="number">15</span>)</div><div class="line">    adal.fit(X_std,y)</div><div class="line">    </div><div class="line">    plot_decision_region(X_std,y,classifier=adal)</div><div class="line">    plt.title(<span class="string">'Adaline-Gradient Descent'</span>)</div><div class="line">    plt.xlabel(<span class="string">'sepal length [standardized]'</span>)</div><div class="line">    plt.ylabel(<span class="string">'petal length [standardized]'</span>)</div><div class="line">    plt.legend(loc=<span class="string">'upper left'</span>)</div><div class="line">    plt.show()</div><div class="line">    </div><div class="line">    plt.plot(range(<span class="number">1</span>,len(adal.cost_)+<span class="number">1</span>),np.log10(adal.cost_),marker=<span class="string">'o'</span>)</div><div class="line">    plt.xlabel(<span class="string">'Epoches'</span>)</div><div class="line">    plt.ylabel(<span class="string">'Sum-squared-error'</span>)</div><div class="line">    plt.title(<span class="string">'Adalie-learning rate 0.0001'</span>)</div><div class="line">    plt.show()</div></pre></td></tr></table></figure></p>
+<h3 id="学习率的影响和选择"><a href="#学习率的影响和选择" class="headerlink" title="学习率的影响和选择"></a>学习率的影响和选择</h3><p><strong>学习率设置为0.01的时候，结果如左图，均方误差最小的点是第一个点，然后越来越大。当学习率设置为0.0001的时候，结果如右图，误差在逐渐减小，但是没有收敛的趋势。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/Figure_11111.png" alt=""><br></div>
+
+<p><strong>分析上面两幅图各自的问题，左图根本不是在最小化损失函数，反而在每一轮迭代过程中， 损失函数值不断在增大！这说明取值过大的学习率不但对算法毫无益处反而危害大大滴。右 图虽然能够在每一轮迭代过程中一直在减小损失函数的值，但是减小的幅度太小了，估计至 少上百轮迭代才能收敛，而这个时间我们是耗不起的，所以学习率值过小就会导致算法收敛 的时间巨长，使得算法根本不能应用于实际问题。</strong></p>
+<p><strong>下面左图展示了权重再更新过程中如何得到损失函数 最小值的。右图展示了学习率过大 时权重更新，每次都跳过了最小损失函数对应的权重值。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/1222.PNG" alt=""><br></div>
+
+<p><strong>许多机器学习算法都要求先对特征进行某种缩放操作，比如标准化(standardization)和归一化 (normalization)。而缩放后的特征通常更有助于算法收敛，实际上，对特征缩放后在运用梯度 下降算法往往会有更好的学习效果。</strong></p>
+<p><strong>特征标准化的计算很简单，比如要对第j维度特征进行标准化，只需要计算所有训练集样本中 第j维度的平均值 和标准差 即可,然后套公式：</strong><br>$$x\prime_j= \frac{x_j-\mu_j}{\sigma_j}$$<br><strong>标准化后的特征    均值为0，标准差为1. </strong></p>
+<p><strong>经过标准化的数据，会体现出一些数学分布的特点。标准化后，我们再次使用0.01的学习率进行训练分类。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/Figure_33333.png" alt=""><br></div><br><strong>最后的分类平面如下图</strong><br><div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/Figure_2222.png" alt=""><br></div>
+
+<h2 id="大规模机器学习和随机梯度下降"><a href="#大规模机器学习和随机梯度下降" class="headerlink" title="大规模机器学习和随机梯度下降"></a>大规模机器学习和随机梯度下降</h2><p><strong>虽然随机梯度下降被当作是梯度下降的近似算法，但实际上她往往比梯度下降收敛更快，因 为相同时间内她对权重更新的更频繁。由于单个样本得到的损失函数相对于用整个训练集得 到的损失函数具有随机性，反而会有助于随机梯度下降算法避免陷入局部最小点。在实际应 用随机梯度下降法时，为了得到准确结果，一定要以随机方式选择样本计算梯度，通常的做 法在每一轮迭代后将训练集进行打乱重排(shuffle)。</strong></p>
+<p><strong>Notes:在随机梯度下降法中，通常用不断减小的自适应学习率替代固定学习率 ,比如 ,其 中 是常数。还要注意随机梯度下降并不能够保证使损失函数达到全局最小点，但结果会 很接近全局最小。</strong></p>
+<p><strong>随机梯度下降法的另一个优点是可以用于在线学习(online    learning)。在线学习在解决不断累 积的大规模数据时非常有用，比如，移动端的顾客数据。使用在线学习，系统可以实时更新 并且如果存储空间快装不下数据了，可以将时间最久的数据删除。</strong></p>
+<p><strong>Notes    除了梯度下降算法和随机梯度下降算法之外，还有一种常用的二者折中的算法：最小 批学习(mini-batch    learning)。很好理解，梯度下降每一次用全部训练集计算梯度更新权重， 随机梯度法每一次用一个训练样本计算梯度更新权重，最小批学习每次用部分训练样本计算 梯度更新权重，比如50。相对于梯度下降，最小批收敛速度也更快因为权重参数更新更加频 繁。此外，最小批相对于随机梯度中，使用向量操作替代for循环(每一次跌倒都要遍历所有样 本)，使得计算更快。</strong></p>
+<p><strong>上一节我们已经实现了梯度下降求解Adaline，只需要做部分修改就能得到随机梯度下降法求 解Adaline。第一个修改是fit方法内用每一个训练样本更新权重参数 ,第二个修改是增加 partial_fit方法，第三个修改是增加shuffle方法打乱训练集顺序。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="string">'''</span></div><div class="line">Created on 2017年6月14日</div><div class="line">自适应神经元（随机梯度下降法）</div><div class="line">@author: 唐杰</div><div class="line">'''</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">from</span> numpy.random <span class="keyword">import</span> seed</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AdalineSGD</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, eta=<span class="number">0.01</span>, n_iter=<span class="number">10</span>,shuffle=True,random_state=None)</span>:</span></div><div class="line">        self.eta = eta</div><div class="line">        self.n_iter = n_iter</div><div class="line">        self.w_initialized=<span class="keyword">False</span>  </div><div class="line">        self.shuffle=shuffle              </div><div class="line">        <span class="keyword">if</span> random_state:                         </div><div class="line">            seed(random_state)</div><div class="line">    </div><div class="line">    <span class="comment">#洗牌训练集</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_shuffle</span><span class="params">(self,X,y)</span>:</span>            </div><div class="line">        r=np.random.permutation(len(y))      </div><div class="line">        <span class="keyword">return</span> X[r],y[r]   </div><div class="line">    <span class="comment">#初始化为0的权重</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_initialize_weights</span><span class="params">(self,m)</span>:</span>    </div><div class="line">        self.w_=np.zeros(<span class="number">1</span>+m)  </div><div class="line">        self.w_initialized=<span class="keyword">True</span>        </div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_update_weights</span><span class="params">(self,xi,target)</span>:</span>   </div><div class="line">        output=self.net_input(xi)    </div><div class="line">        error=(target-output)                                </div><div class="line">        self.w_[<span class="number">1</span>:]+=self.eta*xi.dot(error)     </div><div class="line">        self.w_[<span class="number">0</span>]+=self.eta*error    </div><div class="line">        cost=<span class="number">0.5</span>*error**<span class="number">2</span>          </div><div class="line">        <span class="keyword">return</span> cost</div><div class="line">            </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">net_input</span><span class="params">(self,X)</span>:</span></div><div class="line">        <span class="keyword">return</span> np.dot(X,self.w_[<span class="number">1</span>:])+self.w_[<span class="number">0</span>]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">activation</span><span class="params">(self,X)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.net_input(X)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self,X)</span>:</span></div><div class="line">        <span class="keyword">return</span> np.where(self.activation(X)&gt;=<span class="number">0.0</span>,<span class="number">1</span>,<span class="number">-1</span>)</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self,X,y)</span>:</span></div><div class="line">        self._initialize_weights(X.shape[<span class="number">1</span>])<span class="comment">#初始化权重 self.w_=np.zeros(1+X.shape[1])        </span></div><div class="line">        self.cost_=[]</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.n_iter):</div><div class="line">            <span class="keyword">if</span> self.shuffle:</div><div class="line">                X,y=self._shuffle(X, y)<span class="comment">#洗牌</span></div><div class="line">            cost=[]</div><div class="line">            <span class="keyword">for</span> xi,target <span class="keyword">in</span> zip(X,y):</div><div class="line">                cost.append(self._update_weights(xi,target))  </div><div class="line">            avg_cost=sum(cost)/len(y) </div><div class="line">            self.cost_.append(avg_cost)  </div><div class="line">        <span class="keyword">return</span> self</div><div class="line">    <span class="comment">#未初始化权重的训练 </span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">partial_fit</span><span class="params">(self,X,y)</span>:</span>     </div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.w_initialized: </div><div class="line">            self._initialize_weights(X.shape[<span class="number">1</span>])</div><div class="line">        <span class="keyword">if</span> y.ravel().shape[<span class="number">0</span>]&gt;<span class="number">1</span>:       </div><div class="line">            <span class="keyword">for</span> xi,target <span class="keyword">in</span> zip(X,y):  </div><div class="line">                self._update_weights(xi,target)   </div><div class="line">        <span class="keyword">else</span>:        </div><div class="line">            self._update_weights(X,y)        </div><div class="line">        <span class="keyword">return</span> self</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</div><div class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_decision_region</span><span class="params">(X,y,classifier,resolution=<span class="number">0.02</span>)</span>:</span></div><div class="line">    markers=(<span class="string">'s'</span>,<span class="string">'x'</span>,<span class="string">'o'</span>,<span class="string">'^'</span>,<span class="string">'v'</span>)</div><div class="line">    colors=(<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'lightgreen'</span>,<span class="string">'gray'</span>,<span class="string">'cyan'</span>)</div><div class="line">    cmap=ListedColormap(colors[:len(np.unique(y))])</div><div class="line">    </div><div class="line">    x1_min,x1_max=X[:,<span class="number">0</span>].min()<span class="number">-1</span>,X[:,<span class="number">0</span>].max()+<span class="number">1</span></div><div class="line">    x2_min,x2_max=X[:,<span class="number">1</span>].min()<span class="number">-1</span>,X[:,<span class="number">1</span>].max()+<span class="number">1</span></div><div class="line">    </div><div class="line">    xx1,xx2=np.meshgrid(np.arange(x1_min,x1_max,resolution),</div><div class="line">                        np.arange(x2_min,x2_max,resolution))</div><div class="line">    Z=classifier.predict(np.array([xx1.ravel(),xx2.ravel()]).T)</div><div class="line">    Z=Z.reshape(xx1.shape)</div><div class="line">    </div><div class="line">    plt.contourf(xx1,xx2,Z,alpha=<span class="number">0.4</span>,cmap=cmap)</div><div class="line">    plt.xlim(xx1.min(),xx1.max())</div><div class="line">    plt.ylim(xx2.min(),xx2.max())</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> idx,cl <span class="keyword">in</span> enumerate(np.unique(y)):</div><div class="line">        plt.scatter(x=X[y==cl,<span class="number">0</span>], y=X[y==cl,<span class="number">1</span>], alpha=<span class="number">0.8</span>, c=cmap(idx), marker=markers[idx], label=cl)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="comment">#pandas读取csv文件，header=none表示原始文件没有列索引需要自己加上  </span></div><div class="line">    df=pd.read_csv(<span class="string">'http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'</span>,header=<span class="keyword">None</span>)</div><div class="line">    <span class="comment">#print(df.tail())#显示后五条的记录</span></div><div class="line">    y=df.iloc[<span class="number">0</span>:<span class="number">100</span>,<span class="number">4</span>].values<span class="comment">#类别标记</span></div><div class="line">    y=np.where(y==<span class="string">'Iris-setosa'</span>,<span class="number">-1</span>,<span class="number">1</span>)</div><div class="line">    X=df.iloc[<span class="number">0</span>:<span class="number">100</span>,[<span class="number">0</span>,<span class="number">2</span>]].values </div><div class="line"><span class="comment">#    fig,ax=plt.subplots(nrows=1,ncols=2,figsize=(8,4))</span></div><div class="line"><span class="comment">#    ada1=AdlineGD(eta=0.01, n_iter=10).fit(X,y)</span></div><div class="line"><span class="comment">#    ax[0].plot(range(1,len(ada1.cost_)+1),np.log10(ada1.cost_),marker='o')</span></div><div class="line"><span class="comment">#    ax[0].set_xlabel('Epoches')</span></div><div class="line"><span class="comment">#    ax[0].set_ylabel('log(Sum-squared-error)')</span></div><div class="line"><span class="comment">#    ax[0].set_title('Adalie-learning rate 0.01')</span></div><div class="line"><span class="comment">#    ada2=AdlineGD(eta=0.0001, n_iter=10).fit(X,y)</span></div><div class="line"><span class="comment">#    ax[1].plot(range(1,len(ada2.cost_)+1),np.log10(ada2.cost_),marker='o')</span></div><div class="line"><span class="comment">#    ax[1].set_xlabel('Epoches')</span></div><div class="line"><span class="comment">#    ax[1].set_ylabel('log(Sum-squared-error)')</span></div><div class="line"><span class="comment">#    ax[1].set_title('Adalie-learning rate 0.0001')</span></div><div class="line"><span class="comment">#    plt.show()</span></div><div class="line">    </div><div class="line">    X_std=np.copy(X)</div><div class="line">    X_std[:,<span class="number">0</span>]=(X[:,<span class="number">0</span>]-X[:,<span class="number">0</span>].mean())/X[:,<span class="number">0</span>].std()</div><div class="line">    X_std[:,<span class="number">1</span>]=(X[:,<span class="number">1</span>]-X[:,<span class="number">1</span>].mean())/X[:,<span class="number">1</span>].std()</div><div class="line">    adal=AdalineSGD(eta=<span class="number">0.01</span>, n_iter=<span class="number">15</span>,random_state=<span class="number">1</span>)</div><div class="line">    adal.fit(X_std,y)</div><div class="line">    </div><div class="line">    plot_decision_region(X_std,y,classifier=adal)</div><div class="line">    plt.title(<span class="string">'Adaline-Stochastic Gradient Descent'</span>)</div><div class="line">    plt.xlabel(<span class="string">'sepal length [standardized]'</span>)</div><div class="line">    plt.ylabel(<span class="string">'petal length [standardized]'</span>)</div><div class="line">    plt.legend(loc=<span class="string">'upper left'</span>)</div><div class="line">    plt.show()</div><div class="line">    </div><div class="line">    plt.plot(range(<span class="number">1</span>,len(adal.cost_)+<span class="number">1</span>),adal.cost_,marker=<span class="string">'o'</span>)</div><div class="line">    plt.xlabel(<span class="string">'Epoches'</span>)</div><div class="line">    plt.ylabel(<span class="string">'Average Cost'</span>)</div><div class="line">    plt.title(<span class="string">'Adalie-learning rate 0.01'</span>)</div><div class="line">    plt.show()</div></pre></td></tr></table></figure>
+<p><strong>得到的结果为：</strong></p>
+<p><strong>经过标准化的数据，会体现出一些数学分布的特点。标准化后，我们再次使用0.01的学习率进行训练分类。</strong></p>
+<div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/Figure_11423.png" alt=""><br></div><br><strong>最后的分类平面如下图:</strong><br><div align="center"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/Figure_122.png" alt=""><br></div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/14/自适应线性神经网络/" class="archive-article-date">
+  	<time datetime="2017-06-14T12:36:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/15/Android-动态人脸关键点定位/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Android 动态人脸关键点定位
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/13/算法原理（PLA原理）及-Python-实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法原理（PLA原理）及 Python 实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android登陆界面设计 | 研究生学测试的南航程序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="登陆界面的设计主要包括
+
+欢迎界面
+登陆界面
+注册界面
+
+
+废话不多说，借用一哥们的qq登陆界面学习一下。链接：GItHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android登陆界面设计">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/Android登陆界面设计/index.html">
+<meta property="og:site_name" content="研究生学测试的南航程序员">
+<meta property="og:description" content="登陆界面的设计主要包括
+
+欢迎界面
+登陆界面
+注册界面
+
+
+废话不多说，借用一哥们的qq登陆界面学习一下。链接：GItHub">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/762fd87dc76540a59e415fb04111cc56dddf11462cf99-uL0KNz_fw658.jpg">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/splash.png">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/login.PNG">
+<meta property="og:image" content="http://ofhbt8uhx.bkt.clouddn.com/register.PNG">
+<meta property="og:updated_time" content="2017-04-15T07:05:07.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android登陆界面设计">
+<meta name="twitter:description" content="登陆界面的设计主要包括
+
+欢迎界面
+登陆界面
+注册界面
+
+
+废话不多说，借用一哥们的qq登陆界面学习一下。链接：GItHub">
+<meta name="twitter:image" content="http://ofhbt8uhx.bkt.clouddn.com/762fd87dc76540a59e415fb04111cc56dddf11462cf99-uL0KNz_fw658.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="研究生学测试的南航程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">唐杰</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我也不知道为什么</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photo.html">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">唐杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://ofhbt8uhx.bkt.clouddn.com/home.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">唐杰</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我也不知道为什么</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photo.html">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Android登陆界面设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android登陆界面设计
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<blockquote>
+<p>登陆界面的设计主要包括</p>
+<ul>
+<li>欢迎界面</li>
+<li>登陆界面</li>
+<li>注册界面</li>
+</ul>
+</blockquote>
+<p>废话不多说，借用一哥们的qq登陆界面学习一下。<br>链接：<a href="https://github.com/dongdatangjie/QQLogin" target="_blank" rel="external">GItHub</a><br><a id="more"></a><br>[TOC]</p>
+<h3 id="1-欢迎界面"><a href="#1-欢迎界面" class="headerlink" title="1.欢迎界面"></a>1.欢迎界面</h3><p><strong>其实欢迎界面有挺多中的，比如微信qq一样的通过animation添加图片的渐变效果，然后延迟显示。也有滑动的介绍界面，在我看来全是在打广告。当然不可否认有些人是利用这样一种方式来介绍app的功能，比如阅读器一类的app的前面效果还是有作用的。</strong><br><img src="http://ofhbt8uhx.bkt.clouddn.com/762fd87dc76540a59e415fb04111cc56dddf11462cf99-uL0KNz_fw658.jpg" alt="带有功能介绍的欢迎界面"><br><img src="http://ofhbt8uhx.bkt.clouddn.com/splash.png" alt="一闪而过的欢迎界面，感觉没啥用"></p>
+<h4 id="main-xml"><a href="#main-xml" class="headerlink" title="main.xml"></a>main.xml</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@drawable/splash"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="WelcomeActivity-java"><a href="#WelcomeActivity-java" class="headerlink" title="WelcomeActivity.java"></a>WelcomeActivity.java</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.geniuseoe.demo;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;</div><div class="line"><span class="keyword">import</span> android.content.Intent;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.os.Handler;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> geniuseoe2012</div><div class="line"> *  更多精彩，请关注我的CSDN博客http://blog.csdn.net/geniuseoe2012</div><div class="line"> *  android开发交流群：200102476</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WelcomeActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span></span>&#123;</div><div class="line">    <span class="comment">/** Called when the activity is first created. */</span></div><div class="line"></div><div class="line">	<span class="keyword">private</span> Handler mHandler;</div><div class="line">	</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.main);</div><div class="line">       </div><div class="line">        initView();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">    	mHandler = <span class="keyword">new</span> Handler();</div><div class="line">    	mHandler.postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">				goLoginActivity();</div><div class="line">			&#125;</div><div class="line">    	&#125;, <span class="number">1000</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">goLoginActivity</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">    	Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">    	intent.setClass(<span class="keyword">this</span>, LoginActivity.class);</div><div class="line">    	startActivity(intent);</div><div class="line">    	finish();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>最后得到的界面就是上面的QQ的图片</strong></p>
+<h3 id="2-登陆界面"><a href="#2-登陆界面" class="headerlink" title="2.登陆界面"></a>2.登陆界面</h3><blockquote>
+<p>登陆界面主要包括用户名和密码输入框，提交按钮和一些必要的快捷操作，例如记住密码呀，切换到注册假面的按钮和其他一些正常用不到但是用到的时候可以弹出的选项。<br><img src="http://ofhbt8uhx.bkt.clouddn.com/login.PNG" alt="登陆界面"></p>
+<p>####loginpage.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> </span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/loginpage"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@drawable/login_bg"</span> </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</div><div class="line"></div><div class="line">     </div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@+id/image"</span> </span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/login_pic2"</span> </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"28.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"46.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginRight</span>=<span class="string">"28.0dip"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/input"</span> </div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/login_input"</span> </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"28.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginRight</span>=<span class="string">"28.0dip"</span> </div><div class="line">        <span class="attr">android:layout_below</span>=<span class="string">"@id/image"</span>&gt;  </div><div class="line">        <span class="tag">&lt;<span class="name">EditText</span> <span class="attr">android:textSize</span>=<span class="string">"16.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ff1d1d1d"</span> <span class="attr">android:textColorHint</span>=<span class="string">"#ff666666"</span> <span class="attr">android:id</span>=<span class="string">"@+id/accounts"</span> <span class="attr">android:background</span>=<span class="string">"#00ffffff"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"12.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"44.0dip"</span> <span class="attr">android:hint</span>=<span class="string">"@string/account"</span> <span class="attr">android:maxLines</span>=<span class="string">"1"</span> <span class="attr">android:maxLength</span>=<span class="string">"16"</span>     <span class="attr">android:inputType</span>=<span class="string">"number"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">android:background</span>=<span class="string">"#ffc0c3c4"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"1.0px"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"1.0px"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"1.0px"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">EditText</span> <span class="attr">android:textSize</span>=<span class="string">"16.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ff1d1d1d"</span> <span class="attr">android:textColorHint</span>=<span class="string">"#ff666666"</span> <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span> <span class="attr">android:id</span>=<span class="string">"@+id/password"</span> <span class="attr">android:background</span>=<span class="string">"#00ffffff"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"12.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"44.0dip"</span> <span class="attr">android:hint</span>=<span class="string">"@string/password"</span> <span class="attr">android:maxLines</span>=<span class="string">"1"</span> <span class="attr">android:maxLength</span>=<span class="string">"16"</span> <span class="attr">android:inputType</span>=<span class="string">"textPassword"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">    </div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span> </span></div><div class="line">        <span class="attr">android:textSize</span>=<span class="string">"18.0sp"</span> </div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"#ff333333"</span> </div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center"</span> </div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/login"</span> </div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/chat_send_button_bg"</span> </div><div class="line">        <span class="attr">android:paddingTop</span>=<span class="string">"5.0dip"</span> </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"28.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"12.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginRight</span>=<span class="string">"28.0dip"</span> </div><div class="line">        <span class="attr">android:text</span>=<span class="string">"@string/login"</span>    </div><div class="line">        <span class="attr">android:layout_below</span>=<span class="string">"@id/input"</span> /&gt;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span> </span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"30.0dip"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"8.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginRight</span>=<span class="string">"30.0dip"</span> </div><div class="line">        <span class="attr">android:layout_below</span>=<span class="string">"@id/login"</span></div><div class="line">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span> &gt;</div><div class="line">		<span class="tag">&lt;<span class="name">CheckBox</span> <span class="attr">android:textSize</span>=<span class="string">"12.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ffffffff"</span> <span class="attr">android:layout_alignParentLeft</span>=<span class="string">"true"</span>  <span class="attr">android:id</span>=<span class="string">"@+id/auto_save_password"</span> <span class="attr">android:background</span>=<span class="string">"@null"</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:checked</span>=<span class="string">"true"</span> <span class="attr">android:button</span>=<span class="string">"@null"</span> <span class="attr">android:text</span>=<span class="string">"@string/auto_save_password"</span> <span class="attr">android:drawableLeft</span>=<span class="string">"@drawable/checkbox_bg1"</span> <span class="attr">android:drawablePadding</span>=<span class="string">"4.0dip"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">Button</span>  <span class="attr">android:textSize</span>=<span class="string">"12.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ffffffff"</span> <span class="attr">android:layout_alignParentRight</span>=<span class="string">"true"</span> <span class="attr">android:gravity</span>=<span class="string">"left|center"</span>  <span class="attr">android:id</span>=<span class="string">"@+id/regist"</span> <span class="attr">android:background</span>=<span class="string">"@drawable/login_regist_bg"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"8.0dip"</span> <span class="attr">android:paddingRight</span>=<span class="string">"18.0dip"</span> <span class="attr">android:clickable</span>=<span class="string">"true"</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:text</span>=<span class="string">"@string/register2"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/menu"</span> </div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/login_moremenu_back"</span> </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>&gt;</div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">RelativeLayout</span> </span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/more"</span> </div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"8.0dip"</span></div><div class="line">            <span class="attr">android:paddingBottom</span>=<span class="string">"8.0dip"</span></div><div class="line">            <span class="attr">android:clickable</span>=<span class="string">"true"</span>&gt;</div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"14.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ffc6e6f9"</span> <span class="attr">android:gravity</span>=<span class="string">"center"</span> <span class="attr">android:id</span>=<span class="string">"@+id/more_text"</span> <span class="attr">android:background</span>=<span class="string">"@null"</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:text</span>=<span class="string">"@string/more_login_setting"</span> <span class="attr">android:maxLines</span>=<span class="string">"1"</span> <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@+id/more_image"</span> <span class="attr">android:clickable</span>=<span class="string">"false"</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:src</span>=<span class="string">"@drawable/login_more_up"</span> <span class="attr">android:layout_toLeftOf</span>=<span class="string">"@+id/more_text"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"5.0dip"</span> <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line">            <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/moremenu"</span> </div><div class="line">            <span class="attr">android:visibility</span>=<span class="string">"gone"</span> </div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line">            </div><div class="line">               <span class="tag">&lt;<span class="name">View</span> <span class="attr">android:background</span>=<span class="string">"#ff005484"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"1.0px"</span> /&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">View</span> <span class="attr">android:background</span>=<span class="string">"#ff0883cb"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"1.0px"</span> /&gt;</span></div><div class="line">               </div><div class="line">            <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"30.0dip"</span> <span class="attr">android:layout_marginTop</span>=<span class="string">"12.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"30.0dip"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">CheckBox</span> <span class="attr">android:textSize</span>=<span class="string">"12.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ffc6e6f9"</span> <span class="attr">android:id</span>=<span class="string">"@+id/hide_login"</span> <span class="attr">android:background</span>=<span class="string">"@null"</span> <span class="attr">android:layout_width</span>=<span class="string">"1.0px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:checked</span>=<span class="string">"false"</span> <span class="attr">android:button</span>=<span class="string">"@null"</span> <span class="attr">android:text</span>=<span class="string">"@string/hide_login"</span> <span class="attr">android:drawableLeft</span>=<span class="string">"@drawable/checkbox_bg1"</span> <span class="attr">android:drawablePadding</span>=<span class="string">"4.0dip"</span> <span class="attr">android:layout_weight</span>=<span class="string">"2.0"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">CheckBox</span> <span class="attr">android:textSize</span>=<span class="string">"12.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ffc6e6f9"</span> <span class="attr">android:id</span>=<span class="string">"@+id/silence_login"</span> <span class="attr">android:background</span>=<span class="string">"@null"</span> <span class="attr">android:layout_width</span>=<span class="string">"1.0px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:checked</span>=<span class="string">"false"</span> <span class="attr">android:button</span>=<span class="string">"@null"</span> <span class="attr">android:text</span>=<span class="string">"@string/silence_login"</span> <span class="attr">android:drawableLeft</span>=<span class="string">"@drawable/checkbox_bg1"</span> <span class="attr">android:drawablePadding</span>=<span class="string">"4.0dip"</span> <span class="attr">android:layout_weight</span>=<span class="string">"1.0"</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"30.0dip"</span> <span class="attr">android:layout_marginTop</span>=<span class="string">"18.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"30.0dip"</span> <span class="attr">android:layout_marginBottom</span>=<span class="string">"18.0dip"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">CheckBox</span> <span class="attr">android:textSize</span>=<span class="string">"12.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ffc6e6f9"</span> <span class="attr">android:id</span>=<span class="string">"@+id/accept_accounts"</span> <span class="attr">android:background</span>=<span class="string">"@null"</span> <span class="attr">android:layout_width</span>=<span class="string">"1.0px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:checked</span>=<span class="string">"true"</span> <span class="attr">android:button</span>=<span class="string">"@null"</span> <span class="attr">android:text</span>=<span class="string">"@string/info_accounts"</span> <span class="attr">android:singleLine</span>=<span class="string">"true"</span> <span class="attr">android:drawableLeft</span>=<span class="string">"@drawable/checkbox_bg1"</span> <span class="attr">android:drawablePadding</span>=<span class="string">"4.0dip"</span> <span class="attr">android:layout_weight</span>=<span class="string">"2.0"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">CheckBox</span> <span class="attr">android:textSize</span>=<span class="string">"12.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ffc6e6f9"</span> <span class="attr">android:id</span>=<span class="string">"@+id/accept_troopmsg"</span> <span class="attr">android:background</span>=<span class="string">"@null"</span> <span class="attr">android:layout_width</span>=<span class="string">"1.0px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:checked</span>=<span class="string">"true"</span> <span class="attr">android:button</span>=<span class="string">"@null"</span> <span class="attr">android:text</span>=<span class="string">"@string/info_troopmessage"</span> <span class="attr">android:drawableLeft</span>=<span class="string">"@drawable/checkbox_bg1"</span> <span class="attr">android:drawablePadding</span>=<span class="string">"4.0dip"</span> <span class="attr">android:layout_weight</span>=<span class="string">"1.0"</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">        </div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>####LoginActivity.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.geniuseoe.demo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;</div><div class="line"><span class="keyword">import</span> android.app.Dialog;</div><div class="line"><span class="keyword">import</span> android.content.Intent;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.View.OnClickListener;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Button mBtnRegister;</div><div class="line">	<span class="keyword">private</span> Button mBtnLogin;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> View mMoreView;</div><div class="line">	<span class="keyword">private</span> ImageView mMoreImage;</div><div class="line">	<span class="keyword">private</span> View mMoreMenuView;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> mShowMenu = <span class="keyword">false</span>;</div><div class="line">	</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.loginpage);</div><div class="line">       </div><div class="line">        initView();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">    	mMoreView = findViewById(R.id.more);</div><div class="line">    	mMoreMenuView = findViewById(R.id.moremenu);</div><div class="line">    	mMoreImage = (ImageView) findViewById(R.id.more_image);</div><div class="line">    	mMoreView.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    	</div><div class="line">    	mBtnRegister = (Button) findViewById(R.id.regist);</div><div class="line">    	mBtnRegister.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    	</div><div class="line">    	mBtnLogin = (Button) findViewById(R.id.login);</div><div class="line">    	mBtnLogin.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showMoreView</span><span class="params">(<span class="keyword">boolean</span> bShow)</span></span></div><div class="line">    &#123;</div><div class="line">    	<span class="keyword">if</span> (bShow)</div><div class="line">    	&#123;</div><div class="line">    		mMoreMenuView.setVisibility(View.GONE);</div><div class="line">    		mMoreImage.setImageResource(R.drawable.login_more_up);</div><div class="line">    		mShowMenu = <span class="keyword">true</span>;</div><div class="line">    	&#125;<span class="keyword">else</span>&#123;</div><div class="line">    		mMoreMenuView.setVisibility(View.VISIBLE);</div><div class="line">    		mMoreImage.setImageResource(R.drawable.login_more);</div><div class="line">    		mShowMenu = <span class="keyword">false</span>;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		</div><div class="line">		<span class="keyword">switch</span>(v.getId())</div><div class="line">		&#123;</div><div class="line">		<span class="keyword">case</span> R.id.more:</div><div class="line">			showMoreView(!mShowMenu);</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> R.id.regist:</div><div class="line">			goRegisterActivity();</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> R.id.login:</div><div class="line">			showRequestDialog();</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">			<span class="keyword">default</span>:</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">goRegisterActivity</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">    	Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">    	intent.setClass(<span class="keyword">this</span>, RegisterActivity.class);</div><div class="line">    	startActivity(intent);</div><div class="line">    &#125;</div><div class="line">	   </div><div class="line"></div><div class="line">	<span class="keyword">private</span> Dialog mDialog = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showRequestDialog</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span> (mDialog != <span class="keyword">null</span>)</div><div class="line">		&#123;</div><div class="line">			mDialog.dismiss();</div><div class="line">			mDialog = <span class="keyword">null</span>;</div><div class="line">		&#125;</div><div class="line">		mDialog = DialogFactory.creatRequestDialog(<span class="keyword">this</span>, <span class="string">"正在验证账号..."</span>);</div><div class="line">		mDialog.show();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###3.注册界面</p>
+<blockquote>
+<p>注册界面一般包含邮箱，用户名，密码和手机等个人信息。<br><img src="http://ofhbt8uhx.bkt.clouddn.com/register.PNG" alt="注册界面"></p>
+<h4 id="register-xml"><a href="#register-xml" class="headerlink" title="register.xml"></a>register.xml</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span>    </span></div><div class="line">  <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">  <span class="attr">android:background</span>=<span class="string">"@color/white"</span> </div><div class="line">  <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">  <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span> </div><div class="line">  <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span> </span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/title_bar9"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"50dip"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span> <span class="attr">android:textSize</span>=<span class="string">"20.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"@color/white"</span>  <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:text</span>=<span class="string">"@string/qr_register"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line">    </div><div class="line">        </div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/shape_bg"</span> </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"10.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"20.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginRight</span>=<span class="string">"10.0dip"</span>&gt;       </div><div class="line">      </div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"50.0dip"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"18.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"@android:color/black"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"15.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:gravity</span>=<span class="string">"right"</span> <span class="attr">android:text</span>=<span class="string">"邮    箱:"</span> <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">EditText</span> <span class="attr">android:textSize</span>=<span class="string">"16.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ff545454"</span> <span class="attr">android:id</span>=<span class="string">"@+id/email"</span> <span class="attr">android:background</span>=<span class="string">"@android:color/white"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"15.0dip"</span> <span class="attr">android:hint</span>=<span class="string">"请输入邮箱"</span> <span class="attr">android:inputType</span>=<span class="string">"textEmailAddress"</span> <span class="attr">android:maxLength</span>=<span class="string">"20"</span> <span class="attr">android:layout_weight</span>=<span class="string">"3"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">android:background</span>=<span class="string">"@drawable/shape_line"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"1.0px"</span> /&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"50.0dip"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"18.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"@android:color/black"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"15.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:gravity</span>=<span class="string">"right"</span> <span class="attr">android:text</span>=<span class="string">"用户名:"</span> <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">EditText</span> <span class="attr">android:textSize</span>=<span class="string">"16.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ff545454"</span> <span class="attr">android:id</span>=<span class="string">"@+id/password"</span> <span class="attr">android:background</span>=<span class="string">"@android:color/white"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"15.0dip"</span> <span class="attr">android:hint</span>=<span class="string">"请输入用户名"</span> <span class="attr">android:maxLength</span>=<span class="string">"20"</span> <span class="attr">android:layout_weight</span>=<span class="string">"3"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">android:background</span>=<span class="string">"@drawable/shape_line"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"1.0px"</span> /&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"50.0dip"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"18.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"@android:color/black"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"15.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:gravity</span>=<span class="string">"right"</span> <span class="attr">android:text</span>=<span class="string">"密    码:"</span> <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">EditText</span> <span class="attr">android:textSize</span>=<span class="string">"16.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ff545454"</span> <span class="attr">android:id</span>=<span class="string">"@+id/name"</span> <span class="attr">android:background</span>=<span class="string">"@android:color/white"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"15.0dip"</span> <span class="attr">android:hint</span>=<span class="string">"请输入密码"</span> <span class="attr">android:maxLength</span>=<span class="string">"20"</span>  <span class="attr">android:layout_weight</span>=<span class="string">"3"</span> <span class="attr">android:inputType</span>=<span class="string">"textPassword"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">android:background</span>=<span class="string">"@drawable/shape_line"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"1.0px"</span> /&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span> <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"50.0dip"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"18.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"@android:color/black"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"15.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:gravity</span>=<span class="string">"right"</span> <span class="attr">android:text</span>=<span class="string">"手机号:"</span> <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">EditText</span> <span class="attr">android:textSize</span>=<span class="string">"16.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ff545454"</span> <span class="attr">android:id</span>=<span class="string">"@+id/phone"</span> <span class="attr">android:background</span>=<span class="string">"@android:color/white"</span> <span class="attr">android:paddingLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_width</span>=<span class="string">"1px"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"10.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"15.0dip"</span> <span class="attr">android:hint</span>=<span class="string">"请输入手机号"</span> <span class="attr">android:maxLength</span>=<span class="string">"20"</span> <span class="attr">android:inputType</span>=<span class="string">"number"</span> <span class="attr">android:layout_weight</span>=<span class="string">"3"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">        </div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"left"</span> </div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> </div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> </div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> </div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"20.0dip"</span> </div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"10.0dip"</span>&gt;       </div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:textSize</span>=<span class="string">"14.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"@color/button_unselected"</span>  <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:text</span>=<span class="string">"@string/register_tip"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">android:id</span>=<span class="string">"@+id/register_btn"</span>  <span class="attr">android:textSize</span>=<span class="string">"18.0sp"</span> <span class="attr">android:textColor</span>=<span class="string">"#ff000000"</span>  <span class="attr">android:background</span>=<span class="string">"@drawable/op_bg_selector"</span> <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> <span class="attr">android:layout_marginLeft</span>=<span class="string">"20.0dip"</span> <span class="attr">android:layout_marginTop</span>=<span class="string">"20.0dip"</span> <span class="attr">android:layout_marginRight</span>=<span class="string">"20.0dip"</span> <span class="attr">android:text</span>=<span class="string">"注 册"</span> /&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="RegisterAvtivity-java"><a href="#RegisterAvtivity-java" class="headerlink" title="RegisterAvtivity.java"></a>RegisterAvtivity.java</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.geniuseoe.demo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;</div><div class="line"><span class="keyword">import</span> android.app.Dialog;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.View.OnClickListener;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Button mBtnRegister;</div><div class="line">	</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">		</div><div class="line">		setContentView(R.layout.register);</div><div class="line">		</div><div class="line">		initView();</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		mBtnRegister = (Button) findViewById(R.id.register_btn);</div><div class="line">		mBtnRegister.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Dialog mDialog = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showRequestDialog</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span> (mDialog != <span class="keyword">null</span>)</div><div class="line">		&#123;</div><div class="line">			mDialog.dismiss();</div><div class="line">			mDialog = <span class="keyword">null</span>;</div><div class="line">		&#125;</div><div class="line">		mDialog = DialogFactory.creatRequestDialog(<span class="keyword">this</span>, <span class="string">"正在注册中..."</span>);</div><div class="line">		mDialog.show();</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">switch</span>(v.getId())</div><div class="line">		&#123;</div><div class="line">		<span class="keyword">case</span> R.id.register_btn:</div><div class="line">			showRequestDialog();</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">			<span class="keyword">default</span>:</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/21/Android登陆界面设计/" class="archive-article-date">
+  	<time datetime="2017-03-21T14:14:10.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/22/通过Git上传我们的代码到GitHub平台/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          通过Git上传我们的代码到GitHub平台
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/19/Sql-Server-2008-R2出现的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sql Server 2008 R2出现的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2117332" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2117332"></script>
+    </section>
+    <!-- UY END -->
+
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 唐杰
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/人脸检测/" style="font-size: 15px;">人脸检测</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 17.5px;">机器学习</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game1/index.html">猜拳游戏</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/五子棋/index.html">五子棋</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game2/index.html">俄罗斯方块</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game3/index.html">是男人就下100层</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game4/index.html">打飞机</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="/Game5/index.html">碰撞游戏</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
